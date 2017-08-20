@@ -84,9 +84,6 @@ Homework will in general require some computations. You may write out solutions 
 * Homework Defense
 To help me get to know you and how you are doing with the course, after each homework assignment two of you will be chosen at random to meet with me one-on-one to defend your homework answers.
 
-* Tutorial :noexport:
-The tutorial period is a time for you to ask questions of the Instructor and TA, work with your classmates, and get assistance with homework assignments. Attendance is optional, other than for the three quizzes that are scheduled during the tutorial periods.
-
 * Grading
 Grades will be based on the homework (30%), two in-class exams (40%), and a cumulative final (30%).
 
@@ -102,34 +99,3 @@ yourself from class.
 * Office hours
 The instructor will be available Wednesdays 3:30-4:30 or by appointment to discuss the course and homework.
 
-* Course Calendar :noexport:
-(subject to revision)
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-|          | 1/13     | 1/15     | \quad\quad\quad\quad | 3/14     | 3/16         | 3/18          |
-|          | Welcome! |          |                      | /Quiz 2/ | *HW 6*       |               |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 1/18     | 1/20     | 1/22     |                      | 3/21     | 3/23         | 3/25          |
-| Tutorial | *HW 1*   |          |                      | Tutorial | *Exam 2*     | *Good Friday* |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 1/25     | 1/27     | 1/29     |                      | 3/28     | 3/30         | 4/1           |
-| Tutorial |          | *HW 2*   |                      | *Easter* |              | *HW 7*        |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 2/1      | 2/3      | 2/5      |                      | 4/4      | 4/6          | 4/8           |
-| /Quiz 1/ |          |          |                      | Tutorial |              |               |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 2/8      | 2/10     | 2/12     |                      | 4/11     | 4/13         | 4/15          |
-| *HW 3*   |          | *Exam 1* |                      | *HW 8*   |              |               |
-| Tutorial |          |          |                      | Tutorial |              |               |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 2/15     | 2/17     | 2/19     |                      | 4/18     | 4/20         | 4/22          |
-| Tutorial |          |          |                      | /Quiz 3/ | *HW 9*       |               |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 2/22     | 2/24     | 2/26     |                      | 4/25     | 4/27         | 4/29          |
-| *HW 4*   |          |          |                      | Tutorial | *Last class* | *HW 10*       |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 2/29     | 3/2      | 3/4      |                      |          | *Final Exam* |               |
-| Tutorial | *HW 5*   |          |                      |          | *TBD*        |               |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
-| 3/7      | 3/9      | 3/11     |                      |          |              |               |
-| *BREAK*  | *BREAK*  | *BREAK*  |                      |          |              |               |
-|----------+----------+----------+----------------------+----------+--------------+---------------|
