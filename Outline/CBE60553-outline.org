@@ -1,0 +1,938 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60553 Outline
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{outline}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\setlength{\headheight}{15.2pt}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2017 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\lhead{\em{Advanced Chemical Engineering Thermodynamics}}
+#+LATEX_HEADER:\rhead{ND CBE 60553}
+
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+* The Basic Structure of Thermodynamics
+** Problems and Postulates
+1. Many DOFs $\rightarrow$ few thermodynamic variables
+2. Extensive variables: $V$, $N$, $U$
+3. Three overarching questions:
+   1. Characterize thermodynamic equilibrium state of a system
+   2. Determine differences in thermodynamic quantities between two
+	states, and corresponding effect on environment
+   3. Determine equilibrium state when a constraint is removed
+   4. /Bonus problem/: Relate macroscopic to microscopic behavior
+
+4. Conservation of energy
+5. *Postulate 1*: Equilibrium states exist
+   1. Examples
+
+6. Definitions
+   1. System and environment
+   2. Walls - permeable and impermeable; adiabatic and diathermal
+   3. Processes - Spontaneous, quasi-static, reversible
+
+7. Work and heat - inexact differentials, path dependent
+8. Internal energy $dU = \dbar q + \dbar W$
+9. Mechanical measurement of energy, work $W = - \int P_{\rm ext} dV$
+
+10. *Postulate 2*: A state function entropy $S$ exists and is maximized at equilibrium
+    1. The "fundamental" equation
+
+11. *Postulate 3*: $S$ is a nice, extensive, homogeneous function, monotonically increasing in $U$, $\partial S/\partial U \geq 0$
+
+12. *Postulate 4*: Entropy vanishes at $T = 0$, third law of thermodynamics
+13. Impossible, reversible, quasi-static, and real processes
+
+** Interlude: Multivariate calculus
+1. Partial derivatives
+2. State functions and exact differentials: \(df =\left (
+       \frac{\partial f}{\partial x} \right )_y dx + \left (
+       \frac{\partial f}{\partial y} \right )_x dy\)
+3. Fun with partial differentials
+     \begin{equation*}
+      \left ( \frac{\partial f}{\partial x} \right )_y    \left ( \frac{\partial
+          x}{\partial y} \right )_f    \left ( \frac{\partial y}{\partial f} \right )_x =
+      -1 \ \ \ \ \ \ \    \left ( \frac{\partial f}{\partial x} \right )_y  =   \left (
+	\frac{\partial x}{\partial f} \right )_y^{-1}  \ \ \ \ \ \ \    \left (
+	\frac{\partial f}{\partial x} \right )_y  =   \left ( \frac{\partial f}{\partial t}
+      \right )_y  /   \left ( \frac{\partial x}{\partial t} \right )_y
+     \end{equation*}
+
+4. Homogeneous functions of order $n$: $f(\lambda x, \lambda y ) = \lambda^n f(x,y)$
+   1. Thermodynamic state functions (extensive quantities) are homogeneous order 1
+   2. First derivatives (intensive quantities) are homogeneous order 0
+5. Euler relation: \( =\left (
+       \frac{\partial f}{\partial x} \right )_y x + \left (
+       \frac{\partial f}{\partial y} \right )_x y\)
+
+** Calculus of energy, entropy, and equilibrium
+1. $U = U(S,V,N)$ state function (Table~\ref{table:potentials})
+   1. Molar state function $u(s,v)= U(S/N,V/N,1)/N$
+2. Partial derivatives of $U$: intensive variables temperature, pressure, and chemical potential
+3. Equations of state relate intensive variables
+4. Euler relation
+5. Entropy representation $S = S(U,V,N)$, $s=s(u,v)$
+6. Thermal, mechanical, chemical equilibrium determined by equality of $T$, $P$, $\mu_i$
+7. Gibbs-Duhem relationship between intensive variables
+   1. \(SdT -VdP+\sum_i N_id\mu_i=0\)
+
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+  \begin{center}
+  \caption{Thermodynamic Potentials} \label{table:potentials}
+  \begin{tabular}{ll}
+\hline
+    $U = U(S,V,N)$ & $dU = \left ( \dfrac{\partial U}{\partial S} \right )_{V,N}
+    dS + \left ( \dfrac{\partial
+      U}{\partial V}\right )_{S,N} dV + \sum \left (
+      \dfrac{\partial U}{\partial N_i} \right )_{S,V} dN_i$  \\ \\
+ & $dU = T dS -P dV + \sum \mu_i dN_i $\\ \\
+ & $U =TS -PV +\sum \mu N $  \\ \\
+  \hline
+    $S = S(U,V,N)$ & $dS = \left ( \dfrac{\partial S}{\partial U} \right )_{V,N}
+    dU + \left ( \dfrac{\partial
+      S}{\partial V}\right )_{U,N} dV + \sum \left (
+      \dfrac{\partial S}{\partial N_i} \right )_{U,V} dN_i$  \\ \\
+ & $dS = \dfrac{1}{T} dU + \dfrac{P}{T} dV - \sum \dfrac{ \mu_i}{T} dN_i $\\ \\
+ & $S = U/T + PV/T +\sum \mu_i N_i/T $  \\ \\
+\hline
+    $H = H(S,P,N)$ & $H = U + PV$ \\ \\
+  & $dH = \left ( \dfrac{\partial H}{\partial S} \right )_{P,N}
+    dS + \left ( \dfrac{\partial
+      H}{\partial P}\right )_{S,N} dP + \sum \left (
+      \dfrac{\partial H}{\partial N_i} \right )_{S,P} dN_i$  \\ \\
+ & $dH = T dS + V dP + \sum  \mu_i dN_i $\\ \\
+ & $H = TS +\sum \mu_i N_i $  \\ \\
+\hline
+    $F = F(T,V,N)$ & $F = U - TS$ \\ \\
+  & $dF = \left ( \dfrac{\partial F}{\partial T} \right )_{V,N}
+    dT + \left ( \dfrac{\partial
+      F}{\partial V}\right )_{T,N} dV + \sum \left (
+      \dfrac{\partial F}{\partial N_i} \right )_{T,V} dN_i$  \\ \\
+ & $dF = -S dT -P dV + \sum  \mu_i dN_i $\\ \\
+ & $F = PV +\sum \mu_i N_i $  \\ \\
+\hline
+    $G = G(T,P,N)$ & $G = U - TS + PV$ \\ \\
+  & $dG = \left ( \dfrac{\partial G}{\partial T} \right )_{P,N}
+    dT + \left ( \dfrac{\partial
+      G}{\partial P}\right )_{T,N} dP + \sum \left (
+      \dfrac{\partial G}{\partial N_i} \right )_{T,P} dN_i$  \\ \\
+ & $dG = -S dT + V dP + \sum  \mu_i dN_i $\\ \\
+ & $G = \sum \mu_i N_i $  \\ \\
+\hline
+  \end{tabular}
+  \end{center}
+\end{table}
+
+#+END_EXPORT
+
+** Ideal and van der Waals gases
+1. Ideal gas EOS $Pv=RT$, $u=cRT$
+   1. Fundamental equation \(s(u,v)=cR \ln(u/u_0)+R  \ln (v/v_0) + s_0(u_0,v_0)\)
+
+2. Generalized ideal gas
+   1. $Pv=RT$ and \(u(T) = u_0 + \int_{T_0}^T c_v^*(T) dT\)
+   2. \(\kappa_{\rm T} = 1/P\), \(\alpha=1/T\), \(c_p^*=c_v^*+R\)
+
+3. Isothermal process ($\Delta T=0$)
+   1. Ideal gas: $\Delta u = 0$, \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
+4. Adiabatic ($\Delta s=0$) processes
+   1. Ideal gas adiabats ($\gamma=(c+1)/c$): $P v^\gamma = c$, $T v^{\gamma-1}=c'$, $P^{(1-\gamma)/\gamma}T  = c''$
+   2. $w_\text{QS}=R T_0 \left [ 1-(v/v_0)^{1-\gamma} \right ]/(1-\gamma)$, $q_\text{QS}=0$
+5. Free expansion: heat but no light!
+6. van der Waals gas
+   1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
+   2. Fundamental equation $s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)$
+   3. Simplest "cubic" EOS that gives qualitatively correct fluid properties
+      1. Coexistent of two phases
+      2. Critical point ($T_c$, $P_c$, $v_c$) where two phases coalesce into one
+
+** Work and efficiency
+1. Maximum work theorem: maximum work is delivered by a process that overall
+  produces zero entropy
+  1. $dU_\text{sys}+\dbar q_\text{rhs} +\dbar w_\text{rws} =0$,
+    $dS_\text{sys} + dS_\text{rhs}=dS_\text{sys} + \dbar q_\text{rhs}/T_\text{rhs}=0$
+  2. Tells us what is possible, not how to achieve it!
+2. Examples: expansion with a low $T$ reservoir, separation, cooling water
+3. Thermodynamic engines operate cyclically to convert heat to work or use work to move heat
+4. Carnot efficiency and Carnot cycle, $\eta =1 - T_c/T_h$
+
+** Other thermodynamic potentials
+  1. Energy minimum principle minimum at constant entropy
+  2. Legendre transforms
+     1. $Y=Y(X) \rightarrow \psi(P) = Y(P)-PX(P) \quad P=\partial Y /\partial X$
+     2. $P,\psi(P)$ give intercept and slope of tangents of $Y$
+  3. Enthalpy $H(S,P,N) = U + PV$
+     1. Minimized at constant $S$, $P$, and $N$
+     2. Heat flow when only $PV$ work done
+  4. Helmholtz $A(T,V,N) = U - TS$
+     1. Minimized at constant $T$, $V$, and $N$
+     2. Maximum useful work from a process at temperature $T$
+  5. Gibbs $G(T,P,N) = U + PV - TS$
+     1. Minimized at constant $T$, $P$, and $N$
+     2. Most useful for chemical problems
+     3. Gibbs-Helmholtz \(\left ( \dfrac{\partial (G/T)}{\partial T} \right )_{P,N} = -\dfrac{H}{T^2}\)
+  6. Alles potential
+     1. Gibbs-Duhem redux
+  7. Maxwell relations, see Table\nbsp{}\ref{Maxwell}.
+  8. Three unique susceptibilities of a one-component material (Table\nbsp{}\ref{susceptibilities})
+     1. All thermodynamic properties can be described in terms of the susceptibilities
+     2. Integrating susceptibilities
+     3. Heat capacity and departure functions
+  9. Using thermodynamic relations
+     1. Joule-Thompson effect
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+  \begin{center}
+  \caption{\label{Maxwell}Useful Maxwell Relationships}
+  \begin{tabular}{ccc}
+\hline
+Enthalpy   & Helmholtz & Gibbs \\
+ & & \\
+$ \left ( \dfrac{\partial T}{\partial P}\right )_S =  \left ( \dfrac{\partial V}{\partial
+    S}\right )_P  $ &
+$ \left ( \dfrac{\partial S}{\partial V}\right )_T =  \left ( \dfrac{\partial P}{\partial
+    T}\right )_S  $ &
+$ \left ( \dfrac{\partial S}{\partial P}\right )_T =  -\left ( \dfrac{\partial V}{\partial
+    T}\right )_P  $ \\
+\hline
+  \end{tabular}
+  \end{center}
+\end{table}
+#+END_EXPORT
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+  \begin{center}
+  \caption{\label{susceptibilities}Susceptibilities}
+  \begin{tabular}{cccc}
+\hline
+    Coefficient of thermal expansion & $\alpha$ &  $\dfrac{1}{v} \left (
+      \dfrac{\partial v}{\partial T} \right )_P$  & $\dfrac{1}{v} \left (
+      \dfrac{\partial^2 g}{\partial T \partial P} \right )_N$\\
+  Isothermal compressibility   & $\kappa_T$  & $-\dfrac{1}{v} \left (
+      \dfrac{\partial v}{\partial P} \right )_T$ & $-\dfrac{1}{v} \left (
+      \dfrac{\partial^2 g}{\partial P^2} \right )_{T,N}$\\
+  Constant  pressure heat capacity & $C_p$ & $ T \left ( \dfrac{\partial
+      s}{\partial T}\right )_P $ & $-T \left (
+      \dfrac{\partial^2 g}{\partial T^2} \right )_{P,N}$\\
+  Constant  volume heat capacity & $C_v$ & $ T \left ( \dfrac{\partial
+      s}{\partial T}\right )_v $ & \\
+\hline
+  \end{tabular}
+  \end{center}
+\end{table}
+#+END_EXPORT
+
+** Stability and phase equilibria
+1. Local stability condition
+   1. (Free) energy minimized $dU=0\quad d^2U \geq 0$
+   2. Entropy maximized $dS = 0\quad d^2S \leq 0$
+   3. Implies \(c_p \geq c_v \geq 0\), \(\kappa_T \geq \kappa_s \geq 0\)
+   4. Microscopic fluctuations and Le'Chatlier's principle
+
+2. Global stability conditions
+   1. Common tangents and convex hull
+   2. Lever rule
+   3. Phase separation---two phases have lower free energy
+      than one.  Balance of energetic attractions and entropic ``repulsion''
+   4. Critical points ($d^3u = 0$) attraction and repulsion
+      exactly in balance
+   5. Stable, metastable (spinodal), and unstable regions
+      1. Extensive quantities discontinuous between phases (``latent'' quantities)
+      2. Intensive quantities equal between phases
+      3. Susceptibilities discontinuous between phases
+
+3. Gibbs-Duhem integrations
+4. Equal area construction, $d\mu = vdP$ along an isotherm
+5. $d\mu = - s dT$, chemical potential of each phase decreases with $T$
+6. Phase diagrams---lines of equal chemical potential, $\mu(l)=\mu(v)$
+7. Clausius equation
+   1. Along coexistence line $dP/dT = \Delta s/\Delta v = \Delta
+      h/T\Delta v$ in general
+   2. Clausius-Clapeyron for ideal vapor $d\ln P/d(1/T) = -\Delta h/R$
+
+8. Gibb's phase rule and triple point
+   1. $DOF = c -\pi - R + 2$
+
+* The Microscopic View
+** Micro-canonical ensemble
+*** Energy is /quantized/ at microscopic level
+1. Consequence of quantum mechanics
+2. electronic, vibrational, rotational, translational
+3. Need machinary to average QM information over macroscopic systems
+4. Equal /a priori/ probabilities
+*** Two-state model
+1. Box of particles, each of which can have energy 0 or $\epsilon$
+2. Thermodynamic state defined by number of elements $N$, and number of
+   quanta $q$, $U=q\epsilon$
+3. Degeneracy of given $N$ and $q$ given by binomial distribution:
+   \begin{displaymath}
+     \Omega=\frac{N!}{q!(N-q)!}
+   \end{displaymath}
+4. Allow energy to flow between two such systems
+ 1. Energy of a closed system is conserved (first law!)
+ 2. Degeneracy of total system is always $\geq$ degeneracy of the
+     starting parts!
+ 3. Boltzmann's tombstone, $S = k_B \ln \Omega$
+ 4. Clausius: entropy of the universe seeks a maximum!  Second Law...
+5. Energy flow/thermal equilibrium between two large systems
+   1. Each subsystem has energy $U_i$ and degeneracy $\Omega_i(U_i)$
+   2. Bring in thermal contact, $U=U_1+U_2$, $\Omega=\Omega_1(U_1)\Omega_2(U_2)$
+   3. If systems are very large, one combination of $U_1$, $U_2$ and $\Omega$
+      will be much more probably than all others
+   4. What value of $U_1$ and $U_2=U-U_1$ maximizes $\Omega$?
+\begin{displaymath}
+ \left ( \frac{\partial \ln \Omega_1}{\partial U_1} \right )_N = \left ( \frac{\partial \ln \Omega_2}{\partial U_2} \right )_N
+\end{displaymath}
+\begin{displaymath}
+ \left ( \frac{\partial S_1}{\partial U_1} \right )_N = \left ( \frac{\partial S_2}{\partial U_2} \right )_N
+\end{displaymath}
+6. Thermal equilibrium is determined by equal *temperature!*
+        \begin{displaymath}
+            \frac{1}{T}=\left ( \frac{\partial S}{\partial U} \right )_N
+          \end{displaymath}
+ 1. When the temperatures of the two subsystems are equal, the
+            entropy of the combined system is maximized!
+ 2. (Same arguments lead to requirement that equal pressures ($P_i$) and
+            equal chemical potentials ($\mu_i$) maximize entropy when volumes or
+            particles are exchanged)
+
+*** Two-state model in limit of large $N$
+1. Large $N$ and Stirling's approximation
+2. Fundamental thermodynamic equation of two-state system:
+        \begin{displaymath}
+          S(U)=-k_B \left ( x \ln x + (1-x) \ln (1-x) \right ), \mathrm{where}\
+          x = q/N = U/N\epsilon
+        \end{displaymath}
+3. Temperature is derivative of entropy wrt energy yields
+          \begin{displaymath}
+            U(T) = \frac{N\epsilon}{1+e^{\epsilon/k_BT}}
+          \end{displaymath}
+   1. $T \rightarrow 0, U \rightarrow 0, S \rightarrow 0$, minimum disorder
+   2. $T \rightarrow \infty, U \rightarrow N\epsilon/2, S \rightarrow
+              k_B \ln 2$, maximum disorder
+4. Differentiate again to get heat capacity
+
+** Canonical ensemble
+*** Partition function
+      1. Where do fundamental equations come from?
+      2. Direct construction of $S(U)$ is generally intractable, so seek simpler approach
+      3. Imagine a system brought into thermal equilibrium with a much
+         larger ``reservoir'' of constant $T$, such that the aggregate has a
+         total energy $U$
+      4. Degeneracy of a given system microstate $j$ with energy $U_j$
+         is $\Omega_{res}(U-U_j)$
+         \begin{eqnarray*}
+           T = \frac{dU_{res}}{k_Bd\ln\Omega_{res}} \\
+           \Omega_{res}(U-U_j) \propto e^{-U_j/k_B T}
+         \end{eqnarray*}
+      5. Probability for system to be in a microstate with energy $U_j$ given by Boltzmann
+         distribution!
+         \begin{displaymath}
+           P(U_j) \propto e^{-U_j/k_B T} = e^{-U_j \beta}
+         \end{displaymath}
+      6. Partition function ``normalizes'' distribution, $Q(T) = \sum_j
+         e^{-U_j \beta}$
+      7. For system of identical (distinguishable) elements with energy states $\epsilon_i$,
+         can factor probability to show
+         \begin{eqnarray*}
+           P(\epsilon_i) \propto e^{-\epsilon_i/k_B T} = e^{-\epsilon_i \beta},\
+           \ \ \ \ \beta=1/k_BT
+         \end{eqnarray*}
+
+*** Energy factoring
+   1. If system is large, how to determine it's energy states $U_j$?  There
+	would be many, many of them!
+   2. One simplification is if we can write energy as sum of energies of
+	individual elements (atoms, molecules) of system:
+      \begin{align}
+	U_j&=\epsilon_j(1)+\epsilon_j(2) + ... + \epsilon_j(N) \\
+	Q(N,V,T) &= \sum_j e^{-U_j\beta} \\
+	&=\sum_je^{-(\epsilon_j(1)+\epsilon_j(2) + ... + \epsilon_j(N))\beta}
+      \end{align}
+   3. /If/ molecules/elements of system can be distinguished from each
+          other (like atoms in a fixed lattice), expression can be factored:
+	\begin{align}
+          Q(N,V,T)&=\left ( \sum_j e^{-\epsilon_j(1)\beta}\right )\cdots \left ( \sum_j
+            e^{-\epsilon_j(N)\beta}\right ) \\
+	&= q(1)\cdots q(N) \\
+	\text{Assuming all the elements are the same:}\\
+	&= q^N \\
+       q&=\sum_j e^{-\epsilon_j \beta}: \mathrm{molecular\ partition\ function}
+     \end{align}
+   4. /If not/ distinguishable (like molecules in a liquid or gas, or
+	electrons in a solid), problem is difficult, because identical
+	arrangements of energy amongst elements should only be counted once.
+	Approximate solution, good almost all the time:}
+      \begin{equation}
+	Q(N,V,T)=q^N/N!
+      \end{equation}
+   5. Sidebar: "Correct" factoring depends on whether individual elements are fermions or bosons, leads to funny things like superconductivity and superfluidity.
+
+*** Two-state system again
+1. Partition function, $q(T)=1+e^{-\epsilon\beta}$
+2. State probabilities
+3. Internal energy $U(T)$
+   \begin{equation}
+     U(T)=-N \left ( \frac{\partial \ln(1+e^{-\epsilon\beta})}{\partial\beta}
+     \right)=\frac{N\epsilon e^{-\epsilon\beta}}{1+e^{-\epsilon\beta}}
+   \end{equation}
+4. Heat capacity $C_v$
+ 1. Minimum when change in states with $T$ is small
+ 2. Maximize when chagne in states with $T$ is large
+5. Helmholtz energy, $A= -\ln q/\beta$, decreasing function of $T$
+6. Entropy
+7. Distinguishable vs.\ indistinguishable particles
+ 1. Distinguishable (e.g., in a lattice): $Q(N,V,T) = q(V,T)^N$
+ 2. Indistinguishable (e.g., a gas): $Q(N,V,T)\approx q(V,T)^N/N!$
+8. Thermodynamic functions in canonical ensemble
+
+#+BEGIN_EXPORT LaTeX
+\begin{table}\small
+  \begin{center}
+    \caption{Equations of the Canoncial ($NVT$) Ensemble}
+    \label{Canonical}
+    \begin{tabular}[h]{lccc}
+      \hline
+$\beta=1/k_BT$ & {\bf Full Ensemble} & {\bf Distinguishable particles} & {\bf Indistinguishable
+particles} \\
+               &               & (e.g. atoms in a lattice) & (e.g. molecules in
+               a fluid) \\
+\hline
+Single particle & & & \\partition function& & $\displaystyle q(V,T) = \sum_i
+e^{-\epsilon_i\beta} $& $\displaystyle q(V,T) = \sum_i e^{-\epsilon_i\beta} $ \\
+Full partition & & & \\function & $\displaystyle Q(N,V,T) = \sum_j e^{-U_j\beta} $ &
+$\displaystyle Q = q(V,T)^N $ & $\displaystyle Q = q(V,T)^N/N! $ \\
+Log partition &  $\ln Q$ & $N\log q$ & $ N\ln q - \ln N! $\\
+function & & & $\approx N(\ln Q - \ln N +1)$ \\ & & & \\
+Helmholtz energy & $\displaystyle -\frac{\ln Q}{\beta}$ & $\displaystyle
+-\frac{N\ln q}{\beta}$ & $\displaystyle -\frac{N}{\beta}\left (\ln\frac{q}{N} +
+  1 \right ) $ \\
+($A=U-TS$) & & & \\ & & &  \\
+Internal energy ($U$)& $\displaystyle -\left (\frac{\partial\ln
+    Q}{\partial\beta}\right )_{NV}$ & $\displaystyle -N\left (\frac{\partial\ln
+    q}{\partial\beta}\right )_{V}$ &  $\displaystyle -N\left (\frac{\partial\ln
+    q}{\partial\beta}\right )_{V}$ \\ & & & \\
+Pressure ($P$) & $\displaystyle \frac{1}{\beta}\left (\frac{\partial\ln
+    Q}{\partial V}\right )_{N\beta}$ & $\displaystyle \frac{N}{\beta}\left (\frac{\partial\ln
+    q}{\partial V}\right )_{\beta}$ &  $\displaystyle \frac{N}{\beta}\left (\frac{\partial\ln
+    q}{\partial V}\right )_{\beta}$ \\ & & & \\
+
+Entropy ($S/k_B$) & $ \beta U + \ln Q$ & $\beta U + N \ln q$ & $\beta U +
+N\left ( \ln(q/N) + 1\right )$ \\ & & & \\
+Chemical potential ($\mu$) & $\displaystyle -\frac{1}{\beta}\left ( \frac{\partial \ln
+    Q}{\partial N}\right )_{VT} $& $\displaystyle -\frac{\ln q}{\beta}$ & $\displaystyle
+-\frac{\ln (q/N)}{\beta}$ \\ & & & \\
+\hline
+    \end{tabular}
+{\bf NOTE!} All energies are referenced to their values at 0~K.  Enthalpy $H=U+PV$, Gibb's
+Energy $G=A+PV$.
+  \end{center}
+\end{table}
+#+END_EXPORT
+
+** Ideal gases redux
+*** Separability
+      \begin{displaymath}
+        Q_{ig}(N,V,T) = \frac{(q_\mathrm{trans}q_\mathrm{rot}q_\mathrm{vib})^N}{N!}
+  \end{displaymath}
+
+*** Particle-in-a-box (translational states of a gas)
+1. Energy states $\epsilon_n=n^2\epsilon_0, n=1,2, \ldots$,
+   $\epsilon_0$ tiny for macroscopic $V$
+2. $\Theta_\mathrm{trans} = \epsilon_0/k_B$ translational temperature
+3. $\Theta_\mathrm{trans} << T \rightarrow$ /many/ states contribute
+   to $q_\mathrm{trans}\rightarrow$ integral approximation
+   \begin{eqnarray*}
+     q_\mathrm{trans,1D} = \int_0^\infty e^{-x^2\beta\epsilon_0}dx =
+     L/\Lambda \\
+     \Lambda = \left ( \frac{h^2\beta}{2\pi m} \right )^{1/2}\
+     \mathrm{thermal\ wavelength} \\
+     q_\mathrm{trans,3D} = V/\Lambda^3
+   \end{eqnarray*}
+4. Internal energy
+5. Heat capacity
+6. Equation of state (!)
+7. Entropy: Sackur-Tetrode equation
+*** Rigid rotor (rotational states of a gas)
+1. energy states and degeneracies
+2. $\Theta_\mathrm{rot} = \hbar^2/2 I k_B$
+3. ``High'' T $q_\mathrm{rot}(T) \approx \sigma \Theta_\mathrm{rot}/T$
+*** Harmonic oscillator (vibrational states of a gas)
+1. $\Theta_\mathrm{vib}=h\nu/k_B$
+*** Electronic partition functions $\rightarrow$ spin multiplicity
+*** Solids
+1. Equipartition
+2. Law of Dulong and Petitt
+3. Einstein crystal and heat capacity
+4. Debye crysal
+
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+\begin{center}
+    \caption{\large{Statistical Thermodynamics of an Ideal Gas}}
+   \begin{description}
+    \item[\underline{Translational DOFs}] {3-D particle in a box model}
+
+$\displaystyle \theta_\mathrm{trans}= \frac{\pi^2\hbar^2}{2 m
+  L^2 k_B}$,
+$\displaystyle \Lambda=h\left( \frac{\beta}{2\pi m}\right )^{1/2}$
+
+For $ T >> \Theta_\mathrm{trans}$, $\Lambda << L$, $\displaystyle
+q_\mathrm{trans}=V/\Lambda^3$ (essentially always true)
+
+\begin{tabular}{ccc}
+$\displaystyle U_\mathrm{trans}=\frac{3}{2}RT$ & $\displaystyle C_\mathrm{v,trans} =
+\frac{3}{2}R $ & $\displaystyle S^\circ_\mathrm{trans}=R \ln \left (
+  \frac{e^{5/2}V^\circ}{N^\circ \Lambda^3}\right ) = R \ln \left (
+  \frac{e^{5/2}k_BT}{P^\circ \Lambda^3}\right ) $ \\
+\end{tabular}
+
+  \item[\underline{Rotational DOFs}] {Rigid rotor model}
+\begin{description}
+\item[Linear molecule]{}
+$\theta_\mathrm{rot} =hcB/k_B$
+
+\begin{equation*}
+q_\mathrm{rot}=\frac{1}{\sigma}\sum_{l=0}^\infty (2l+1)e^{-l(l+1)\theta_\mathrm{rot}/T},
+\approx \frac{1}{\sigma}\frac{T}{\theta_\mathrm{rot}},\ \ T>>\theta_\mathrm{rot}\ \ \ \sigma = \left \{
+        \begin{array}{rl}
+          1, & \text{unsymmetric} \\
+          2, & \text{symmetric}
+        \end{array} \right .
+\end{equation*}
+\begin{tabular}{ccc}
+$\displaystyle U_\mathrm{rot}=RT$ & $\displaystyle C_\mathrm{v,rot} =
+R $ & $\displaystyle S^\circ_\mathrm{rot}=R (1-\ln(\sigma\theta_\mathrm{rot}/T)) $ \\
+\end{tabular}
+
+\item[Non-linear molecule]{} $\theta_{\mathrm{rot},\alpha}=hcB_\alpha/k_B$
+\begin{equation*}
+q_\mathrm{rot}
+\approx \frac{1}{\sigma}\left ( \frac{\pi
+    T^3}{\theta_{\mathrm{rot},\alpha}\theta_{\mathrm{rot},\beta}\theta_{\mathrm{rot},\gamma}}
+  \right )^{1/2},\ \ T>>\theta_{\mathrm{rot},\alpha,\beta,\gamma}\ \ \ \sigma =
+  \text{rotational symmetry number}
+\end{equation*}
+\begin{tabular}{ccc}
+$\displaystyle U_\mathrm{rot}=\frac{3}{2}RT$ & $\displaystyle C_\mathrm{v,rot} = \frac{3}{2}
+R $ & $\displaystyle S^\circ_\mathrm{rot}=\frac{R}{2}
+\left ( 3-\ln\frac{\sigma\theta_{\mathrm{rot},\alpha}\theta_{\mathrm{rot},\beta}\theta_{\mathrm{rot},\gamma}}{\pi
+  T^3} \right ) $ \\
+\end{tabular}
+
+\end{description}
+
+\item[\underline{Vibrational DOFs}] {Harmonic oscillator model}
+\begin{description}
+\item[Single harmonic mode] {$\theta_\mathrm{vib}=h\nu/k_B $}
+  \begin{equation*}
+    q_\mathrm{vib}=\frac{1}{1-e^{-\theta_\mathrm{vib}/T}} \approx
+      \frac{T}{\theta_\mathrm{vib}}, \ \ \ T>>\theta_\mathrm{vib}
+  \end{equation*}
+
+\begin{tabular}{ccc}
+$ U_\mathrm{vib}= $ & $  C_\mathrm{v,vib} = $ & $S^\circ_{\mathrm{vib},i}=$ \\
+$\displaystyle
+R\frac{\theta_\mathrm{vib}}{e^{\theta_\mathrm{vib}/T}-1}$ &
+$\displaystyle R\left (
+  \frac{\theta_\mathrm{vib}}{T}\frac{e^{\theta_\mathrm{vib}/2T}}{e^{\theta_\mathrm{vib}/T}-1}
+\right )^2 $ & $\displaystyle R \left ( \frac{\theta_\mathrm{vib}/T}{e^{\theta_\mathrm{vib}/T}-1}
+-\ln(1-e^{-\theta_\mathrm{vib}/T})\right ) $ \\
+\end{tabular}
+
+\item[Multiple harmonic modes] {$\theta_{\mathrm{vib},i}=h\nu_i/k_B $}
+
+  \begin{equation*}
+    q_\mathrm{vib}=\prod_i\frac{1}{1-e^{-\theta_{\mathrm{vib},i}/T}}
+  \end{equation*}
+
+\begin{tabular}{ccc}
+$ U_\mathrm{vib}= $ & $  C_\mathrm{v,vib} = $ & $S^\circ_{\mathrm{vib},i}=$ \\
+$\displaystyle
+R\sum_i\frac{\theta_{\mathrm{vib},i}}{e^{\theta_{\mathrm{vib},i}/T}-1}$ &
+$\displaystyle R \sum_i \left (
+  \frac{\theta_{\mathrm{vib},i}}{T}\frac{e^{\theta_{\mathrm{vib},i}/2T}}{e^{\theta_{\mathrm{vib},i}/T}-1}
+\right )^2 $ & $\displaystyle R \left ( \frac{\theta_{\mathrm{vib},i}/T}{e^{\theta_{\mathrm{vib},i}/T}-1}
+-\ln(1-e^{-\theta_{\mathrm{vib},i}/T})\right ) $ \\
+\end{tabular}
+
+\end{description}
+\item[\underline{Electronic DOFs}] {}
+$q_\mathrm{elec} = \text{spin multiplicity}$
+
+\end{description}
+\end{center}
+\end{table}
+#+END_EXPORT
+
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+  \begin{center}
+    \caption{\large{Contributions of Molecular Degrees of Freedom to Gas Thermodynamics}}
+    \begin{tabular}{lcccc}
+\hline \\
+{\bf DOF}  & {\bf Characteristic} & {\bf Characteristic} & {\bf \#states at} & {\bf Internal }\\
+        & {\bf energy}  & {\bf temperature} & {\bf $\approx 300$~K} & {\bf energy }\\
+\hline \\
+Translational & $\epsilon_\mathrm{trans} = \frac{\hbar^2}{2mL^2} \approx 10^{-21} \mathrm{cm}^{-1} $ &
+$\theta_\mathrm{trans} \approx 10^{-21}$~K & $\approx 10^{30}$ & $U= \frac{3}{2}RT $  \\ \\
+Rotational & $\epsilon_\mathrm{rot} \approx 1~\mathrm{cm}^{-1}$ & $\theta_\mathrm{rot} \approx 1$~K &
+$\approx 100s$ & $\approx \mathrm{\#DOF}\cdot RT $\\ \\
+Vibrational & $\epsilon_\mathrm{vib} \approx 1000~\mathrm{cm}^{-1} $ & $\theta_\mathrm{vib} \approx
+1000$~K & $\approx 1$ & non-classical, $0\rightarrow RT$ \\ \\
+Electronic & $\epsilon_\mathrm{elec} \approx 10000~\mathrm{cm}^{-1} $ & $\theta_\mathrm{elec} \approx
+10000$~K & $\approx 1$ & 0\\
+\hline
+    \end{tabular}
+\begin{eqnarray*}
+Q = \left ( q_\mathrm{trans} q_\mathrm{rot} q_\mathrm{vib} q_\mathrm{elec} \right )^N/N! \\
+ \\
+U = U_\mathrm{trans} + U_\mathrm{rot} + U_\mathrm{vib} + U_\mathrm{elec}, \ldots
+\end{eqnarray*}
+  \end{center}
+
+\end{table}
+#+END_EXPORT
+
+*** Other ensembles
+1. Isothermal/isobaric
+   1. $\Delta(T,P,N) = \sum_j e^{-U_j\beta} e^{-PV_j\beta}$
+   2. $G(T,P,N) = -k_B T \ln \Delta(T,P,N)$
+2. Grand canonical
+   1. $\Xi(T,V,\mu) = \sum_j e^{-U_j\beta} e^{-PV_j\beta}e^{\mu N_j \beta}$
+   2. $\Psi(T,V,\mu) = - k_B T \ln \Xi(T,V,\mu)$
+   3. Langmuir isotherm example
+* Thermodynamics of Stuff
+** Common idea :noexport:
+Order parameters
+| \rho         | vapor-liquid equilibrium |
+| \xi          | chemical equilibrium     |
+| $x_i$, $y_i$ | phase equilibrium        |
+
+** Theory of non-ideal fluids
+*** Non-ideality
+  1. Real molecules interact through vdW interactions
+     1. dipole-dipole, dipole-induced dipole, induced dipole-induced dipole
+	(London dispersion)
+     2. scale with dipole moments($\vec{\mu}$ and polarizability volumes
+	($\alpha$) of molecules
+     3. $U(r) \approx - c/r^6$
+  2. Particle-in-a-box model breaks down, have to work harder but
+     can still get at same ideas
+  3. Configurational integral $Q_\mathrm{config}=\int \ldots \int e^{-U(r)\beta} dr_1\ldots dr_n$
+*** van der Waals gas
+  1. Hard sphere + $1/r^6$ potential + mean-field approximation ($g(r)=1$)
+  2. $Q_\mathrm{config} = ((V-Nb) \exp (-(\phi/2)\beta))^N \rightarrow$ vdW EOS
+  3. See Hill, /J. Chem. Ed./ *1948*, /25/, 347, [[http://dx.doi.org/10.1021/ed025p347]]
+  4. Free energy has two competing contributions
+  5. $f_\text{vdW} = - k_BT \ln \{ (v-b)(k_BT)^{3/2}\} -a/v -k_BT$
+  6. $P_\text{vdW}=RT/(v-b) - a/v^2$
+
+*** Radial distribution functions, $g(r)$, for gases, liquids, solids
+*** Virial expansion
+  1. Configurational integral can be expanded in powers of $1/v$ times "virial"
+     coefficients $B_j(T)$
+  2. $f(T,P) = f_\text{ig}(T,P) - RT \{ B_2(T)/v + B_3(T)/v^2 + \ldots \}$
+  3. $Z = 1 + B_2(T)/v + B_3(T)/v^2 + \dots$
+  4. "Second" virial coefficient $B_2(T)$ limiting low density "departure" of
+     volume from that of an ideal gas, $v_\text{res}(T,v) = v -
+     v_\text{ig}=(RT/P)(Z-1)$
+             \[B_2(T) = \lim_{v \rightarrow \infty} v_\text{res}, \]
+     - Virial coefficients integrate ``clusters'' of intermolecular interactions, 2-body, 3-body, $\ldots$
+  5. $B_2(T) = -2\pi N_A \int_0^\infty \{e^{-u(r)/k_BT}-1\}r^2dr$
+  6. $B_2^\text{vdW} (T) = b -a/RT$
+  7. Lennard-Jones potential
+
+*** Modern approach is to use numerical methods
+  1. "forcefield" to represent intra- and intermolecular properties
+  2. molecular dynamics or Monte Carlo to sample interactions
+  3. Fluid property challenge at AIChE
+
+** Engineering representations of fluids
+*** How to represent properties of real fluids?
+  1. Mechanical equations of state (empirical)
+  2. Thermodynamic tabulations (JANAF, steam tables)
+  3. Theoretical models (virial expansion)
+  4. Computer simulations (molecular interactions)
+
+*** Thermodynamic integrations
+  1. Integrate susceptibilities
+  2. Integrate $PvT$ relationship plus $C_p^{ig}(T)$
+
+*** Compressibility
+     1. Fluids deviate from ideality because they have finite size and interact over distances, origin of two-parameter EOS
+     2. Compressibility $Z(T,P)=P/P^{ig}=Pv/RT$ measures deviation from ideality
+     3. Critical compressibility $Z_c \approx 0.27$ for all "normal" fluids
+     4. Reduced variable $T_R=T/T_c$, $P_R = P/P_c$, $v_R = v/v_c$
+     5. "Law" of corresponding states---all "normal" fluids have the same $PvT$ behavior in reduced variables
+     6. Allows fluids to be described on generalized compressibility chart
+
+*** Cubic mechanical equations of state
+  1. van der Waals, $Z_c = 0.375$
+  2. Redlich-Kwong,  $Z_c = 0.333$
+  3. Peng-Robinson, $Z_c = 0.307$
+  4. Empirically parameterized, all obey law of corresponding states, none perfect
+*** Departure functions measure thermodynamic potential difference between real
+            state and hypothetical "ideal gas" state
+     1. \Delta{}whatever = \Delta ideal + \Delta departure
+     2. From generalized compressibility or accurate EOS integration
+     3. Entropy departure \(s(T,P) - s^{ig}(T,P) = R \ln Z(T,P) + \int_\infty^{v(T,P)} \left [ \left ( \frac{\partial P}{\partial T}\right )_v - \frac{R}{v} \right ] dv\)
+     4. Enthalpy departure \(h(T,P) - h^{ig}(T,P) = RT \left ( Z-1 \right )  + \int_\infty^{v(T,P)} \left [ T \left  ( \frac{\partial P}{\partial T}\right )_v - P \right ] dv\)
+*** Fugacity measures departure of free energy ideality
+1. Define $\mu(T,P) = \mu^\circ(T) + RT \ln f(T,P)/f^\circ(T)$
+ \begin{equation*}
+   \lim_{P\rightarrow 0} \mu = -\infty\quad \lim_{P\rightarrow 0} f =P^\text{ig} =0
+ \end{equation*}
+ \begin{equation*}
+   \ln f/P = \dfrac{RT}{P}\int_0^P(Z-1)dP
+ \end{equation*}
+2. $\mu^\alpha = \mu^\beta$ implies $f^\alpha = f^\beta$.
+3. Fugacity coefficient $\gamma(T,P) = f(T,P)/P$
+ \begin{equation*}
+   \ln\gamma=\int_o^P\dfrac{Z-1}{P}dP
+ \end{equation*}
+** Single-phase mixtures
+*** Ideal gas mixtures
+   1. Statistical mechanical approach
+   2. Properties of ideal mixture
+             \begin{equation*}
+               \Delta u_\text{mix} = \Delta v_\text{mix} = 0 \qquad \Delta s_\text{mix} = - k_B \sum_i y_i \ln y_i
+             \end{equation*}
+   3. Partial pressure $P_i = y_i P$
+   4. Chemical potential \(\mu_i(y_i,T) = \mu_i^\circ(T) + k_B T \ln \left ( y_i
+              P/P^\circ \right)\)
+   5. Work of separation and Gibbs paradox
+
+*** Non-ideal gas mixtures
+1. Inconvenient that \(\lim_{y_{i}\to 0}\mu_i(y_i,T,P) = -\infty \)
+2. Construct /fugacity/ to obey same equilibrium conditions as chemical potential but to tend to \(y_{i}P\) in infinite dilution
+    \begin{equation*}
+      \bar{f}_i(y_{i},T,P) = P^{\circ} \exp \left [ (\mu_i(y_i,T,P) - \mu_i^\circ(T))/ k_B T \right ]
+    \end{equation*}
+3. Chemical potential \(\mu_i(y_i,T,P) = \mu_i^\circ(T) + k_B T \ln \left ( /P^\circ \right)\)
+4. Fugacity coefficient \(\phi_{i}(y_{i,T,P})=\bar{f}_{i}(y_{i},T,P)/(y_{i}P)\)
+5. Fugacity can be computed from a mixture-explicit EOS
+    \begin{equation*}
+		R T \ln \left ( \bar{f}_i/y_i P \right ) = \int_0^P \left (
+          \bar{v}_i - \frac{RT}{P} \right ) dP  =  \frac{1}{RT} \left ( \frac{\partial (F - F^\text{ig})}{\partial N_i} \right )_{T,V,N_{j\neq i}} - \ln Z
+     \end{equation*}
+6. Virial mixture equation, vdW equation, \ldots
+7. Lorentz-Berthelot mixing
+      \begin{equation*}
+	b = \sum_i b_i \qquad a = \sum_i\sum_j y_i y_j a_{ij} \qquad a_{ij} = \sqrt{a_ia_j}
+      \end{equation*}
+8. Lewis (ideal) fugacity rule $\bar{f}_i \approx y_i f_i$ generalization of ideal gas
+*** Ideal liquid mixtures
+1. Lattice model with random distribution of molecules
+
+   \begin{equation*}
+   \Delta u_\text{mix} = \Delta v_\text{mix} = 0 \qquad \Delta s_\text{mix} = - k_B \sum_i x_i \ln x_i
+   \end{equation*}
+   \begin{equation*}
+   \mu_i(x_i,T) = \mu_i^\circ(T) + k_B T \ln \left ( x_i \right)
+   \end{equation*}
+
+2. True for liquids of comparable molecular dimensions and interactions
+*** Partial molar quantities
+1. For any extensive quantity or susceptibility, $J$:
+          \begin{equation*}
+     \bar{J}_i = \left ( \frac{\partial J}{\partial N_i} \right )_{N_{j\neq i}}
+          \qquad J = \sum_i \bar{J}_i N_i \qquad j = \sum \bar{J}_i x_i
+          \end{equation*}
+    \begin{equation*}
+    \Delta j_\text{mix} = \sum_i \bar{J}_ix_i - \sum_i j_i x_i
+    \end{equation*}
+2. Gibbs-Duhem says partial molar properties are not independent: $\sum_i N_i d\bar{J}_i = 0$
+
+*** Non-ideal liquid mixtures
+1. Bragg-Williams/mean field approximation
+2. Differential exchange parameter \(\chi_{AB} \)
+
+   \begin{equation*}
+      \chi_{12} = \frac{z}{k_BT}\left ( u_{12} - \frac{u_\text{11} +
+       u_\text{22}}{2} \right )
+   \end{equation*}
+
+3. Hildebrand regular solution and excess mixing quantities
+    \begin{equation*}
+       \Delta g_\text{xs}/k_BT = \chi_{12} x_1(1-x_2)
+    \end{equation*}
+    \begin{equation*}
+	\mu_1(T,x_1) = \mu_1^\text{ideal}(T,x_1) + k_B T \chi_{12} (1-x_1)^2
+    \end{equation*}
+4. Activity and activity coefficient
+   1. Solvent convention
+   2. Solute convention
+5. Liquid-liquid phase diagrams
+   1. Phase separation, critical point
+6. Freezing point depression/boiling point elevation
+*** Ionic mixtures
+1. Debye-Huckel
+
+** Gas-liquid equilibria
+*** Ideal-ideal liquid-vapor mixtures
+1. Equal chemical potentials in each phase
+2. Equilibrium cycle (relate to single component phase equilibrium): start from single component l-v equilibrium, compress each component to desired pressure, then mix.
+3. Gas compression important, liquid compression (Poynting correction) less so.
+4. Ideal vapor-liquid equilibrium $\rightarrow$ Raoult's Law:
+    \begin{equation*}
+      \mu_i^\text{gas} = \mu_i^\text{liq} \rightarrow y_i P = x_i P_i^*
+    \end{equation*}
+5. Pressure-composition diagram
+6. Temperature-composition diagram
+
+*** Non-ideal liquid/ideal vapor
+1. Regular solution
+     \begin{equation*}
+    \chi_{12} \left \{
+     \begin{array}{rl}
+       > 0 & \text{positive deviation from Raoult's Law,}\\
+       = 0 & \text{Raoult's Law,}\\
+       <0 & \text{negative deviation from Raoult's Law}
+      \end{array} \right .
+  \end{equation*}
+2. Temperature-composition diagrams
+   1. Liquid-vapor
+   2. Eutectics, ...
+3. Henry's Law (dilute) limit
+4. Gibbs-Duhem consequences
+
+
+# \subsection{Surfaces}
+# %\item{{\bf Lecture 12: Surfaces}}
+
+* Thermodynamics of Change
+** Chemical thermodynamics and equilibria
+    1. Chemical reactions
+    2. Thermodynamic potential differences
+       1. Standard states
+       2. Reaction entropy $\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)$
+       3. Reaction energy $\Delta U^\circ (T) = U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)$
+       4. Gibbs-Helmholtz
+    3. Equilibrium-closed system
+       1. Equilibrium constants and algebraic solutions
+       2. Free energy minimization
+       3. Parallel reactions
+    4. Equilibrium-open system
+       1. Reaction phase diagrams
+    5. Partition functions and $K_{eq}$
+    6. Non-ideal activities
+    7. Electrochemical reactions
+
+# %     \item {\bf Lecture 18: Chemical reactions and equilibrium}
+# %       \begin{enumerate}
+# %       \item Standard states
+# %         \begin{enumerate}
+# %           \item Translational partition function depends on concentration $N/V$
+# %           \item ``Standard state'' corresponds to some standard choice for $N/V$, $c^\circ$
+# %           \item For ideal gas, related to pressure by $P^\circ = c^\circ k_B T$
+# %         \end{enumerate}
+# %       \item Chemical reaction $A \rightarrow B$
+# %         \item Equilibrium condition---equate chemical potentials, $\mu_A(N,V,T) = \mu_B(N,V,T)$
+# %         \item Equilibrium constant---evaluate from partition functions directly
+# %           or indirectly from thermodynamic potentials
+# % \item Le'Chatlier's principle
+# %   \begin{enumerate}
+# %     \item Response to temperature: Boltzmann distribution favors higher energy
+# %       things as $T$ increases
+# %     \item Response to volume chance: particle-in-a-box states increasingly favor
+# %       side with more molecules as volume increases
+# %   \end{enumerate}
+# % \end{enumerate}
+
+#+BEGIN_EXPORT LaTeX
+ \begin{table}
+ \begin{center}
+     \caption{\large{Equilibrium and Rate Constants}}
+    \begin{description}
+    \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
+      \begin{eqnarray*}
+        K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
+        \\ \\
+             K_c(T) &=&
+            \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+             E(0)\beta}\\ \\
+             K_p(T) &=&
+           \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+             E(0)\beta}
+ \end{eqnarray*}
+ \item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
+   \rightarrow C$
+       \begin{displaymath}
+         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
+           e^{-\Delta E^\ddagger(0)\beta}
+       \end{displaymath}
+ \begin{center}
+       \begin{tabular}{cc}
+       $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
+       & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+       \end{tabular}
+ \end{center}
+ \item[Bimolecular Reaction] $
+         \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
+         \rightarrow \text{C}$
+       \begin{displaymath}
+         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
+           (\frac{1}{c^\circ}\right )^{-1}
+         e^{-\Delta E^\ddagger(0)\beta}
+       \end{displaymath}
+       \begin{center}
+         \begin{tabular}{cc}
+         $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
+         A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+       \end{tabular}
+       \end{center}
+    \end{description}
+  \end{center}
+  \end{table}
+#+END_EXPORT
+
+** Non-equilibrium thermodynamics
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+\begin{center}
+\caption{Physical units}
+\begin{tabular}{|lrlrl|}
+  \hline
+  $N_\mathrm{Av}$: & $6.02214 \times 10^{23}$& mol$^{-1}$  & & \\
+  1 amu: & $1.6605\times 10^{-27}$ & kg & & \\
+  $k_\mathrm{B}$: & $1.38065\times 10^{-23}$ & J~K$^{-1}$ & $8.61734\times
+  10^{-5}$ & eV K$^{-1}$\\
+  $R$: & 8.314472 & J K$^{-1}$ mol$^{-1}$ & $8.2057 \times 10^{-2}$ & l atm mol$^{-1}$ K$^{-1}$\\
+  $\sigma_\mathrm{SB}$: & $5.6704\times 10^{-8}$ & J s$^{-1}$ m$^{-2}$ K$^{-4}$ & & \\
+  $c$: & $2.99792458\times 10^8$ & m s$^{-1}$ & & \\
+  $h$: & $6.62607\times 10^{-34}$ & J s & $4.13566\times 10^{-15}$ & eV s
+  \\
+  $\hbar$: & $1.05457\times 10^{-34}$ & J s & $6.58212\times 10^{-16}$&  eV s \\
+  $hc$: & 1239.8 & eV nm  & & \\
+  $e$: & $1.60218\times 10^{-19}$ &  C & & \\
+  $m_e:$ & $9.10938215\times 10^{-31}$ & kg &0.5109989 & MeV c$^{-2}$  \\
+  $\epsilon_0$: & $8.85419 \times 10^{-12}$ & C$^2$ J$^{-1}$ m$^{-1}$ & $5.52635\times
+  10^{-3}$ & $e^2$ \AA$^{-1}$ eV$^{-1}$ \\
+  $e^2/4\pi\epsilon_0$: & $2.30708 \times 10^{-28}$&  J m & 14.39964 & eV \AA\\
+  $a_0$: & $0.529177 \times 10^{-10}$ & m & 0.529177 & \AA\\
+  $E_\mathrm{H} $: & 1 & Ha & 27.212 & eV \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+#+END_EXPORT
