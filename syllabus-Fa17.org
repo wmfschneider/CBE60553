@@ -75,7 +75,7 @@ on-line. Attendance is expected, and you should be prepared to ask
 and answer questions.
 
 * Topics
-See [[https://github.com/wmfschneider/CBE60553/lectures.org]].
+See [[https://github.com/wmfschneider/CBE60553/blob/master/lectures.org][https://github.com/wmfschneider/CBE60553/lectures.org]].
 
 * Homework
 Nine problem sets will be distributed during the semester and will be due at the beginning of class on dates to be announced. The problem sets will be designed to reinforce your knowledge and ability to apply the course material.  *Assignments turned in late will automatically lose 20%, and those turned in after the solutions are posted will not be accepted.*  Your lowest score on homework will be dropped.  You may discuss the homework with your classmates, but *what you turn in must be your own work.*
