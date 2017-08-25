@@ -33,25 +33,24 @@
 ** Problems and Postulates
 1. Many DOFs $\rightarrow$ few thermodynamic variables
 2. Extensive variables: $V$, $N$, $U$
-3. Three overarching questions:
-   1. Characterize thermodynamic equilibrium state of a system
-   2. Determine differences in thermodynamic quantities between two
-	states, and corresponding effect on environment
-   3. Determine equilibrium state when a constraint is removed
-   4. /Bonus problem/: Relate macroscopic to microscopic behavior
+3. Conservation of energy (kinetic, potential, mass, light, ...)
+   1. Consequence of time-reversal symmetry
 
-4. Conservation of energy
-5. *Postulate 1*: Equilibrium states exist
+4. *Postulate 1*: The "equilibrium" states of simple and homogeneous
+   systems are fully characterized by $U$, $V$, $N_j$
    1. Examples
 
-6. Definitions
+5. Definitions
    1. System and environment
    2. Walls - permeable and impermeable; adiabatic and diathermal
-   3. Processes - Spontaneous, quasi-static, reversible
 
-7. Work and heat - inexact differentials, path dependent
-8. Internal energy $dU = \dbar q + \dbar W$
-9. Mechanical measurement of energy, work $W = - \int P_{\rm ext} dV$
+6. Work and heat - inexact differentials, path dependent
+
+7. Internal energy $dU = \dbar q + \dbar W$
+
+8. Mechanical measurement of energy, work $W = - \int P_{\rm ext} dV$
+
+9. Processes - Spontaneous, quasi-static, reversible
 
 10. *Postulate 2*: A state function entropy $S$ exists and is maximized at equilibrium
     1. The "fundamental" equation
@@ -59,7 +58,14 @@
 11. *Postulate 3*: $S$ is a nice, extensive, homogeneous function, monotonically increasing in $U$, $\partial S/\partial U \geq 0$
 
 12. *Postulate 4*: Entropy vanishes at $T = 0$, third law of thermodynamics
-13. Impossible, reversible, quasi-static, and real processes
+
+13. Three overarching questions:
+    1. Characterize thermodynamic equilibrium state of a system (gas, liquid, interface, ...)
+    2. Determine new equilibrium state when a constraint is removed
+    3. Determine (path dependent) effect on environment of moving between two equilibrium states.
+    4. /Bonus problem/: Relate macroscopic to microscopic behavior
+
+14. Impossible, reversible, quasi-static, and real processes
 
 ** Interlude: Multivariate calculus
 1. Partial derivatives
