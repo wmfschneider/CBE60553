@@ -63,9 +63,9 @@ A particular system has the equation of state $U = \frac{5}{2} PV + C$, where $C
 
 * Is it fundamental enough?
 The following ten equations are purported to be fundamental equations for
-various thermodynamic systems.  Five, however, are inconsisent with the basic
+various thermodynamic systems.  Six, however, are inconsisent with the basic
   postulates of a fundamental equation and are thus unphysical.  For each, plot
-  the relationship between $S$ and $U$ and identify the five that are
+  the relationship between $S$ and $U$ and identify the six that are
   unacceptable. $v_0$, $\theta$, and $R$ are all positive constants and, in the
   case of fractional exponents, the real positive root is to be implied.
 
