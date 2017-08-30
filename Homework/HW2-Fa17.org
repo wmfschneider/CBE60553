@@ -1,0 +1,111 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60553 Homework
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+#+LATEX_HEADER:\setlength{\headheight}{10.2pt}
+#+LATEX_HEADER:\setlength{\headsep}{20pt}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2016 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\chead{\bf{Advanced Chemical Engineering Thermodynamics (CBE 60553)\vspace{12pt}}}
+#+LATEX_HEADER:\lhead{\bf{Homework 2}}
+#+LATEX_HEADER:\rhead{\bf{Due September 11, 2017}}
+#+LATEX_HEADER:\usepackage{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
+#+LATEX_HEADER:\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+#+LATEX_HEADER:\author{Prof. William F.\ Schneider}
+#+LATEX_HEADER:\usepackage{siunitx}
+#+LATEX_HEADER:\usepackage[version=3]{mhchem}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+
+\noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.*
+
+* The fundamental equation knows all, sees all
+# Fundamental eq. -> EOS
+A system is described by the fundamental equation:
+\begin{equation}
+U=\left (\frac{v_0 \theta}{R^2} \right ) \frac{S^3}{NV}\label{eq:1}
+\end{equation}
+where $R$, $\theta$, and $v_0$ are all positive constants.
+
+1. Find the three equations of state of the system
+
+2. Convince yourself (and me) that the three equations are first-order homogeneous and that $T(S,V,N)$ is intrinsically positive.
+
+3. Plot the ``adiabats'' (loci of constant entropy) in the $P-v$ plane.
+
+4. Find the ``mechanical equation of state'' $P=P(T,v)$ of the system and
+  plot the corresponding isotherms (loci of constant temperature) in the $P-V$ plane.
+
+* But it reveals itself through its equations of state
+A particular system is described by the thermal and mechanical equations of state below, where $A$ is a
+  positive constant.
+  \begin{equation*}
+    T = \frac{3 A s^2}{v}\ \ \ \ \ \ \ \ P = \frac{A s^3}{v^2}
+  \end{equation*}
+
+1. Find the corresponding chemical potential $\mu(s,v)$.
+2. Find the corresponding fundamental equation $u(s,v)$.
+
+* Fundamental equations from here to there
+A substance is described by the fundamental equation
+  \begin{equation}
+    u=Av^{-2}\exp (S/R)
+  \end{equation}
+  $N$ moles of the substance are expanded isentropically and quasi-statically from
+  $(T_0,P_0)$ to $(T_f,P_0/2)$.  Find $T_f$ and the work done by the system.
+
+* Relax that constraint
+Equations of state of two systems are given below.  System 1 contains 2 moles and is
+  at \SI{250}{K}.  System 2 contains 3 moles and is \SI{350}{K}.  Suppose the two systems are
+  connected by a diathermal wall.  What are the energies and temperatures of the two
+  systems after equilibrium is established?
+
+  \begin{equation*}
+    U^{(1)}=\frac{3}{2} R n^{(1)} T^{(1)}\ \ \ \ \ \ \ \  U^{(2)}=\frac{5}{2} R n^{(2)} T^{(2)}\
+  \end{equation*}
+
+* Work with an ideal gas
+When an ideal monatomic gas is placed inside a piston and compressed
+  quasi-statically, the temperature and volume are observed to vary according
+  to
+  \begin{equation*}
+    T=\left ( \frac{V}{V_0}\right )^\eta T_0
+  \end{equation*}
+where $\eta$ is a constant.
+
+1. Calculate the work $w$ done on the gas when one mole is compressed from $V_0$ to
+    $V_1 < V_0$.
+
+2. Calculate the corresponding change in energy $\Delta U$ of the gas.
+
+3. Calculate the corresponding heat transfered to the gas $q$ by energy balance.
+
+4. Calculate the heat transfered to the gas $q$ by integrating $\dbar q = T dS$.
+
+5. Calculate the value of $\eta$ for which $q = 0$.
+* The third ideal equation of state
+Show that the chemical potential of an ideal gas at temperature $T$ and
+  pressure $P$ can be written as $\mu(T,P)=\mu^\circ(T) + k_B T \ln P/P^\circ$,
+  where $\mu^\circ(T)$ is the chemical potential at $T$ and some reference
+  pressure $P^\circ$.
