@@ -152,7 +152,8 @@
 
 ** Ideal and van der Waals gases
 1. Ideal gas EOS $Pv=RT$, $u=cRT$
-   1. Fundamental equation \(s(u,v)=cR \ln(u/u_0)+R  \ln (v/v_0) + s_0(u_0,v_0)\)
+   1. Integrate \( ds = du/cru + dv/rv \)
+   2. Fundamental equation \(s(u,v)=cR \ln(u/u_0)+R  \ln (v/v_0) + s_0(u_0,v_0)\)
 
 2. Generalized ideal gas
    1. $Pv=RT$ and \(u(T) = u_0 + \int_{T_0}^T c_v^*(T) dT\)
@@ -164,6 +165,7 @@
    1. Ideal gas adiabats ($\gamma=(c+1)/c$): $P v^\gamma = c$, $T v^{\gamma-1}=c'$, $P^{(1-\gamma)/\gamma}T  = c''$
    2. $w_\text{QS}=R T_0 \left [ 1-(v/v_0)^{1-\gamma} \right ]/(1-\gamma)$, $q_\text{QS}=0$
 5. Free expansion: heat but no light!
+
 6. van der Waals gas
    1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
    2. Fundamental equation $s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)$
