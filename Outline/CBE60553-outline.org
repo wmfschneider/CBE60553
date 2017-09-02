@@ -150,38 +150,44 @@
 
 #+END_EXPORT
 
-** Ideal and van der Waals gases
+** Ideal gas fundamental equation
 1. Ideal gas EOS $Pv=RT$, $u=cRT$
-   1. Integrate \( ds = du/cru + dv/rv \)
+   1. Integrate \( ds = du/cRu + dv/Rv \)
    2. Fundamental equation \(s(u,v)=cR \ln(u/u_0)+R  \ln (v/v_0) + s_0(u_0,v_0)\)
-
 2. Generalized ideal gas
    1. $Pv=RT$ and \(u(T) = u_0 + \int_{T_0}^T c_v^*(T) dT\)
    2. \(\kappa_{\rm T} = 1/P\), \(\alpha=1/T\), \(c_p^*=c_v^*+R\)
-
-3. Isothermal process ($\Delta T=0$)
-   1. Ideal gas: $\Delta u = 0$, \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
-4. Adiabatic ($\Delta s=0$) processes
-   1. Ideal gas adiabats ($\gamma=(c+1)/c$): $P v^\gamma = c$, $T v^{\gamma-1}=c'$, $P^{(1-\gamma)/\gamma}T  = c''$
-   2. $w_\text{QS}=R T_0 \left [ 1-(v/v_0)^{1-\gamma} \right ]/(1-\gamma)$, $q_\text{QS}=0$
+3. Ideal gas isotherms
+   1. Isotherms \(T = \text{constant} \rightarrow u = \text{constant}\)
+   2. \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
+4. Ideal gas adiabats
+   1. \(s =\text{constant} \rightarrow u^cv = \text{constant}\)
+   2. Adiabats $P v^\gamma = \text{constant}$, $T v^{\gamma-1}=\text{constant}$, $P^{(1-\gamma)/\gamma}T  = \text{constant}$, where $\gamma=(c+1)/c$
+   3. $w_\text{QS}=R T_0 \left [ 1-(v/v_0)^{1-\gamma} \right ]/(1-\gamma)$, $q_\text{QS}=0$
 5. Free expansion: heat but no light!
-
-6. van der Waals gas
-   1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
-   2. Fundamental equation $s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)$
-   3. Simplest "cubic" EOS that gives qualitatively correct fluid properties
-      1. Coexistent of two phases
-      2. Critical point ($T_c$, $P_c$, $v_c$) where two phases coalesce into one
 
 ** Work and efficiency
 1. Maximum work theorem: maximum work is delivered by a process that overall
   produces zero entropy
-  1. $dU_\text{sys}+\dbar q_\text{rhs} +\dbar w_\text{rws} =0$,
-    $dS_\text{sys} + dS_\text{rhs}=dS_\text{sys} + \dbar q_\text{rhs}/T_\text{rhs}=0$
-  2. Tells us what is possible, not how to achieve it!
-2. Examples: expansion with a low $T$ reservoir, separation, cooling water
+   1. $dU_\text{sys}+\dbar q_\text{rhs} +\dbar w_\text{rws} =0$,
+     $dS_\text{sys} + dS_\text{rhs}=dS_\text{sys} + \dbar q_\text{rhs}/T_\text{rhs}=0$
+   2. Tells us what is possible, not how to achieve it!
+2. Examples: expansion with a low $T$ reservoir, cooling water
 3. Thermodynamic engines operate cyclically to convert heat to work or use work to move heat
+   1. Cyclic, so ideal efficiency independent of working fluid
 4. Carnot efficiency and Carnot cycle, $\eta =1 - T_c/T_h$
+5. Refrigerator efficiency, \( COP = T_h/(T_h - T_c) \)
+
+** Ideal gas mixture
+1. Fundamental equation
+2. Work of separation
+
+** van der Waals gas
+1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
+2. Fundamental equation $s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)$
+3. Simplest "cubic" EOS that gives qualitatively correct fluid properties
+   1. Coexistent of two phases
+   2. Critical point ($T_c$, $P_c$, $v_c$) where two phases coalesce into one
 
 ** Other thermodynamic potentials
   1. Energy minimum principle minimum at constant entropy

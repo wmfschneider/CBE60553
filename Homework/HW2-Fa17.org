@@ -40,6 +40,13 @@
 
 \noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.*
 
+* Concepts :noexport:
+1. Fundamental eq -> EOS
+2. EOS -> fundamental eq
+3. Equilibrium from fundamental eq and from EOS
+4. Ideal gas fundamental eq, work, isotherms, adiabats
+5. Maximum work theorem
+
 * The fundamental equation knows all, sees all
 # Fundamental eq. -> EOS
 A system is described by the fundamental equation:
@@ -67,7 +74,7 @@ A particular system is described by the thermal and mechanical equations of stat
 1. Find the corresponding chemical potential $\mu(s,v)$.
 2. Find the corresponding fundamental equation $u(s,v)$.
 
-* Fundamental equations from here to there
+* Fundamental equations from here to there :noexport:
 A substance is described by the fundamental equation
   \begin{equation}
     u=Av^{-2}\exp (S/R)
@@ -104,8 +111,23 @@ where $\eta$ is a constant.
 4. Calculate the heat transfered to the gas $q$ by integrating $\dbar q = T dS$.
 
 5. Calculate the value of $\eta$ for which $q = 0$.
-* The third ideal equation of state
+* The third ideal equation of state :noexport:
 Show that the chemical potential of an ideal gas at temperature $T$ and
   pressure $P$ can be written as $\mu(T,P)=\mu^\circ(T) + k_B T \ln P/P^\circ$,
   where $\mu^\circ(T)$ is the chemical potential at $T$ and some reference
   pressure $P^\circ$.
+
+* Maximum work, minimum work
+One mole of a monatomic ideal gas is contained in a cylinder of volume
+  $10^{-3}~\text{m}^3$ at \SI{400}{K}.  The gas is to be brought to a final state of
+  twice the volume and the same temperature.
+
+1. What is the maximum work that can be delivered to a reversible work
+  source, assuming a \SI{300}{K} thermal reservoir is available?
+
+2. One way to extract this work would be to expand the gas adiabatically to
+  \SI{300}{K}, compress it isothermally at \SI{300}{K}, and finally compress it
+  adiabatically to the final state.  Find the work and heat transfers in each step.
+
+3. What is the minimum work necessary to return the gas to its initial
+  state, assuming the same \SI{300}{K} reservoir is available?

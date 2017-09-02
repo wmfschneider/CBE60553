@@ -1,4 +1,4 @@
-% Created 2017-08-25 Fri 09:40
+% Created 2017-09-01 Fri 22:15
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -56,9 +56,9 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \begin{OPTIONS}
 \end{OPTIONS}
 \section{The Basic Structure of Thermodynamics}
-\label{sec:org96e918e}
+\label{sec:org886dc8c}
 \subsection{Problems and Postulates}
-\label{sec:orgba10a96}
+\label{sec:orgdfba33c}
 \begin{enumerate}
 \item Many DOFs \(\rightarrow\) few thermodynamic variables
 \item Extensive variables: \(V\), \(N\), \(U\)
@@ -108,7 +108,7 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \end{enumerate}
 
 \subsection{Interlude: Multivariate calculus}
-\label{sec:orgd746706}
+\label{sec:org8346245}
 \begin{enumerate}
 \item Partial derivatives
 \item State functions and exact differentials: \(df =\left (
@@ -135,7 +135,7 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \end{enumerate}
 
 \subsection{Calculus of energy, entropy, and equilibrium}
-\label{sec:org8fdcc5f}
+\label{sec:org81a9030}
 \begin{enumerate}
 \item \(U = U(S,V,N)\) state function (Table\textasciitilde{}\ref{table:potentials})
 \begin{enumerate}
@@ -199,31 +199,61 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
   \end{center}
 \end{table}
 
-\subsection{Ideal and van der Waals gases}
-\label{sec:org04aec37}
+\subsection{Ideal gas fundamental equation}
+\label{sec:org5408b47}
 \begin{enumerate}
 \item Ideal gas EOS \(Pv=RT\), \(u=cRT\)
 \begin{enumerate}
+\item Integrate \(ds = du/cRu + dv/Rv\)
 \item Fundamental equation \(s(u,v)=cR \ln(u/u_0)+R  \ln (v/v_0) + s_0(u_0,v_0)\)
 \end{enumerate}
-
 \item Generalized ideal gas
 \begin{enumerate}
 \item \(Pv=RT\) and \(u(T) = u_0 + \int_{T_0}^T c_v^*(T) dT\)
 \item \(\kappa_{\rm T} = 1/P\), \(\alpha=1/T\), \(c_p^*=c_v^*+R\)
 \end{enumerate}
-
-\item Isothermal process (\(\Delta T=0\))
+\item Ideal gas isotherms
 \begin{enumerate}
-\item Ideal gas: \(\Delta u = 0\), \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
+\item Isotherms \(T = \text{constant} \rightarrow u = \text{constant}\)
+\item \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
 \end{enumerate}
-\item Adiabatic (\(\Delta s=0\)) processes
+\item Ideal gas adiabats
 \begin{enumerate}
-\item Ideal gas adiabats (\(\gamma=(c+1)/c\)): \(P v^\gamma = c\), \(T v^{\gamma-1}=c'\), \(P^{(1-\gamma)/\gamma}T  = c''\)
+\item \(s =\text{constant} \rightarrow u^cv = \text{constant}\)
+\item Adiabats \(P v^\gamma = \text{constant}\), \(T v^{\gamma-1}=\text{constant}\), \(P^{(1-\gamma)/\gamma}T  = \text{constant}\), where \(\gamma=(c+1)/c\)
 \item \(w_\text{QS}=R T_0 \left [ 1-(v/v_0)^{1-\gamma} \right ]/(1-\gamma)\), \(q_\text{QS}=0\)
 \end{enumerate}
 \item Free expansion: heat but no light!
-\item van der Waals gas
+\end{enumerate}
+
+\subsection{Work and efficiency}
+\label{sec:orgab1e38c}
+\begin{enumerate}
+\item Maximum work theorem: maximum work is delivered by a process that overall
+produces zero entropy
+\begin{enumerate}
+\item \(dU_\text{sys}+\dbar q_\text{rhs} +\dbar w_\text{rws} =0\),
+\(dS_\text{sys} + dS_\text{rhs}=dS_\text{sys} + \dbar q_\text{rhs}/T_\text{rhs}=0\)
+\item Tells us what is possible, not how to achieve it!
+\end{enumerate}
+\item Examples: expansion with a low \(T\) reservoir, cooling water
+\item Thermodynamic engines operate cyclically to convert heat to work or use work to move heat
+\begin{enumerate}
+\item Cyclic, so ideal efficiency independent of working fluid
+\end{enumerate}
+\item Carnot efficiency and Carnot cycle, \(\eta =1 - T_c/T_h\)
+\item Refrigerator efficiency, \(COP = T_h/(T_h - T_c)\)
+\end{enumerate}
+
+\subsection{Ideal gas mixture}
+\label{sec:org5265cf4}
+\begin{enumerate}
+\item Fundamental equation
+\item Work of separation
+\end{enumerate}
+
+\subsection{van der Waals gas}
+\label{sec:org4ecec86}
 \begin{enumerate}
 \item \(P_\text{vdW}=RT/(v-b) - a/v^2\) and \(u = cRT - a/v\)
 \item Fundamental equation \(s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)\)
@@ -233,25 +263,9 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \item Critical point (\(T_c\), \(P_c\), \(v_c\)) where two phases coalesce into one
 \end{enumerate}
 \end{enumerate}
-\end{enumerate}
-
-\subsection{Work and efficiency}
-\label{sec:org7fd7add}
-\begin{enumerate}
-\item Maximum work theorem: maximum work is delivered by a process that overall
-produces zero entropy
-\begin{enumerate}
-\item \(dU_\text{sys}+\dbar q_\text{rhs} +\dbar w_\text{rws} =0\),
-\(dS_\text{sys} + dS_\text{rhs}=dS_\text{sys} + \dbar q_\text{rhs}/T_\text{rhs}=0\)
-\item Tells us what is possible, not how to achieve it!
-\end{enumerate}
-\item Examples: expansion with a low \(T\) reservoir, separation, cooling water
-\item Thermodynamic engines operate cyclically to convert heat to work or use work to move heat
-\item Carnot efficiency and Carnot cycle, \(\eta =1 - T_c/T_h\)
-\end{enumerate}
 
 \subsection{Other thermodynamic potentials}
-\label{sec:org608cc89}
+\label{sec:org818c281}
 \begin{enumerate}
 \item Energy minimum principle minimum at constant entropy
 \item Legendre transforms
@@ -330,7 +344,7 @@ $ \left ( \dfrac{\partial S}{\partial P}\right )_T =  -\left ( \dfrac{\partial V
 \end{table}
 
 \subsection{Stability and phase equilibria}
-\label{sec:org4e63f2b}
+\label{sec:orga2c186d}
 \begin{enumerate}
 \item Local stability condition
 \begin{enumerate}
@@ -374,11 +388,11 @@ exactly in balance
 \end{enumerate}
 
 \section{The Microscopic View}
-\label{sec:org05398ac}
+\label{sec:orgcfd9e9c}
 \subsection{Micro-canonical ensemble}
-\label{sec:org1c32240}
+\label{sec:orgd893d75}
 \subsubsection{Energy is \emph{quantized} at microscopic level}
-\label{sec:orgb031c04}
+\label{sec:orgc9360e3}
 \begin{enumerate}
 \item Consequence of quantum mechanics
 \item electronic, vibrational, rotational, translational
@@ -386,7 +400,7 @@ exactly in balance
 \item Equal \emph{a priori} probabilities
 \end{enumerate}
 \subsubsection{Two-state model}
-\label{sec:org2b402fc}
+\label{sec:org7aeb8e2}
 \begin{enumerate}
 \item Box of particles, each of which can have energy 0 or \(\epsilon\)
 \item Thermodynamic state defined by number of elements \(N\), and number of
@@ -433,7 +447,7 @@ particles are exchanged)
 \end{enumerate}
 
 \subsubsection{Two-state model in limit of large \(N\)}
-\label{sec:org983acb0}
+\label{sec:org03dfb6c}
 \begin{enumerate}
 \item Large \(N\) and Stirling's approximation
 \item Fundamental thermodynamic equation of two-state system:
@@ -454,9 +468,9 @@ particles are exchanged)
 \end{enumerate}
 
 \subsection{Canonical ensemble}
-\label{sec:orgaa7bc4a}
+\label{sec:org544e7b1}
 \subsubsection{Partition function}
-\label{sec:orga54dfcb}
+\label{sec:orgf280f13}
 \begin{enumerate}
 \item Where do fundamental equations come from?
 \item Direct construction of \(S(U)\) is generally intractable, so seek simpler approach
@@ -485,7 +499,7 @@ can factor probability to show
 \end{enumerate}
 
 \subsubsection{Energy factoring}
-\label{sec:org3a8e317}
+\label{sec:org4c3fd1f}
 \begin{enumerate}
 \item If system is large, how to determine it's energy states \(U_j\)?  There
 would be many, many of them!
@@ -517,7 +531,7 @@ Approximate solution, good almost all the time:\}
 \end{enumerate}
 
 \subsubsection{Two-state system again}
-\label{sec:org472f158}
+\label{sec:orgc5fb0d6}
 \begin{enumerate}
 \item Partition function, \(q(T)=1+e^{-\epsilon\beta}\)
 \item State probabilities
@@ -584,15 +598,15 @@ Energy $G=A+PV$.
 \end{table}
 
 \subsection{Ideal gases redux}
-\label{sec:orge0e3fb6}
+\label{sec:org2274a44}
 \subsubsection{Separability}
-\label{sec:orgd9e2776}
+\label{sec:org9bc381b}
     \begin{displaymath}
       Q_{ig}(N,V,T) = \frac{(q_\mathrm{trans}q_\mathrm{rot}q_\mathrm{vib})^N}{N!}
 \end{displaymath}
 
 \subsubsection{Particle-in-a-box (translational states of a gas)}
-\label{sec:orgf92a82c}
+\label{sec:orgf136435}
 \begin{enumerate}
 \item Energy states \(\epsilon_n=n^2\epsilon_0, n=1,2, \ldots\),
 \(\epsilon_0\) tiny for macroscopic \(V\)
@@ -612,21 +626,21 @@ to \(q_\mathrm{trans}\rightarrow\) integral approximation
 \item Entropy: Sackur-Tetrode equation
 \end{enumerate}
 \subsubsection{Rigid rotor (rotational states of a gas)}
-\label{sec:org031b878}
+\label{sec:org477306f}
 \begin{enumerate}
 \item energy states and degeneracies
 \item \(\Theta_\mathrm{rot} = \hbar^2/2 I k_B\)
 \item ``High'' T \(q_\mathrm{rot}(T) \approx \sigma \Theta_\mathrm{rot}/T\)
 \end{enumerate}
 \subsubsection{Harmonic oscillator (vibrational states of a gas)}
-\label{sec:orgd3ae82c}
+\label{sec:org5525172}
 \begin{enumerate}
 \item \(\Theta_\mathrm{vib}=h\nu/k_B\)
 \end{enumerate}
 \subsubsection{Electronic partition functions \(\rightarrow\) spin multiplicity}
-\label{sec:org156eb78}
+\label{sec:orgfa96682}
 \subsubsection{Solids}
-\label{sec:orgae786ea}
+\label{sec:org7ffe8b8}
 \begin{enumerate}
 \item Equipartition
 \item Law of Dulong and Petitt
@@ -759,7 +773,7 @@ U = U_\mathrm{trans} + U_\mathrm{rot} + U_\mathrm{vib} + U_\mathrm{elec}, \ldots
 \end{table}
 
 \subsubsection{Other ensembles}
-\label{sec:org3022113}
+\label{sec:orgf8da7b8}
 \begin{enumerate}
 \item Isothermal/isobaric
 \begin{enumerate}
@@ -774,11 +788,11 @@ U = U_\mathrm{trans} + U_\mathrm{rot} + U_\mathrm{vib} + U_\mathrm{elec}, \ldots
 \end{enumerate}
 \end{enumerate}
 \section{Thermodynamics of Stuff}
-\label{sec:org969e4d7}
+\label{sec:orged51f92}
 \subsection{Theory of non-ideal fluids}
-\label{sec:org1499ad5}
+\label{sec:org7daba9a}
 \subsubsection{Non-ideality}
-\label{sec:orgf5f5916}
+\label{sec:orgf919988}
 \begin{enumerate}
 \item Real molecules interact through vdW interactions
 \begin{enumerate}
@@ -793,7 +807,7 @@ can still get at same ideas
 \item Configurational integral \(Q_\mathrm{config}=\int \ldots \int e^{-U(r)\beta} dr_1\ldots dr_n\)
 \end{enumerate}
 \subsubsection{van der Waals gas}
-\label{sec:orgd9f15b5}
+\label{sec:orgb59c6d7}
 \begin{enumerate}
 \item Hard sphere + \(1/r^6\) potential + mean-field approximation (\(g(r)=1\))
 \item \(Q_\mathrm{config} = ((V-Nb) \exp (-(\phi/2)\beta))^N \rightarrow\) vdW EOS
@@ -804,9 +818,9 @@ can still get at same ideas
 \end{enumerate}
 
 \subsubsection{Radial distribution functions, \(g(r)\), for gases, liquids, solids}
-\label{sec:orgea9601f}
+\label{sec:org1012e3f}
 \subsubsection{Virial expansion}
-\label{sec:org8cc209b}
+\label{sec:orge776225}
 \begin{enumerate}
 \item Configurational integral can be expanded in powers of \(1/v\) times ``virial''
 coefficients \(B_j(T)\)
@@ -825,7 +839,7 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsubsection{Modern approach is to use numerical methods}
-\label{sec:orgd42d27a}
+\label{sec:org0e6b233}
 \begin{enumerate}
 \item ``forcefield'' to represent intra- and intermolecular properties
 \item molecular dynamics or Monte Carlo to sample interactions
@@ -833,9 +847,9 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsection{Engineering representations of fluids}
-\label{sec:org6311aee}
+\label{sec:org98571fa}
 \subsubsection{How to represent properties of real fluids?}
-\label{sec:orgf88c6fe}
+\label{sec:org5ddf285}
 \begin{enumerate}
 \item Mechanical equations of state (empirical)
 \item Thermodynamic tabulations (JANAF, steam tables)
@@ -844,14 +858,14 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsubsection{Thermodynamic integrations}
-\label{sec:orgfe1a0be}
+\label{sec:orgbda6e1c}
 \begin{enumerate}
 \item Integrate susceptibilities
 \item Integrate \(PvT\) relationship plus \(C_p^{ig}(T)\)
 \end{enumerate}
 
 \subsubsection{Compressibility}
-\label{sec:org50fb066}
+\label{sec:orgee20940}
 \begin{enumerate}
 \item Fluids deviate from ideality because they have finite size and interact over distances, origin of two-parameter EOS
 \item Compressibility \(Z(T,P)=P/P^{ig}=Pv/RT\) measures deviation from ideality
@@ -862,7 +876,7 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsubsection{Cubic mechanical equations of state}
-\label{sec:orgcd0e295}
+\label{sec:org8435791}
 \begin{enumerate}
 \item van der Waals, \(Z_c = 0.375\)
 \item Redlich-Kwong,  \(Z_c = 0.333\)
@@ -870,7 +884,7 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \item Empirically parameterized, all obey law of corresponding states, none perfect
 \end{enumerate}
 \subsubsection{Departure functions measure thermodynamic potential difference between real}
-\label{sec:org77faa92}
+\label{sec:org1ff2145}
 state and hypothetical ``ideal gas'' state
 \begin{enumerate}
 \item \(\Delta\)whatever = \(\Delta\) ideal + \(\Delta\) departure
@@ -879,7 +893,7 @@ state and hypothetical ``ideal gas'' state
 \item Enthalpy departure \(h(T,P) - h^{ig}(T,P) = RT \left ( Z-1 \right )  + \int_\infty^{v(T,P)} \left [ T \left  ( \frac{\partial P}{\partial T}\right )_v - P \right ] dv\)
 \end{enumerate}
 \subsubsection{Fugacity measures departure of free energy ideality}
-\label{sec:org13cacb5}
+\label{sec:orgbaea4bd}
 \begin{enumerate}
 \item Define \(\mu(T,P) = \mu^\circ(T) + RT \ln f(T,P)/f^\circ(T)\)
 \begin{equation*}
@@ -895,9 +909,9 @@ state and hypothetical ``ideal gas'' state
 \end{equation*}
 \end{enumerate}
 \subsection{Single-phase mixtures}
-\label{sec:org45c2f2a}
+\label{sec:org7b3416b}
 \subsubsection{Ideal gas mixtures}
-\label{sec:orgfc01d5b}
+\label{sec:orgc74c23f}
 \begin{enumerate}
 \item Statistical mechanical approach
 \item Properties of ideal mixture
@@ -911,7 +925,7 @@ state and hypothetical ``ideal gas'' state
 \end{enumerate}
 
 \subsubsection{Non-ideal gas mixtures}
-\label{sec:org02e4e73}
+\label{sec:orgb4c02c9}
 \begin{enumerate}
 \item Inconvenient that \(\lim_{y_{i}\to 0}\mu_i(y_i,T,P) = -\infty\)
 \item Construct \emph{fugacity} to obey same equilibrium conditions as chemical potential but to tend to \(y_{i}P\) in infinite dilution
@@ -933,7 +947,7 @@ state and hypothetical ``ideal gas'' state
 \item Lewis (ideal) fugacity rule \(\bar{f}_i \approx y_i f_i\) generalization of ideal gas
 \end{enumerate}
 \subsubsection{Ideal liquid mixtures}
-\label{sec:org9cb0763}
+\label{sec:org3272d3c}
 \begin{enumerate}
 \item Lattice model with random distribution of molecules
 
@@ -947,7 +961,7 @@ state and hypothetical ``ideal gas'' state
 \item True for liquids of comparable molecular dimensions and interactions
 \end{enumerate}
 \subsubsection{Partial molar quantities}
-\label{sec:org463c601}
+\label{sec:orgd2db00a}
 \begin{enumerate}
 \item For any extensive quantity or susceptibility, \(J\):
      \begin{equation*}
@@ -961,7 +975,7 @@ state and hypothetical ``ideal gas'' state
 \end{enumerate}
 
 \subsubsection{Non-ideal liquid mixtures}
-\label{sec:org33512da}
+\label{sec:org31a1f3d}
 \begin{enumerate}
 \item Bragg-Williams/mean field approximation
 \item Differential exchange parameter \(\chi_{AB}\)
@@ -990,15 +1004,15 @@ state and hypothetical ``ideal gas'' state
 \item Freezing point depression/boiling point elevation
 \end{enumerate}
 \subsubsection{Ionic mixtures}
-\label{sec:org94ba3f9}
+\label{sec:org565eefc}
 \begin{enumerate}
 \item Debye-Huckel
 \end{enumerate}
 
 \subsection{Gas-liquid equilibria}
-\label{sec:orgb452906}
+\label{sec:orga2a1781}
 \subsubsection{Ideal-ideal liquid-vapor mixtures}
-\label{sec:org6e902e4}
+\label{sec:orgc4a5561}
 \begin{enumerate}
 \item Equal chemical potentials in each phase
 \item Equilibrium cycle (relate to single component phase equilibrium): start from single component l-v equilibrium, compress each component to desired pressure, then mix.
@@ -1012,7 +1026,7 @@ state and hypothetical ``ideal gas'' state
 \end{enumerate}
 
 \subsubsection{Non-ideal liquid/ideal vapor}
-\label{sec:orgbe0e86d}
+\label{sec:org72b3e3a}
 \begin{enumerate}
 \item Regular solution
    \begin{equation*}
@@ -1034,9 +1048,9 @@ state and hypothetical ``ideal gas'' state
 
 
 \section{Thermodynamics of Change}
-\label{sec:org1b49226}
+\label{sec:org5caa10e}
 \subsection{Chemical thermodynamics and equilibria}
-\label{sec:org3b14110}
+\label{sec:org278cb97}
 \begin{enumerate}
 \item Chemical reactions
 \item Thermodynamic potential differences
@@ -1107,7 +1121,7 @@ state and hypothetical ``ideal gas'' state
  \end{table}
 
 \subsection{Non-equilibrium thermodynamics}
-\label{sec:orga60a135}
+\label{sec:orgeb05e72}
 \begin{table}
 \begin{center}
 \caption{Physical units}

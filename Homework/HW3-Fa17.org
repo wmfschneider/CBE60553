@@ -40,20 +40,21 @@
 
 \noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Python. Use plotting software for all plots.*
 
-* Maximum work, minimum work
-One mole of a monatomic ideal gas is contained in a cylinder of volume
-  $10^{-3}~\text{m}^3$ at \SI{400}{K}.  The gas is to be brought to a final state of
-  twice the volume and the same temperature.
+* Concepts :noexport:
+1. Maximum work
+2. Mixture fundamental eq
+3.
 
-1. What is the maximum work that can be delivered to a reversible work
-  source, assuming a \SI{300}{K} thermal reservoir is available?
+* Keeping it cold
+A household refrigerator is kept at  $2^\circ\text{C}$.  Every time the door is open
+   to put something inside, \SI{200}{kJ} of heat are added to the refrigerator and the
+   temperature inside changes negligibly.  The door is opened 15 times a day, and the
+   refrigerator operates at 15\% of theoretical maximum efficiency.  The cost of
+   electricity is \$0.10/kW h.
 
-2. One way to extract this work would be to expand the gas adiabatically to
-  300 K, compress it isothermally at 300 K, and finally compress it
-  adiabatically to the final state.  Find the work and heat transfers in each step.
+1. Derive an expression for the theoretical maximum efficiency of the refrigerator.
 
-3. What is the minimum work necessary to return the gas to its initial
-  state, assuming the same 300 K reservoir is available?
+2. How much does it cost to run the refrigerator for a month?
 
 * Work of separation
 A geothermal source is to be used to power a plant that separates oxygen from
@@ -81,35 +82,3 @@ S(T,P,N_{1},N_{2},\ldots) = c R \ln\left ( \frac{T}{T_{0}} \right ) - R \ln\left
 2. What is the maximum number of moles of \ce{O2} that could be produced from the geothermal source?  Assume the separation is carried out at constant temperature and pressure.
 
 3. Propose some plausible way that the separation could be carried out.
-
-* Keeping it cold
-A household refrigerator is kept at  $2^\circ\text{C}$.  Every time the door is open
-   to put something inside, 200 kJ of heat are added to the refrigerator and the
-   temperature inside changes negligibly.  The door is opened 15 times a day, and the
-   refrigerator operates at 15\% of theoretical maximum efficiency.  The cost of
-   electricity is \$0.10/kW h.
-
-1. Derive an expression for the theoretical maximum efficiency?
-
-2. How much does it cost to run the refrigerator for a month?
-
-
-* Work with an ideal gas :no_export:
-When an ideal monatomic gas is placed inside a piston and compressed
-  quasi-statically, the temperature and volume are observed to vary according
-  to
-  \begin{equation*}
-    T=\left ( \frac{V}{V_0}\right )^\eta T_0
-  \end{equation*}
-where $\eta$ is a constant.
-
-1. Calculate the work $w$ done on the gas when one mole is compressed from $V_0$ to
-    $V_1 < V_0$.
-
-2. Calculate the corresponding change in energy $\Delta U$ of the gas.
-
-3. Calculate the corresponding heat transfered to the gas $q$ by energy balance.
-
-4. Calculate the heat transfered to the gas $q$ by integrating $\dbar q = T dS$.
-
-5. Calculate the value of $\eta$ for which $q = 0$.
