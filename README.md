@@ -13,3 +13,8 @@ Homework assignments and solutions available [here](./homework.org)
 Introduction to iPython/Jupyter notebooks [here](http://nbviewer.jupyter.org/github/jckantor/CBE20255/blob/master/notebooks/Getting%20Started%20with%20Jupyter%20Notebooks%20and%20Python.ipynb)
 
 Tutorial on Python [here](./Resources/Python+Tutorial-Template.ipynb)
+
+## Office hours
+Jeonghyun Ko: Tuesdays at 4:00 p.m. in Comsel
+Tanner Corrado: Thursdays at 5:00 p.m. on the 2nd floor of McCourtney
+Bill Schneider: by appointment or drop in
