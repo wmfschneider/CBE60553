@@ -16,5 +16,7 @@ Tutorial on Python [here](./Resources/Python+Tutorial-Template.ipynb)
 
 ## Office hours
 Jeonghyun Ko: Tuesdays at 4:00 p.m. in Comsel
+
 Tanner Corrado: Thursdays at 5:00 p.m. on the 2nd floor of McCourtney
+
 Bill Schneider: by appointment or drop in
