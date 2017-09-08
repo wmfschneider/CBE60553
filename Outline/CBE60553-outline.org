@@ -157,14 +157,17 @@
 2. Generalized ideal gas
    1. $Pv=RT$ and \(u(T) = u_0 + \int_{T_0}^T c_v^*(T) dT\)
    2. \(\kappa_{\rm T} = 1/P\), \(\alpha=1/T\), \(c_p^*=c_v^*+R\)
-3. Ideal gas isotherms
-   1. Isotherms \(T = \text{constant} \rightarrow u = \text{constant}\)
-   2. \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
-4. Ideal gas adiabats
+3. Ideal gas adiabats
    1. \(s =\text{constant} \rightarrow u^cv = \text{constant}\)
    2. Adiabats $P v^\gamma = \text{constant}$, $T v^{\gamma-1}=\text{constant}$, $P^{(1-\gamma)/\gamma}T  = \text{constant}$, where $\gamma=(c+1)/c$
    3. $w_\text{QS}=R T_0 \left [ 1-(v/v_0)^{1-\gamma} \right ]/(1-\gamma)$, $q_\text{QS}=0$
+4. Ideal gas isotherms
+   1. Isotherms \(T = \text{constant} \rightarrow u = \text{constant}\)
+   2. \(\Delta s = R \ln(v/v_0)\), \(q_\text{QS}=RT \ln(v/v_0)=-w_\text{QS}\)
 5. Free expansion: heat but no light!
+   1. Start and end on isotherm
+   2. \(\Delta s = R \ln(v/v_0)\), \(q =w =0\)
+   3. Irreversible!
 
 ** Work and efficiency
 1. Maximum work theorem: maximum work is delivered by a process that overall
@@ -174,13 +177,18 @@
    2. Tells us what is possible, not how to achieve it!
 2. Examples: expansion with a low $T$ reservoir, cooling water
 3. Thermodynamic engines operate cyclically to convert heat to work or use work to move heat
-   1. Cyclic, so ideal efficiency independent of working fluid
+   1. Cyclic, \(\Delta s = \Delta u =0 \), so ideal efficiency
+      independent of working fluid
 4. Carnot efficiency and Carnot cycle, $\eta =1 - T_c/T_h$
 5. Refrigerator efficiency, \( COP = T_h/(T_h - T_c) \)
+6. Real engines
 
 ** Ideal gas mixture
-1. Fundamental equation
-2. Work of separation
+1. Define \(y_i = n_i/\sum_i n_i \)
+2. Ideal mixture: \(P v = R T \sum_i y_i = \sum_i P_i\), \(u= RT \sum_i c_i y_i =\sum_i u_i \)
+3. Fundamental equation: \(s = \sum_i s_i = R \ln v/v_0 + \sum_i y_i (s_{i0} + c_i R\ln T/T_0 ) - R \sum_i y_i \ln y_i \)
+4. Entropy of mixing at constant density, \( \Delta s_\text{mix} = -R \sum_i y_i \ln y_i \)
+5. Work of separation
 
 ** van der Waals gas
 1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
