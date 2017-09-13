@@ -1,0 +1,160 @@
+% Created 2017-09-12 Tue 21:38
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage{minted}
+\usepackage{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\setlength{\headheight}{10.2pt}
+\setlength{\headsep}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2016 W.\ F.\ Schneider}
+\rfoot{\thepage}
+\chead{\bf{Advanced Chemical Engineering Thermodynamics (CBE 60553)\vspace{12pt}}}
+\lhead{\bf{Homework 3}}
+\rhead{\bf{Due September 22, 2017}}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.6\baselineskip}{0.2\baselineskip}
+\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+\author{Prof. William F.\ Schneider}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60553 Homework}
+\begin{document}
+
+\begin{OPTIONS}
+\end{OPTIONS}
+
+\noindent \textbf{Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Python. Use plotting software for all plots.}
+
+\section{Shut that door!}
+\label{sec:org310cd53}
+A household refrigerator is kept at  \(2^\circ\text{C}\).  Every time the door is open
+   to put something inside, \SI{200}{kJ} of heat are added to the refrigerator and the
+   temperature inside changes negligibly.  The door is opened 15 times a day, and the
+   refrigerator operates at 15\% of theoretical maximum efficiency.  The cost of
+   electricity is \$0.10/kW h.
+
+\begin{enumerate}
+\item Derive an expression for the theoretical maximum efficiency of the refrigerator.
+
+\item How much does it cost to run the refrigerator for a month?
+\end{enumerate}
+
+\section{\href{https://open.spotify.com/track/5JJDu0Z5DKe7mR31MGksSg}{Gotta keep them separated}}
+\label{sec:org5a42589}
+A geothermal source is to be used to power a plant that separates oxygen from
+  air. The geothermal source comprises a well containing \(10^3~\text{m}^3\) of
+  water initially at \(100^\circ\text{C}\); nearby there is a very big (\(>>
+  10^3~\text{m}^3\) ) lake at \(5^\circ\text{C}\).
+
+\begin{enumerate}
+\item What is the theoretical maximum amount of work that could be extracted from the power source?
+Assume the heat capacity of \ce{H2O} is \(4.2~\text{J}~\text{(g K)}^{-1}\), independent of temperature.
+\end{enumerate}
+
+\noindent Suppose you'd like to use the work from the geothermal source to
+  extract oxygen from air.  The atmosphere is a comfy \(20^\circ\text{C}\) and can
+  be treated as an ideal gas mixture of 80\% \ce{N2} and 20\% \ce{O2} at 1 atm.
+  The fundamental equation of an ideal gas mixture is like that of an ideal gas,
+  with the addition of terms related to the mixture composition. It's convenient
+  to write the composition in terms of mole fraction, \(y_{j} = N_{j}/N\), where
+  \(N = \sum_{j}N_{j}\).  The fundamental equation can be written
+
+\begin{equation}
+S(T,P,N_{1},N_{2},\ldots) = c R \ln\left ( \frac{T}{T_{0}} \right ) - R \ln\left ( \frac{P}{P_{0}} \right ) - R \sum_{j}y_{j}\ln y_{j} + \sum_{j}y_{j}s_{0,j}
+\end{equation}
+
+\noindent where \(P = NRT/V\) and \(U=cNRT\).
+
+\begin{enumerate}
+\item What is an appropriate value for \(c\)?
+
+\item What is the maximum number of moles of \ce{O2} that could be produced from the geothermal source?  Assume the separation is carried out at constant temperature and pressure.
+
+\item Propose some plausible way that the separation could be carried out.
+\end{enumerate}
+
+\section{Fundamentally van der Waals}
+\label{sec:org57e100b}
+The fundamental equation of a ``van der Waals'' fluid is:
+\begin{equation}
+s_\text{vdW}(u,v)=s_{0}+R\ln\left (v-b\right ) +c R \ln \left ( u+a/v \right )
+\end{equation}
+
+\begin{enumerate}
+\item Derive the equations of state of a van der Waals fluid.
+
+\item Look up the critical constants and (constant volume) heat capacity of \ce{CO2}.  Use those to determine appropriate values for \(a\), \(b\), and \(c\) of van der Waals \ce{CO2}.  Remember to include appropriate units.
+
+\item Plot on the same graph the \(P-v\) adiabats and isotherms of van der Waals \ce{CO2}.  You will see in the extended course notes some python code that might help.
+
+\item Suppose you have a gas with a heat capacity appropriate to \ce{CO2} at \SI{350}{K} and \SI{50}{bar}. Compute the work required and the final state (temperature, pressure, and molar volume) to
+
+\begin{enumerate}
+\item Isothermally compress to \SI{200}{bar}, assuming the gas is ideal.
+
+\item Adiabatically compress to \SI{200}{bar}, assuming the gas is ideal.
+
+\item Isothermally compress to \SI{200}{bar}, assuming the gas is a van der Waals fluid.
+
+\item Adiabatically compress to \SI{200}{bar}, assuming the gas is a van der Waals fluid.
+\end{enumerate}
+\end{enumerate}
+
+
+\section{I'm (Legendre) transformed}
+\label{sec:org77c8c6b}
+Consider the exponential function \(y=2 e^{x/2}\).
+
+\begin{enumerate}
+\item Construct the Legendre transform of \(y\).  Let's call it \(\phi(m) = y - m x\), where \(m = dy/dx\).
+
+\item Use software to plot the series of lines defined by \(\phi(m)\). Recall that \(\phi(m)\) is
+the intercept of a line of slope \(m\).  What  function does the series of lines trace out?
+
+\item A Legendre transform can be undone by performing an ``inverse'' transform.  The inverse
+Legendre transform is constructed in the same way as the transform itself,
+\emph{except} that \(m=-dy/dx\). Perform an inverse Legendre transform on \(\phi(m)\).
+\end{enumerate}
+\end{document}

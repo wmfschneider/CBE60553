@@ -22,8 +22,8 @@
 #+LATEX_HEADER:\cfoot{\copyright\ 2016 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\chead{\bf{Advanced Chemical Engineering Thermodynamics (CBE 60553)\vspace{12pt}}}
-#+LATEX_HEADER:\lhead{\bf{Homework 2}}
-#+LATEX_HEADER:\rhead{\bf{Due September 19, 2016}}
+#+LATEX_HEADER:\lhead{\bf{Homework 3}}
+#+LATEX_HEADER:\rhead{\bf{Due September 22, 2017}}
 #+LATEX_HEADER:\usepackage{titlesec}
 #+LATEX_HEADER:\titlespacing*{\section}
 #+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
@@ -43,20 +43,20 @@
 * Concepts :noexport:
 1. Maximum work
 2. Mixture fundamental eq
-3.
+3. van der Waals fundamental eq
 
-* Keeping it cold
+* Shut that door!
 A household refrigerator is kept at  $2^\circ\text{C}$.  Every time the door is open
    to put something inside, \SI{200}{kJ} of heat are added to the refrigerator and the
    temperature inside changes negligibly.  The door is opened 15 times a day, and the
-   refrigerator operates at 15\% of theoretical maximum efficiency.  The cost of
-   electricity is \$0.10/kW h.
+   refrigerator operates at 15% of theoretical maximum efficiency.  The cost of
+   electricity is $0.10/kW h.
 
 1. Derive an expression for the theoretical maximum efficiency of the refrigerator.
 
 2. How much does it cost to run the refrigerator for a month?
 
-* Work of separation
+* [[https://open.spotify.com/track/5JJDu0Z5DKe7mR31MGksSg][Gotta keep them separated]]
 A geothermal source is to be used to power a plant that separates oxygen from
   air. The geothermal source comprises a well containing $10^3~\text{m}^3$ of
   water initially at $100^\circ\text{C}$; nearby there is a very big ($>>
@@ -67,18 +67,57 @@ A geothermal source is to be used to power a plant that separates oxygen from
 
 \noindent Suppose you'd like to use the work from the geothermal source to
   extract oxygen from air.  The atmosphere is a comfy $20^\circ\text{C}$ and can
-  be treated as an ideal gas mixture of 80\% \ce{N2} and 20\% \ce{O2} at 1 atm.
+  be treated as an ideal gas mixture of 80% \ce{N2} and 20% \ce{O2} at 1 atm.
   The fundamental equation of an ideal gas mixture is like that of an ideal gas,
   with the addition of terms related to the mixture composition. It's convenient
-  to write the composition in terms of mole fraction, $x_{j} = N_{j}/N$, where
+  to write the composition in terms of mole fraction, $y_{j} = N_{j}/N$, where
   $N = \sum_{j}N_{j}$.  The fundamental equation can be written
 
 \begin{equation}
-S(T,P,N_{1},N_{2},\ldots) = c R \ln\left ( \frac{T}{T_{0}} \right ) - R \ln\left ( \frac{P}{P_{0}} \right ) - R \sum_{j}x_{j}\ln x_{j} + \sum_{j}x_{j}s_{0,j}
+S(T,P,N_{1},N_{2},\ldots) = c R \ln\left ( \frac{T}{T_{0}} \right ) - R \ln\left ( \frac{P}{P_{0}} \right ) - R \sum_{j}y_{j}\ln y_{j} + \sum_{j}y_{j}s_{0,j}
 \end{equation}
 
 \noindent where $P = NRT/V$ and $U=cNRT$.
 
-2. What is the maximum number of moles of \ce{O2} that could be produced from the geothermal source?  Assume the separation is carried out at constant temperature and pressure.
+2. What is an appropriate value for \(c\)?
 
-3. Propose some plausible way that the separation could be carried out.
+3. What is the maximum number of moles of \ce{O2} that could be produced from the geothermal source?  Assume the separation is carried out at constant temperature and pressure.
+
+4. Propose some plausible way that the separation could be carried out.
+
+* Fundamentally van der Waals
+The fundamental equation of a "van der Waals" fluid is:
+\begin{equation}
+s_\text{vdW}(u,v)=s_{0}+R\ln\left (v-b\right ) +c R \ln \left ( u+a/v \right )
+\end{equation}
+
+1. Derive the equations of state of a van der Waals fluid.
+
+2. Look up the critical constants and (constant volume) heat capacity of \ce{CO2}.  Use those to determine appropriate values for \(a\), \(b\), and \(c\) of van der Waals \ce{CO2}.  Remember to include appropriate units.
+
+3. Plot on the same graph the \(P-v\) adiabats and isotherms of van der Waals \ce{CO2}.  You will see in the extended course notes some python code that might help.
+
+# The van der Waals parameters for \ce{CO2} are $a = \SI{3.6551}{bar.l^{2}.mol^{-2}}$ and $b= \SI{42.816e-6}{\meter\cubed\per\mole}$.  Over sufficiently small changes in temperature, $c=7/2$.
+
+4. Suppose you have a gas with a heat capacity appropriate to \ce{CO2} at \SI{350}{K} and \SI{50}{bar}. Compute the work required and the final state (temperature, pressure, and molar volume) to
+
+   1. Isothermally compress to \SI{200}{bar}, assuming the gas is ideal.
+
+   2. Adiabatically compress to \SI{200}{bar}, assuming the gas is ideal.
+
+   3. Isothermally compress to \SI{200}{bar}, assuming the gas is a van der Waals fluid.
+
+   4. Adiabatically compress to \SI{200}{bar}, assuming the gas is a van der Waals fluid.
+
+
+* I'm (Legendre) transformed
+Consider the exponential function $y=2 e^{x/2}$.
+
+1. Construct the Legendre transform of $y$.  Let's call it $\phi(m) = y - m x$, where $m = dy/dx$.
+
+2. Use software to plot the series of lines defined by $\phi(m)$. Recall that $\phi(m)$ is
+   the intercept of a line of slope $m$.  What  function does the series of lines trace out?
+
+3. A Legendre transform can be undone by performing an "inverse" transform.  The inverse
+   Legendre transform is constructed in the same way as the transform itself,
+   /except/ that $m=-dy/dx$. Perform an inverse Legendre transform on $\phi(m)$.

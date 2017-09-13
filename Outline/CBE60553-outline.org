@@ -190,12 +190,63 @@
 4. Entropy of mixing at constant density, \( \Delta s_\text{mix} = -R \sum_i y_i \ln y_i \)
 5. Work of separation
 
+
 ** van der Waals gas
 1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
 2. Fundamental equation $s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)$
 3. Simplest "cubic" EOS that gives qualitatively correct fluid properties
    1. Coexistent of two phases
    2. Critical point ($T_c$, $P_c$, $v_c$) where two phases coalesce into one
+
+#+BEGIN_SRC python :results output org drawer
+import numpy as np
+import matplotlib.pyplot as plt
+
+R = 0.0821 # l atm/mol K
+
+a = 3.640; b = 0.04267;
+
+vc = 3 * b; Tc = (8./9.)*a /(R * vc); Pc = (R * Tc)/(vc-b) - a/(vc*vc);
+
+vr = np.logspace(-0.5,1.)
+
+plt.figure(1)
+for Tr in np.arange(0.87,1.3,0.13):
+    Pr = 8 * Tr/(3 * vr -1) - 3 *(1/vr) *(1/vr)
+    plt.plot(vr*vc,Pr*Pc,label=Tr*Tc)
+
+plt.title('CO2 van der Waals isotherms')
+plt.ylim([.1*Pc,4*Pc])
+plt.xlim([.3*vc,6*vc])
+plt.xlabel('Volume (l/mol)')
+plt.ylabel('Pressure (atm)')
+legend=plt.legend()
+
+plt.savefig('./figs/vdWgas.png')
+
+plt.figure(2)
+for Tr in np.arange(0.87,1.3,0.13):
+    Pr = 8 * Tr/(3 * vr -1) - 3 *(1/vr) *(1/vr)
+    plt.loglog(vr*vc,Pr*Pc,label=Tr*Tc,basex=10)
+
+legend = plt.legend()
+
+plt.ylim([.1*Pc,100*Pc])
+plt.xlim([.3*vc,10*vc])
+plt.xlabel('Log volume (l/mol)')
+plt.ylabel('Log pressure (atm)')
+plt.title('CO2 van der Waals isotherms')
+
+plt.savefig('./figs/logvdWgas.png')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+[[./figs/vdWgas.png]]
+
+[[./figs/logvdWgas.png]]
 
 ** Other thermodynamic potentials
   1. Energy minimum principle minimum at constant entropy
