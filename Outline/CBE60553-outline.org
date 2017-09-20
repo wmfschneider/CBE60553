@@ -190,7 +190,6 @@
 4. Entropy of mixing at constant density, \( \Delta s_\text{mix} = -R \sum_i y_i \ln y_i \)
 5. Work of separation
 
-
 ** van der Waals gas
 1. $P_\text{vdW}=RT/(v-b) - a/v^2$ and $u = cRT - a/v$
 2. Fundamental equation $s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)$
@@ -258,7 +257,7 @@ plt.savefig('./figs/logvdWgas.png')
      2. Heat flow when only $PV$ work done
   4. Helmholtz $A(T,V,N) = U - TS$
      1. Minimized at constant $T$, $V$, and $N$
-     2. Maximum useful work from a process at temperature $T$
+     2. Maximum work from a process at temperature $T$
   5. Gibbs $G(T,P,N) = U + PV - TS$
      1. Minimized at constant $T$, $P$, and $N$
      2. Most useful for chemical problems
@@ -266,12 +265,13 @@ plt.savefig('./figs/logvdWgas.png')
   6. Alles potential
      1. Gibbs-Duhem redux
   7. Maxwell relations, see Table\nbsp{}\ref{Maxwell}.
-  8. Three unique susceptibilities of a one-component material (Table\nbsp{}\ref{susceptibilities})
+** Using thermodynamic potentials
+  1. Using (differential) thermodynamic relations
+     1. Joule-Thompson effect
+  2. Three unique susceptibilities of a one-component material (Table\nbsp{}\ref{susceptibilities})
      1. All thermodynamic properties can be described in terms of the susceptibilities
      2. Integrating susceptibilities
      3. Heat capacity and departure functions
-  9. Using thermodynamic relations
-     1. Joule-Thompson effect
 #+BEGIN_EXPORT LaTeX
 \begin{table}
   \begin{center}

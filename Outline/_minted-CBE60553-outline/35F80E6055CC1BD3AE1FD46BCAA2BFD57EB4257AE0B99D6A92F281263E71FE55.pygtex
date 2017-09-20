@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+
+\PYG{n}{R} \PYG{o}{=} \PYG{l+m+mf}{0.0821} \PYG{c+c1}{\PYGZsh{} l atm/mol K}
+
+\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{3.640}\PYG{p}{;} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{0.04267}\PYG{p}{;}
+
+\PYG{n}{vc} \PYG{o}{=} \PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{b}\PYG{p}{;} \PYG{n}{Tc} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mf}{8.}\PYG{o}{/}\PYG{l+m+mf}{9.}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a} \PYG{o}{/}\PYG{p}{(}\PYG{n}{R} \PYG{o}{*} \PYG{n}{vc}\PYG{p}{);} \PYG{n}{Pc} \PYG{o}{=} \PYG{p}{(}\PYG{n}{R} \PYG{o}{*} \PYG{n}{Tc}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{vc}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{a}\PYG{o}{/}\PYG{p}{(}\PYG{n}{vc}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{);}
+
+\PYG{n}{vr} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{logspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mf}{1.}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{Tr} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mf}{0.87}\PYG{p}{,}\PYG{l+m+mf}{1.3}\PYG{p}{,}\PYG{l+m+mf}{0.13}\PYG{p}{):}
+    \PYG{n}{Pr} \PYG{o}{=} \PYG{l+m+mi}{8} \PYG{o}{*} \PYG{n}{Tr}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{vr} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{3} \PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{vr}\PYG{p}{)} \PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{vr}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{vr}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{,}\PYG{n}{Pr}\PYG{o}{*}\PYG{n}{Pc}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{n}{Tr}\PYG{o}{*}\PYG{n}{Tc}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}CO2 van der Waals isotherms\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylim}\PYG{p}{([}\PYG{o}{.}\PYG{l+m+mi}{1}\PYG{o}{*}\PYG{n}{Pc}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{n}{Pc}\PYG{p}{])}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlim}\PYG{p}{([}\PYG{o}{.}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{])}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Volume (l/mol)\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Pressure (atm)\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{legend}\PYG{o}{=}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}./figs/vdWgas.png\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{Tr} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mf}{0.87}\PYG{p}{,}\PYG{l+m+mf}{1.3}\PYG{p}{,}\PYG{l+m+mf}{0.13}\PYG{p}{):}
+    \PYG{n}{Pr} \PYG{o}{=} \PYG{l+m+mi}{8} \PYG{o}{*} \PYG{n}{Tr}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{vr} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{3} \PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{vr}\PYG{p}{)} \PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{vr}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{loglog}\PYG{p}{(}\PYG{n}{vr}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{,}\PYG{n}{Pr}\PYG{o}{*}\PYG{n}{Pc}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{n}{Tr}\PYG{o}{*}\PYG{n}{Tc}\PYG{p}{,}\PYG{n}{basex}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{)}
+
+\PYG{n}{legend} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylim}\PYG{p}{([}\PYG{o}{.}\PYG{l+m+mi}{1}\PYG{o}{*}\PYG{n}{Pc}\PYG{p}{,}\PYG{l+m+mi}{100}\PYG{o}{*}\PYG{n}{Pc}\PYG{p}{])}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlim}\PYG{p}{([}\PYG{o}{.}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{o}{*}\PYG{n}{vc}\PYG{p}{])}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Log volume (l/mol)\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Log pressure (atm)\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}CO2 van der Waals isotherms\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}./figs/logvdWgas.png\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

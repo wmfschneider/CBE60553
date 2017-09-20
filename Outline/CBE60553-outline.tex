@@ -1,4 +1,4 @@
-% Created 2017-09-08 Fri 07:07
+% Created 2017-09-20 Wed 12:51
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -56,9 +56,9 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \begin{OPTIONS}
 \end{OPTIONS}
 \section{The Basic Structure of Thermodynamics}
-\label{sec:org63b447f}
+\label{sec:orgcc1b79b}
 \subsection{Problems and Postulates}
-\label{sec:orgc8c2588}
+\label{sec:orgf2c65f3}
 \begin{enumerate}
 \item Many DOFs \(\rightarrow\) few thermodynamic variables
 \item Extensive variables: \(V\), \(N\), \(U\)
@@ -108,7 +108,7 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \end{enumerate}
 
 \subsection{Interlude: Multivariate calculus}
-\label{sec:orgf07b6ac}
+\label{sec:orgc0a567e}
 \begin{enumerate}
 \item Partial derivatives
 \item State functions and exact differentials: \(df =\left (
@@ -135,7 +135,7 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \end{enumerate}
 
 \subsection{Calculus of energy, entropy, and equilibrium}
-\label{sec:orgee0fba4}
+\label{sec:orgacab086}
 \begin{enumerate}
 \item \(U = U(S,V,N)\) state function (Table\textasciitilde{}\ref{table:potentials})
 \begin{enumerate}
@@ -200,7 +200,7 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \end{table}
 
 \subsection{Ideal gas fundamental equation}
-\label{sec:orgc536745}
+\label{sec:org32fac82}
 \begin{enumerate}
 \item Ideal gas EOS \(Pv=RT\), \(u=cRT\)
 \begin{enumerate}
@@ -232,7 +232,7 @@ systems are fully characterized by \(U\), \(V\), \(N_j\)
 \end{enumerate}
 
 \subsection{Work and efficiency}
-\label{sec:org53a8c7d}
+\label{sec:orgb43a245}
 \begin{enumerate}
 \item Maximum work theorem: maximum work is delivered by a process that overall
 produces zero entropy
@@ -253,7 +253,7 @@ independent of working fluid
 \end{enumerate}
 
 \subsection{Ideal gas mixture}
-\label{sec:org6534387}
+\label{sec:org551ac46}
 \begin{enumerate}
 \item Define \(y_i = n_i/\sum_i n_i\)
 \item Ideal mixture: \(P v = R T \sum_i y_i = \sum_i P_i\), \(u= RT \sum_i c_i y_i =\sum_i u_i\)
@@ -263,7 +263,7 @@ independent of working fluid
 \end{enumerate}
 
 \subsection{van der Waals gas}
-\label{sec:org2a5dd0d}
+\label{sec:org8e6141d}
 \begin{enumerate}
 \item \(P_\text{vdW}=RT/(v-b) - a/v^2\) and \(u = cRT - a/v\)
 \item Fundamental equation \(s(u,v)=cR \ln((u+a/v)/(u_0+a/v_0))+R  \ln ((v-b)/(v_0-b)) + s_0(u_0,v_0)\)
@@ -274,8 +274,58 @@ independent of working fluid
 \end{enumerate}
 \end{enumerate}
 
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+R = 0.0821 # l atm/mol K
+
+a = 3.640; b = 0.04267;
+
+vc = 3 * b; Tc = (8./9.)*a /(R * vc); Pc = (R * Tc)/(vc-b) - a/(vc*vc);
+
+vr = np.logspace(-0.5,1.)
+
+plt.figure(1)
+for Tr in np.arange(0.87,1.3,0.13):
+    Pr = 8 * Tr/(3 * vr -1) - 3 *(1/vr) *(1/vr)
+    plt.plot(vr*vc,Pr*Pc,label=Tr*Tc)
+
+plt.title('CO2 van der Waals isotherms')
+plt.ylim([.1*Pc,4*Pc])
+plt.xlim([.3*vc,6*vc])
+plt.xlabel('Volume (l/mol)')
+plt.ylabel('Pressure (atm)')
+legend=plt.legend()
+
+plt.savefig('./figs/vdWgas.png')
+
+plt.figure(2)
+for Tr in np.arange(0.87,1.3,0.13):
+    Pr = 8 * Tr/(3 * vr -1) - 3 *(1/vr) *(1/vr)
+    plt.loglog(vr*vc,Pr*Pc,label=Tr*Tc,basex=10)
+
+legend = plt.legend()
+
+plt.ylim([.1*Pc,100*Pc])
+plt.xlim([.3*vc,10*vc])
+plt.xlabel('Log volume (l/mol)')
+plt.ylabel('Log pressure (atm)')
+plt.title('CO2 van der Waals isotherms')
+
+plt.savefig('./figs/logvdWgas.png')
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./figs/vdWgas.png}
+\end{center}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./figs/logvdWgas.png}
+\end{center}
+
 \subsection{Other thermodynamic potentials}
-\label{sec:orgab1d81d}
+\label{sec:org589ecac}
 \begin{enumerate}
 \item Energy minimum principle minimum at constant entropy
 \item Legendre transforms
@@ -291,7 +341,7 @@ independent of working fluid
 \item Helmholtz \(A(T,V,N) = U - TS\)
 \begin{enumerate}
 \item Minimized at constant \(T\), \(V\), and \(N\)
-\item Maximum useful work from a process at temperature \(T\)
+\item Maximum work from a process at temperature \(T\)
 \end{enumerate}
 \item Gibbs \(G(T,P,N) = U + PV - TS\)
 \begin{enumerate}
@@ -304,15 +354,19 @@ independent of working fluid
 \item Gibbs-Duhem redux
 \end{enumerate}
 \item Maxwell relations, see Table~\ref{Maxwell}.
+\end{enumerate}
+\subsection{Using thermodynamic potentials}
+\label{sec:org9119ad9}
+\begin{enumerate}
+\item Using (differential) thermodynamic relations
+\begin{enumerate}
+\item Joule-Thompson effect
+\end{enumerate}
 \item Three unique susceptibilities of a one-component material (Table~\ref{susceptibilities})
 \begin{enumerate}
 \item All thermodynamic properties can be described in terms of the susceptibilities
 \item Integrating susceptibilities
 \item Heat capacity and departure functions
-\end{enumerate}
-\item Using thermodynamic relations
-\begin{enumerate}
-\item Joule-Thompson effect
 \end{enumerate}
 \end{enumerate}
 \begin{table}
@@ -354,7 +408,7 @@ $ \left ( \dfrac{\partial S}{\partial P}\right )_T =  -\left ( \dfrac{\partial V
 \end{table}
 
 \subsection{Stability and phase equilibria}
-\label{sec:org1ca67e7}
+\label{sec:orgcddbf7d}
 \begin{enumerate}
 \item Local stability condition
 \begin{enumerate}
@@ -398,11 +452,11 @@ exactly in balance
 \end{enumerate}
 
 \section{The Microscopic View}
-\label{sec:orgde82edb}
+\label{sec:orgf96cf0d}
 \subsection{Micro-canonical ensemble}
-\label{sec:org25cec00}
+\label{sec:orgd76f5d1}
 \subsubsection{Energy is \emph{quantized} at microscopic level}
-\label{sec:org5c40672}
+\label{sec:org7537312}
 \begin{enumerate}
 \item Consequence of quantum mechanics
 \item electronic, vibrational, rotational, translational
@@ -410,7 +464,7 @@ exactly in balance
 \item Equal \emph{a priori} probabilities
 \end{enumerate}
 \subsubsection{Two-state model}
-\label{sec:org9df4ffc}
+\label{sec:org29c16e9}
 \begin{enumerate}
 \item Box of particles, each of which can have energy 0 or \(\epsilon\)
 \item Thermodynamic state defined by number of elements \(N\), and number of
@@ -457,7 +511,7 @@ particles are exchanged)
 \end{enumerate}
 
 \subsubsection{Two-state model in limit of large \(N\)}
-\label{sec:org3fe48b8}
+\label{sec:orgf29ccff}
 \begin{enumerate}
 \item Large \(N\) and Stirling's approximation
 \item Fundamental thermodynamic equation of two-state system:
@@ -478,9 +532,9 @@ particles are exchanged)
 \end{enumerate}
 
 \subsection{Canonical ensemble}
-\label{sec:org388c0a4}
+\label{sec:orgb965107}
 \subsubsection{Partition function}
-\label{sec:org770b34d}
+\label{sec:org7895187}
 \begin{enumerate}
 \item Where do fundamental equations come from?
 \item Direct construction of \(S(U)\) is generally intractable, so seek simpler approach
@@ -509,7 +563,7 @@ can factor probability to show
 \end{enumerate}
 
 \subsubsection{Energy factoring}
-\label{sec:org0d31635}
+\label{sec:org52b0b13}
 \begin{enumerate}
 \item If system is large, how to determine it's energy states \(U_j\)?  There
 would be many, many of them!
@@ -541,7 +595,7 @@ Approximate solution, good almost all the time:\}
 \end{enumerate}
 
 \subsubsection{Two-state system again}
-\label{sec:org86172b4}
+\label{sec:orgae8327c}
 \begin{enumerate}
 \item Partition function, \(q(T)=1+e^{-\epsilon\beta}\)
 \item State probabilities
@@ -608,15 +662,15 @@ Energy $G=A+PV$.
 \end{table}
 
 \subsection{Ideal gases redux}
-\label{sec:org32b78cb}
+\label{sec:org926e5f6}
 \subsubsection{Separability}
-\label{sec:orgf2153e9}
+\label{sec:org006cc8d}
     \begin{displaymath}
       Q_{ig}(N,V,T) = \frac{(q_\mathrm{trans}q_\mathrm{rot}q_\mathrm{vib})^N}{N!}
 \end{displaymath}
 
 \subsubsection{Particle-in-a-box (translational states of a gas)}
-\label{sec:org1e3c303}
+\label{sec:org0bb1581}
 \begin{enumerate}
 \item Energy states \(\epsilon_n=n^2\epsilon_0, n=1,2, \ldots\),
 \(\epsilon_0\) tiny for macroscopic \(V\)
@@ -636,21 +690,21 @@ to \(q_\mathrm{trans}\rightarrow\) integral approximation
 \item Entropy: Sackur-Tetrode equation
 \end{enumerate}
 \subsubsection{Rigid rotor (rotational states of a gas)}
-\label{sec:orgfb84c12}
+\label{sec:orge31908c}
 \begin{enumerate}
 \item energy states and degeneracies
 \item \(\Theta_\mathrm{rot} = \hbar^2/2 I k_B\)
 \item ``High'' T \(q_\mathrm{rot}(T) \approx \sigma \Theta_\mathrm{rot}/T\)
 \end{enumerate}
 \subsubsection{Harmonic oscillator (vibrational states of a gas)}
-\label{sec:orgea0c08a}
+\label{sec:org73ddfa2}
 \begin{enumerate}
 \item \(\Theta_\mathrm{vib}=h\nu/k_B\)
 \end{enumerate}
 \subsubsection{Electronic partition functions \(\rightarrow\) spin multiplicity}
-\label{sec:orgf45b3b1}
+\label{sec:orga2b5a1e}
 \subsubsection{Solids}
-\label{sec:orgf196232}
+\label{sec:orgcd83ca4}
 \begin{enumerate}
 \item Equipartition
 \item Law of Dulong and Petitt
@@ -783,7 +837,7 @@ U = U_\mathrm{trans} + U_\mathrm{rot} + U_\mathrm{vib} + U_\mathrm{elec}, \ldots
 \end{table}
 
 \subsubsection{Other ensembles}
-\label{sec:org14f3f5e}
+\label{sec:org086bc34}
 \begin{enumerate}
 \item Isothermal/isobaric
 \begin{enumerate}
@@ -798,11 +852,11 @@ U = U_\mathrm{trans} + U_\mathrm{rot} + U_\mathrm{vib} + U_\mathrm{elec}, \ldots
 \end{enumerate}
 \end{enumerate}
 \section{Thermodynamics of Stuff}
-\label{sec:org9599422}
+\label{sec:org39be236}
 \subsection{Theory of non-ideal fluids}
-\label{sec:orga00d9b2}
+\label{sec:org6ae7146}
 \subsubsection{Non-ideality}
-\label{sec:org18a5674}
+\label{sec:orgde7aa9a}
 \begin{enumerate}
 \item Real molecules interact through vdW interactions
 \begin{enumerate}
@@ -817,7 +871,7 @@ can still get at same ideas
 \item Configurational integral \(Q_\mathrm{config}=\int \ldots \int e^{-U(r)\beta} dr_1\ldots dr_n\)
 \end{enumerate}
 \subsubsection{van der Waals gas}
-\label{sec:org2e4e3e1}
+\label{sec:org45d3228}
 \begin{enumerate}
 \item Hard sphere + \(1/r^6\) potential + mean-field approximation (\(g(r)=1\))
 \item \(Q_\mathrm{config} = ((V-Nb) \exp (-(\phi/2)\beta))^N \rightarrow\) vdW EOS
@@ -828,9 +882,9 @@ can still get at same ideas
 \end{enumerate}
 
 \subsubsection{Radial distribution functions, \(g(r)\), for gases, liquids, solids}
-\label{sec:orgea8a9fe}
+\label{sec:org932b967}
 \subsubsection{Virial expansion}
-\label{sec:org73ebb6b}
+\label{sec:org7b0a46a}
 \begin{enumerate}
 \item Configurational integral can be expanded in powers of \(1/v\) times ``virial''
 coefficients \(B_j(T)\)
@@ -849,7 +903,7 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsubsection{Modern approach is to use numerical methods}
-\label{sec:org089a387}
+\label{sec:orgd56a107}
 \begin{enumerate}
 \item ``forcefield'' to represent intra- and intermolecular properties
 \item molecular dynamics or Monte Carlo to sample interactions
@@ -857,9 +911,9 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsection{Engineering representations of fluids}
-\label{sec:org504dde2}
+\label{sec:org09a5cad}
 \subsubsection{How to represent properties of real fluids?}
-\label{sec:org9ec99a7}
+\label{sec:org91c2dec}
 \begin{enumerate}
 \item Mechanical equations of state (empirical)
 \item Thermodynamic tabulations (JANAF, steam tables)
@@ -868,14 +922,14 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsubsection{Thermodynamic integrations}
-\label{sec:org94e459e}
+\label{sec:org76ee34d}
 \begin{enumerate}
 \item Integrate susceptibilities
 \item Integrate \(PvT\) relationship plus \(C_p^{ig}(T)\)
 \end{enumerate}
 
 \subsubsection{Compressibility}
-\label{sec:org1a85ae1}
+\label{sec:org3f0c5f5}
 \begin{enumerate}
 \item Fluids deviate from ideality because they have finite size and interact over distances, origin of two-parameter EOS
 \item Compressibility \(Z(T,P)=P/P^{ig}=Pv/RT\) measures deviation from ideality
@@ -886,7 +940,7 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \end{enumerate}
 
 \subsubsection{Cubic mechanical equations of state}
-\label{sec:orgdc7fc67}
+\label{sec:org1d8156d}
 \begin{enumerate}
 \item van der Waals, \(Z_c = 0.375\)
 \item Redlich-Kwong,  \(Z_c = 0.333\)
@@ -894,7 +948,7 @@ volume from that of an ideal gas, \(v_\text{res}(T,v) = v -
 \item Empirically parameterized, all obey law of corresponding states, none perfect
 \end{enumerate}
 \subsubsection{Departure functions measure thermodynamic potential difference between real}
-\label{sec:org3643aad}
+\label{sec:orgf4d3ef9}
 state and hypothetical ``ideal gas'' state
 \begin{enumerate}
 \item \(\Delta\)whatever = \(\Delta\) ideal + \(\Delta\) departure
@@ -903,7 +957,7 @@ state and hypothetical ``ideal gas'' state
 \item Enthalpy departure \(h(T,P) - h^{ig}(T,P) = RT \left ( Z-1 \right )  + \int_\infty^{v(T,P)} \left [ T \left  ( \frac{\partial P}{\partial T}\right )_v - P \right ] dv\)
 \end{enumerate}
 \subsubsection{Fugacity measures departure of free energy ideality}
-\label{sec:orge8a1128}
+\label{sec:orgb775f03}
 \begin{enumerate}
 \item Define \(\mu(T,P) = \mu^\circ(T) + RT \ln f(T,P)/f^\circ(T)\)
 \begin{equation*}
@@ -919,9 +973,9 @@ state and hypothetical ``ideal gas'' state
 \end{equation*}
 \end{enumerate}
 \subsection{Single-phase mixtures}
-\label{sec:org6683b52}
+\label{sec:org092eb9d}
 \subsubsection{Ideal gas mixtures}
-\label{sec:orge9abaa0}
+\label{sec:orge9de7aa}
 \begin{enumerate}
 \item Statistical mechanical approach
 \item Properties of ideal mixture
@@ -935,7 +989,7 @@ state and hypothetical ``ideal gas'' state
 \end{enumerate}
 
 \subsubsection{Non-ideal gas mixtures}
-\label{sec:org9d0cf86}
+\label{sec:org317682c}
 \begin{enumerate}
 \item Inconvenient that \(\lim_{y_{i}\to 0}\mu_i(y_i,T,P) = -\infty\)
 \item Construct \emph{fugacity} to obey same equilibrium conditions as chemical potential but to tend to \(y_{i}P\) in infinite dilution
@@ -957,7 +1011,7 @@ state and hypothetical ``ideal gas'' state
 \item Lewis (ideal) fugacity rule \(\bar{f}_i \approx y_i f_i\) generalization of ideal gas
 \end{enumerate}
 \subsubsection{Ideal liquid mixtures}
-\label{sec:orgd7f1a75}
+\label{sec:org5e23ba2}
 \begin{enumerate}
 \item Lattice model with random distribution of molecules
 
@@ -971,7 +1025,7 @@ state and hypothetical ``ideal gas'' state
 \item True for liquids of comparable molecular dimensions and interactions
 \end{enumerate}
 \subsubsection{Partial molar quantities}
-\label{sec:orgf0caf87}
+\label{sec:orge9e2b48}
 \begin{enumerate}
 \item For any extensive quantity or susceptibility, \(J\):
      \begin{equation*}
@@ -985,7 +1039,7 @@ state and hypothetical ``ideal gas'' state
 \end{enumerate}
 
 \subsubsection{Non-ideal liquid mixtures}
-\label{sec:org8994cd3}
+\label{sec:orgb4ff18f}
 \begin{enumerate}
 \item Bragg-Williams/mean field approximation
 \item Differential exchange parameter \(\chi_{AB}\)
@@ -1014,15 +1068,15 @@ state and hypothetical ``ideal gas'' state
 \item Freezing point depression/boiling point elevation
 \end{enumerate}
 \subsubsection{Ionic mixtures}
-\label{sec:org3d32f8a}
+\label{sec:org6938dd3}
 \begin{enumerate}
 \item Debye-Huckel
 \end{enumerate}
 
 \subsection{Gas-liquid equilibria}
-\label{sec:orgec89d26}
+\label{sec:orgda4c665}
 \subsubsection{Ideal-ideal liquid-vapor mixtures}
-\label{sec:orga3764ba}
+\label{sec:orgf0e8816}
 \begin{enumerate}
 \item Equal chemical potentials in each phase
 \item Equilibrium cycle (relate to single component phase equilibrium): start from single component l-v equilibrium, compress each component to desired pressure, then mix.
@@ -1036,7 +1090,7 @@ state and hypothetical ``ideal gas'' state
 \end{enumerate}
 
 \subsubsection{Non-ideal liquid/ideal vapor}
-\label{sec:org148b675}
+\label{sec:org7f729c1}
 \begin{enumerate}
 \item Regular solution
    \begin{equation*}
@@ -1058,9 +1112,9 @@ state and hypothetical ``ideal gas'' state
 
 
 \section{Thermodynamics of Change}
-\label{sec:org987df71}
+\label{sec:orgc237df3}
 \subsection{Chemical thermodynamics and equilibria}
-\label{sec:orgbdf5d1a}
+\label{sec:org61ba7eb}
 \begin{enumerate}
 \item Chemical reactions
 \item Thermodynamic potential differences
@@ -1131,7 +1185,7 @@ state and hypothetical ``ideal gas'' state
  \end{table}
 
 \subsection{Non-equilibrium thermodynamics}
-\label{sec:orga88e86e}
+\label{sec:org2658aed}
 \begin{table}
 \begin{center}
 \caption{Physical units}
