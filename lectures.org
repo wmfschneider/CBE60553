@@ -5,47 +5,50 @@
 |----+-------------------------------------------------+----------------------+------------------------|
 |  1 | Problems and Postulates                         | DePablo pp 1-12      | [[./Lectures/1Postulates.pdf][Postulates]]             |
 |    |                                                 |                      |                        |
-|  2 | Mathematical Interlude                          | Appendix A           | [[./Lectures/Differentials.pdf][Differentials]]          |
+| 2a | Mathematical Interlude                          | Appendix A           | [[./Lectures/2aDifferentials.pdf][Differentials]]          |
 |    |                                                 |                      |                        |
-|  3 | Calculus of Thermodynamics                      | DePablo pp 22-41     | [[./Lectures/2Equilibrium.pdf][Equilibrium]]            |
+|  2 | Calculus of Thermodynamics                      | DePablo pp 22-41     | [[./Lectures/2Equilibrium.pdf][Equilibrium]]            |
 |    |                                                 |                      |                        |
-|  4 | Ideal and Real Gases                            | DePablo pp 22-41     | [[./Lectures/3Examples.pdf][Examples]]               |
+|  3 | Applications to Ideal Gas                       | DePablo pp 22-41     | [[./Lectures/3IdealGas.pdf][Ideal Gas]]              |
+|    |                                                 |                      |                        |
+|  4 | Other Fundamental Equations                     |                      | [[./Lectures/4FundEqs.pdf][Fundamental]]            |
 |    |                                                 |                      |                        |
 |  5 | Other Thermodynamic Potentials                  | DePablo pp 52-82     | [[./Lectures/5Potentials.pdf][Potentials]]             |
 |    |                                                 | DePablo pp 129-140   |                        |
+|  6 | Applications of Potentials                      |                      | [[./Lectures/6Applications.pdf][Applications]]           |
 |----+-------------------------------------------------+----------------------+------------------------|
-|    | *EXAM 1*                                        |                      |                        |
+|    | *EXAM 1*  Wednesday, October 4, 2017            |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
 |    |                                                 |                      |                        |
-|  6 | Stability and Phase Equilibria                  | DePablo pp 112-129   |                        |
+|  7 | Stability and Phase Equilibria                  | DePablo pp 112-129   | [[./Lectures/7Stability][Stability]]              |
 |    |                                                 |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
 |    | *Part 2:* The Microscopic View                  |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
-|  7 | The Microcanonical Ensemble                     | DePablo pp 181-184   | [[./Lectures/6Microcanonical.pdf][Microcanonical]]         |
+|  8 | The Microcanonical Ensemble                     | DePablo pp 181-184   | [[./Lectures/6Microcanonical.pdf][Microcanonical]]         |
 |    |                                                 |                      |                        |
-|  8 | The Canonical Ensemble                          | DePablo pp 184-187   | [[./Lectures/7Canonical.pdf][Canonical]]              |
+|  9 | The Canonical Ensemble                          | DePablo pp 184-187   | [[./Lectures/7Canonical.pdf][Canonical]]              |
 |    |                                                 | DePablo pp 199-204   |                        |
-|  9 | Ideal Gas Redux                                 | DePablo pp 187-196   | [[./Lectures/8IdealRedux.pdf][Ideal Redux]]            |
+| 10 | Ideal Gas Redux                                 | DePablo pp 187-196   | [[./Lectures/8IdealRedux.pdf][Ideal Redux]]            |
 |    |                                                 |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
 |    | *Part 3:* Thermodynamics of Stuff               |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
-| 10 | Real Fluids                                     | DePablo pp 211-230   | [[./Lectures/9RealFluids.pdf][Real Fluids]]            |
+| 11 | Real Fluids                                     | DePablo pp 211-230   | [[./Lectures/9RealFluids.pdf][Real Fluids]]            |
 |    |                                                 | McQuarrie pp 319-330 |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
 |    | *Exam 2*                                        |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
-| 11 | Gas Mixtures                                    | DePablo pp 246-271   | [[./Lectures/11Gasmix.pdf][Gas Mixtures]]           |
+| 12 | Gas Mixtures                                    | DePablo pp 246-271   | [[./Lectures/11Gasmix.pdf][Gas Mixtures]]           |
 |    |                                                 |                      |                        |
-| 12 | Liquid Mixtures                                 | DePablo pp 305-317   | [[./Lectures/12LiquidMix.pdf][Liquid Mixtures]]        |
+| 13 | Liquid Mixtures                                 | DePablo pp 305-317   | [[./Lectures/12LiquidMix.pdf][Liquid Mixtures]]        |
 |    |                                                 |                      |                        |
-| 13 | Multiphase Mixtures                             | DePablo pp 282-299   | [[./Lectures/13Multiphasemix.pdf][Multiphase Mixtures]]    |
+| 14 | Multiphase Mixtures                             | DePablo pp 282-299   | [[./Lectures/13Multiphasemix.pdf][Multiphase Mixtures]]    |
 |    |                                                 |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
 |    | *Part 4:* Thermodynamics of Change              |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
-| 14 | Chemical Reactions                              | DePablo 328-356      | [[./Lectures/14Reactions.pdf][Reactions]]              |
+| 15 | Chemical Reactions                              | DePablo 328-356      | [[./Lectures/14Reactions.pdf][Reactions]]              |
 |    |                                                 |                      |                        |
 |----+-------------------------------------------------+----------------------+------------------------|
 |    | *Final Exam:* Tuesday, Dec 12, 4:15 - 6:15 pm   |                      |                        |
