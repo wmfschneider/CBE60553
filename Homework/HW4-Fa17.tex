@@ -1,0 +1,163 @@
+% Created 2017-09-20 Wed 21:52
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage{minted}
+\usepackage{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\setlength{\headheight}{10.2pt}
+\setlength{\headsep}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2017 W.\ F.\ Schneider}
+\rfoot{\thepage}
+\chead{\bf{Advanced Chemical Engineering Thermodynamics (CBE 60553)\vspace{12pt}}}
+\lhead{\bf{Homework 4}}
+\rhead{\bf{Due October 2, 2017}}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.6\baselineskip}{0.2\baselineskip}
+\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+\author{Prof. William F.\ Schneider}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60553 Homework}
+\begin{document}
+
+\begin{OPTIONS}
+\end{OPTIONS}
+
+\noindent \textbf{Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.}
+
+\section{van der Waals \ce{CO2} redux}
+\label{sec:org85ce388}
+Last homework you worked with the fundamental van der Waals equation:
+\begin{equation}
+s_\text{vdW}(u,v)=s_{0}+R\ln\left (v-b\right ) +c R \ln \left ( u+a/v \right )
+\end{equation}
+\begin{enumerate}
+\item Construct the Helmholtz potential of a van der Waals fluid,
+\(a_\text{vdW}(T,v)\).  \emph{Hints:} First differentiate to find the
+relationship between \(u\) and \(T\).
+
+\item Recall the example done in class of a piston separating two chambers of volumes 1 and
+\SI{10}{L}, respectively, each containing 1 mole of ideal gas, the whole system held isothermal at
+\SI{273}{K}.  We showed in class that \SI{-2.5}{kJ} of work could be extracted by allowing
+the piston to adjust the volumes to \SI{5}{L} and \SI{6}{L}.  Compare the amount of work available
+from the same process and conditions if the fluid was van der Waals \ce{CO2}.
+
+\item Compare the ideal and van der Waals \ce{CO2} cases if the volumes started at 0.1 and
+\SI{1.0}{L} and ended at 0.5 and \SI{0.6}{L}.
+
+\item Take the same case of a system of total volume of \SI{1.1}{L}, but now put 1 mole of van
+der Waals \ce{CO2} fluid on one side of the piston and 1 mole of ideal gas on the other.  If
+the piston was allowed to freely move, where would it end up?
+\end{enumerate}
+
+\section{Manipulating thermodynamic derivatives}
+\label{sec:org2928881}
+As Prateek might say, the susceptibilities, \(c_P\), \(\alpha\), and \(\kappa_T\), are
+  ``awesome.'' Everything about a one component fluid can be expressed in
+  terms of them, and for good reason! Here's some practice with them.
+\begin{enumerate}
+\item Express the derivative \(\left ( \frac{\partial T}{\partial v} \right )_h\) in terms
+of the three susceptibilities.
+
+\item Determine the susceptibilities of a van der Waals fluid.
+
+\item Plot \(\left ( \frac{\partial T}{\partial v} \right )_h\)  vs.~\(v\) for \(T\) from \(-50\) to
+\SI{50}{\celsius} in \SI{20}{\celsius} increments for van der Waals \ce{CO2}. Under what
+conditions of temperature and volume is the derivative negative?
+\end{enumerate}
+
+\section{Practice with potentials}
+\label{sec:org732c740}
+While a Carnot refrigerator sure would be efficient, in practice we don't
+  like to wait an eternity for our 'fridges to get cold.  Practical refrigerators use the
+  Joule-Thomson effect and irreversible, isenthalpic expansion to create the cold we
+  love.  Let's see how cold we can make things with van der Waals \ce{CO2}.
+
+\begin{enumerate}
+\item Construct the enthalpy \(h_\text{vdW}(T,v)\) of a van der Waals fluid.
+
+\item Determine the change in temperature when van der Waals \ce{CO2} is isenthalpically
+expanded from \(10^{-4}\) to \(10^{-3}~\text{m}^3~\text{mol}^{-1}\), starting from \SI{10}{\celsius}.
+
+\item A more reliable estimate of the change in temperature can be gotten from thermodynamic properties charts.  Thermodynamic charts for \ce{CO2} refrigerant are available at \url{https://www.chemours.com/Refrigerants/en_US/assets/downloads/h64422_Suva410A_thermo_prop_eng.pdf}.  Use the pressure-enthalpy chart at the end of this document to determine the change in temperature for the same isenthalpic expansion as in the previous question.
+\end{enumerate}
+
+\section{A departure from ideality}
+\label{sec:org5081816}
+The examples above assume the heat capacity of \ce{CO2} to be a constant. More
+generally heat capacities are functions of temperature and pressure. (We'll learn why when
+we study statistical mechanics.)  It's common to report heat capacities in a hypothetical
+ideal gas, pressure-independent limit, \(c_{p}^\text{ig}(T)\).  For instance, the molar heat
+capacity of ideal \ce{CO2} is reported to be:
+\begin{equation*}
+  c_p^\text{ig}(t) = -11.401074 - 55.231532t+5.149108t^2-0.29158t^3+0.110128t^{-2}+115.93493t^{1/2}
+\end{equation*}
+where \(t=T(K)/1000\).
+
+\begin{enumerate}
+\item Find the change in molar entropy of ``ideal gas'' \ce{CO2} when heated from 290 to
+\SI{350}{K}.
+
+\item To find the real change in entropy, we would need to know the difference in entropy
+between the ideal gas and real states of \ce{CO2} at identical \(T\) and \(v\) conditions.  This
+difference is called a ``departure function.'' To create this, we construct a hypothetical
+path between the real and ideal gas states, first expanding the van der Waals gas
+from \(v\) to \(v\rightarrow \infty\), where it behaves ideally, and then compressing from \(\infty\)
+to \(v\) as an ideal gas.  Express \(\left ( \frac{\partial S}{\partial v}\right )_{T}\) in terms
+\end{enumerate}
+of susceptibilities.
+
+\begin{enumerate}
+\item Construct \(\left ( \frac{\partial S}{\partial v}\right)_{T}\) for ideal \ce{CO2}.
+
+\item Construct \(\left ( \frac{\partial S}{\partial v}\right)_{T}\) for van der Waals
+\ce{CO2}.
+
+\item Construct the departure function \(S^{vdW}(T,v) - S^{ig}(T,v)\) by appropriate integration.
+
+\item Use the departure function (twice) to compute the molar entropy change when van der Waals
+\ce{CO2} is heated from \SI{290}{K} and \SI{1.0}{L/mol} to \SI{350}{K} and \SI{0.15}{L/mol}.
+\end{enumerate}
+\end{document}
