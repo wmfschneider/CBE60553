@@ -1,4 +1,4 @@
-% Created 2017-09-20 Wed 21:52
+% Created 2017-09-30 Sat 10:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -68,7 +68,7 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \noindent \textbf{Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.}
 
 \section{van der Waals \ce{CO2} redux}
-\label{sec:org85ce388}
+\label{sec:org343edfc}
 Last homework you worked with the fundamental van der Waals equation:
 \begin{equation}
 s_\text{vdW}(u,v)=s_{0}+R\ln\left (v-b\right ) +c R \ln \left ( u+a/v \right )
@@ -93,7 +93,7 @@ the piston was allowed to freely move, where would it end up?
 \end{enumerate}
 
 \section{Manipulating thermodynamic derivatives}
-\label{sec:org2928881}
+\label{sec:org429086d}
 As Prateek might say, the susceptibilities, \(c_P\), \(\alpha\), and \(\kappa_T\), are
   ``awesome.'' Everything about a one component fluid can be expressed in
   terms of them, and for good reason! Here's some practice with them.
@@ -109,7 +109,7 @@ conditions of temperature and volume is the derivative negative?
 \end{enumerate}
 
 \section{Practice with potentials}
-\label{sec:org732c740}
+\label{sec:orgf7bc301}
 While a Carnot refrigerator sure would be efficient, in practice we don't
   like to wait an eternity for our 'fridges to get cold.  Practical refrigerators use the
   Joule-Thomson effect and irreversible, isenthalpic expansion to create the cold we
@@ -121,11 +121,11 @@ While a Carnot refrigerator sure would be efficient, in practice we don't
 \item Determine the change in temperature when van der Waals \ce{CO2} is isenthalpically
 expanded from \(10^{-4}\) to \(10^{-3}~\text{m}^3~\text{mol}^{-1}\), starting from \SI{10}{\celsius}.
 
-\item A more reliable estimate of the change in temperature can be gotten from thermodynamic properties charts.  Thermodynamic charts for \ce{CO2} refrigerant are available at \url{https://www.chemours.com/Refrigerants/en_US/assets/downloads/h64422_Suva410A_thermo_prop_eng.pdf}.  Use the pressure-enthalpy chart at the end of this document to determine the change in temperature for the same isenthalpic expansion as in the previous question.
+\item A more reliable estimate of the change in temperature can be gotten from thermodynamic properties charts.  Thermodynamic charts for \ce{CO2} refrigerant are available at \href{https://i0.wp.com/emersonclimateconversations.com/wp-content/uploads/2015/04/co2-post-3-figure-2.jpg?ssl=1}{link}.  Use the pressure-enthalpy chart at the end of this document to determine the change in temperature for the same isenthalpic expansion as in the previous question.
 \end{enumerate}
 
 \section{A departure from ideality}
-\label{sec:org5081816}
+\label{sec:org6d06299}
 The examples above assume the heat capacity of \ce{CO2} to be a constant. More
 generally heat capacities are functions of temperature and pressure. (We'll learn why when
 we study statistical mechanics.)  It's common to report heat capacities in a hypothetical
@@ -155,7 +155,7 @@ of susceptibilities.
 \item Construct \(\left ( \frac{\partial S}{\partial v}\right)_{T}\) for van der Waals
 \ce{CO2}.
 
-\item Construct the departure function \(S^{vdW}(T,v) - S^{ig}(T,v)\) by appropriate integration.
+\item Construct the departure function \(S^{vdW}(T,v) - S^{ig}(T,v)\) by appropriate integration.  \emph{Hint}: This difference is equivalent to \emph{adding} \(S^{vdW}\) integrated along the path \(v \rightarrow\infty\) and \(S^{ig}\) integrated along the path \(\infty \rightarrow v\).
 
 \item Use the departure function (twice) to compute the molar entropy change when van der Waals
 \ce{CO2} is heated from \SI{290}{K} and \SI{1.0}{L/mol} to \SI{350}{K} and \SI{0.15}{L/mol}.

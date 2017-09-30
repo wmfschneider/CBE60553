@@ -86,7 +86,7 @@ While a Carnot refrigerator sure would be efficient, in practice we don't
 2. Determine the change in temperature when van der Waals \ce{CO2} is isenthalpically
     expanded from $10^{-4}$ to $10^{-3}~\text{m}^3~\text{mol}^{-1}$, starting from \SI{10}{\celsius}.
 
-3. A more reliable estimate of the change in temperature can be gotten from thermodynamic properties charts.  Thermodynamic charts for \ce{CO2} refrigerant are available at \url{https://www.chemours.com/Refrigerants/en_US/assets/downloads/h64422_Suva410A_thermo_prop_eng.pdf}.  Use the pressure-enthalpy chart at the end of this document to determine the change in temperature for the same isenthalpic expansion as in the previous question.
+3. A more reliable estimate of the change in temperature can be gotten from thermodynamic properties charts.  Thermodynamic charts for \ce{CO2} refrigerant are available at [[https://i0.wp.com/emersonclimateconversations.com/wp-content/uploads/2015/04/co2-post-3-figure-2.jpg?ssl=1][link]].  Use the pressure-enthalpy chart at the end of this document to determine the change in temperature for the same isenthalpic expansion as in the previous question.
 
 * A departure from ideality
 The examples above assume the heat capacity of \ce{CO2} to be a constant. More
@@ -115,7 +115,7 @@ of susceptibilities.
 3. Construct $\left ( \frac{\partial S}{\partial v}\right)_{T}$ for van der Waals
    \ce{CO2}.
 
-4. Construct the departure function $S^{vdW}(T,v) - S^{ig}(T,v)$ by appropriate integration.
+4. Construct the departure function $S^{vdW}(T,v) - S^{ig}(T,v)$ by appropriate integration.  /Hint/: This difference is equivalent to /adding/ \(S^{vdW}\) integrated along the path \(v \rightarrow\infty\) and \(S^{ig}\) integrated along the path \(\infty \rightarrow v\).
 
 5. Use the departure function (twice) to compute the molar entropy change when van der Waals
    \ce{CO2} is heated from \SI{290}{K} and \SI{1.0}{L/mol} to \SI{350}{K} and \SI{0.15}{L/mol}.
