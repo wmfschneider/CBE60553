@@ -283,7 +283,7 @@ Enthalpy   & Helmholtz & Gibbs \\
 $ \left ( \dfrac{\partial T}{\partial P}\right )_S =  \left ( \dfrac{\partial V}{\partial
     S}\right )_P  $ &
 $ \left ( \dfrac{\partial S}{\partial V}\right )_T =  \left ( \dfrac{\partial P}{\partial
-    T}\right )_S  $ &
+    T}\right )_V  $ &
 $ \left ( \dfrac{\partial S}{\partial P}\right )_T =  -\left ( \dfrac{\partial V}{\partial
     T}\right )_P  $ \\
 \hline
