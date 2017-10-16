@@ -1,0 +1,200 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60553 Homework
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+#+LATEX_HEADER:\setlength{\headheight}{10.2pt}
+#+LATEX_HEADER:\setlength{\headsep}{20pt}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2017 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\chead{\bf{Advanced Chemical Engineering Thermodynamics (CBE 60553)\vspace{12pt}}}
+#+LATEX_HEADER:\lhead{\bf{Homework 6}}
+#+LATEX_HEADER:\rhead{\bf{Due November 3, 2017}}
+#+LATEX_HEADER:\usepackage{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
+#+LATEX_HEADER:\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+#+LATEX_HEADER:\author{Prof. William F.\ Schneider}
+#+LATEX_HEADER:\usepackage{siunitx}
+#+LATEX_HEADER:\usepackage[version=3]{mhchem}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+
+\noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.*
+
+* It all adds up now
+The diagram below describes the energy states available to some molecule.
+
+#+attr_latex: :width 3in :float t
+[[./figs/Six-state.pdf]]
+
+1. <<q:Q>> Construct the partition function $q$ for the molecule at thermal equilibrium at a
+  temperature $\beta = 1/k_b T$.
+2. <<q:prob>> Plot the probability for the molecules to have each of the three possible energies
+    as a function of temperature.  Be sure to indicate the probabilities in the limits
+    $T\rightarrow 0$ and $T\rightarrow\infty$.
+3. <<q:U>> Derive an expression for the energy $u$ per molecule by summing over the possible
+    configurations weighted by their probabilities.  Plot this average energy vs.\nbsp{}
+    temperature.  Be sure to indicate the probabilities in the limits $T\rightarrow 0$ and $T\rightarrow\infty$.
+4. Derive an expression for the energy $u$ per molecule by taking the appropriate
+    derivative of the partition function from question [[q:Q]].  Does your result agree
+    with that from question [[q:U]]?
+5. Derive an expression for the Helmholtz free energy $f$ per molecule from the
+    partition function.  Plot $f$ vs.\nbsp{}temperature, assuming $\epsilon/k_b=300~\text{K}$.
+6. <<q:S>> Derive an expression for the entropy $s$ per molecule from the
+    partition function.  Plot $s$ vs.\nbsp{}temperature, again assuming $\epsilon/k_b=300~\text{K}$.
+7. Look at your answers for questions [[q:prob]] and [[q:S]].  Can you use them
+    to rationalize the Third Low of thermodynamics?
+8. What would happen to the Third Law if the ground ($\epsilon = 0$) state was degenerate?
+
+* Thermodynamics from scratch
+Let's calculate the thermodynamic properties
+of an ideal gas of \ce{CO2} at 1 bar pressure.  \ce{CO2} is a linear molecule (you knew
+that, right?), has a rotational constant $B=0.3836~\text{cm}^{-1}$ and vibrational
+frequencies $\mu_i = 2349$, 1388, 667, and 667~cm$^{-1}$.
+
+1. Calculate the translational, rotational, and four vibrational temperatures of \ce{CO2}.
+2. Plot the total translational, rotational, and total vibrational /energies/ of
+  \ce{CO2} from $T=$ \SIrange[range-units = single]{200}{2000}{K}.  Which (if any) of the three types of motions dominate
+  the internal energy?
+3. Plot the total translational, rotational, and total vibrational /Helmholtz energies/ of
+  \ce{CO2} from $T=$ \SIrange[range-units = single]{200}{2000}{K}.  Which (if any) of the three types of motions dominate
+  the Helmholtz energy?
+4. Plot the total translational, rotational, and total vibrational /constant
+    volume molar heat capacities/ of
+  \ce{CO2} from $T=$ \SIrange[range-units = single]{200}{2000}{K}.  Which (if any) of the three types of motions dominate
+  the heat capacity?
+* How'd the scratching turn out?
+Ideal gas thermodynamic quantities are often tabulated in polynomials of
+  temperature.  The molar heat heat capacity of \ce{CO2} is reported by a source to be:
+  \begin{equation*}
+    C_p^\text{ig}(t) = -11.401074 - 55.231532t+5.149108t^2-0.29158t^3+0.110128t^{-2}+115.93493t^{1/2}
+  \end{equation*}
+\noindent where $t=T(K)/1000$.  Compare (by plotting) this expression to your
+$C_v^\text{ig}(T)$ from scratch.  Recall $C_p^\text{ig} = C_v^\text{ig}+R$.
+
+* Langmuir isotherm
+Let's estimate an adsorption isotherm for CO on Pt at \SI{600}{K}, a temperature of practical relevance to catalysis:
+  \begin{equation}
+    \ce{\text{*} + CO (g) <=> CO\text{*}}
+  \end{equation}
+\noindent Suppose the CO gas is ideal, has a rotational constant
+  $B=\SI{1.931}{\per\centi\meter}$ and a harmonic \ce{C-O} stretch frequency of
+  \SI{2150}{\per\centi\meter}.  CO binds C-end down, one CO/Pt, with a constant binding
+  energy of about \SI{150}{\kilo\joule\per\mole}.  The surface-bound CO has (about) the
+  same \ce{C-O} stretch frequency and rotational constants as in the gas. In addition, the
+  CO vibrates againt the metal surface with a frequency of about
+  \SI{500}{\per\centi\meter} and parallel to the surface with frequency
+  \SI{150}{\per\centi\meter} (2-fold degenerate because the CO can move in two orthogonal
+  directions parallel to the surface).
+
+1. Estimate the adsorption equilibrium constant $K(T)$ at \SI{600}{K}.  Use a gas standard
+   state of \SI{1}{bar}. Recall we derived in class that
+\[
+ K(T) = \frac{q_\text{site}(T)}{q^{\circ}_\text{gas}(T)} e^{-\Delta{E}/k_{B}T}
+\]
+
+2. Plot the adsorption isotherm vs.\nbsp{}pressure.  At what pressure do you expect the surface to be 50% covered with CO?
+
+** Solution :noexport:
+#+BEGIN_SRC python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+print("CO internal vibrational (1) and rotational (2) degrees of freedom cancel out. CO in gas has 3 translational degrees of freedom.  On the surface, these become 3 vibrational DOFs.")
+
+# Universal constants:
+kB = 1.3806504e-23
+Nav = 6.02214179e23
+R0 = kB * Nav
+c = 299792458
+h = 6.62606896e-34
+P0 = 100000
+
+# system constants
+nu1 = 500. ; nu2 = 150.
+mCO = (12.00 + 15.9994)/(100.* Nav)
+dE = -150000
+
+
+def Keq(T):
+    return ((qvib(nu1,T)*qvib(nu2,T)*qvib(nu2,T))/qgas(mCO,T))*np.exp(-dE/(R0*T))
+
+def qvib(nucm,T):
+    thetavib = nucm * c * 100 * (h /kB)
+    return 1./(1 - np.exp(-thetavib/T))
+
+def qgas(m,T):
+   return (R0*T/P0)/(Lambda(m,T)**3)
+
+def Lambda(m,T):
+    beta = 1/(kB*T)
+    beta = beta/(2*m*np.pi)
+    return h*(np.sqrt(beta))
+
+def theta(K,P):
+    return K*P/(1+K*P)
+
+print('Problem 1:')
+for T in [100,200,300,400,500,600,700,800]:
+    print(T,'K',Keq(T))
+
+print('Problem 2:')
+print('K is very small at 600 K. Let''s look at the isotherm at 300 K.')
+K = Keq(300)
+P = 100000.
+
+P = np.linspace(1e4, 1e7)
+thetaP = theta(K,P)
+
+plt.plot(P,thetaP)
+plt.xlabel('Pressure (bar)')
+plt.ylabel('Coverage')
+plt.savefig('Langmuir.png')
+
+def theta50(P):
+   return theta(K,P)-0.5
+
+P = fsolve(theta50,300000)
+print('Pressure at 0.5 coverage =',P,'bar')
+print('These extreme conditions are a consequence of a not great set of approximations for qsite')
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+CO internal vibrational (1) and rotational (2) degrees of freedom cancel out. CO in gas has 3 translational degrees of freedom.  On the surface, these become 3 vibrational DOFs.
+Problem 1:
+100 K 3.91512546686e+47
+200 K 85289288.2763
+300 K 4.79355525008e-06
+400 K 1.13824953116e-12
+500 K 1.21949009689e-16
+600 K 2.77943846383e-19
+700 K 3.63445007521e-21
+800 K 1.41548616233e-22
+Problem 2:
+K is very small at 600 K. Lets look at the isotherm at 300 K.
+Pressure at 0.5 coverage = [ 208613.42945455] bar
+These extreme conditions are a consequence of a not great set of approximations for qsite
+#+end_example
+
+[[./Langmuir.png]]

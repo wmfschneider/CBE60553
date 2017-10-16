@@ -98,7 +98,7 @@ The Clapeyron equation, and its cousin Clausius-Clapeyron, relate observable
    of \SI{373.1}{K} given that \(\Delta
    H^\text{vap}(373.1~\text{K})=\SI{40.65}{kJ/mol}\) and the densities of liquid
    and vapor are 0.9584 and \SI{0.6010e-3}{\gram\per\milli\liter}, respectively.
-   Estimate the boiling point of water at 2 atm.
+   Estimate the boiling point of water at \SI{2}{atm}.
 
 2. A liquid boils at \SI{95}{\celsius} at the top of a hill and at \SI{105}{\celsius} at the
     bottom.  It's latent heat of vaporization is \SI{1000.}{cal\per\mole}.  What is the height
@@ -130,8 +130,7 @@ The two state model allows a simple illustration
   system is partitioned into two subsystems of equal size.
 
 #+attr_latex: :width 3in
-[[./figs/Two-state.pdf]]
-
+[[[[./figs/Two-state.pdf]]]]
 
 1. Suppose the system contains 8 atoms as in the figure above, and the total energy of
   the system is $U = 4\epsilon$.  Determine the possible energies $U_1$ of subsystem 1 and

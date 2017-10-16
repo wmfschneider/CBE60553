@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy.optimize} \PYG{k+kn}{import} \PYG{n}{fsolve}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}CO internal vibrational (1) and rotational (2) degrees of freedom cancel out. CO in gas has 3 translational degrees of freedom.  On the surface, these become 3 vibrational DOFs.\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Universal constants:}
+\PYG{n}{kB} \PYG{o}{=} \PYG{l+m+mf}{1.3806504e\PYGZhy{}23}
+\PYG{n}{Nav} \PYG{o}{=} \PYG{l+m+mf}{6.02214179e23}
+\PYG{n}{R0} \PYG{o}{=} \PYG{n}{kB} \PYG{o}{*} \PYG{n}{Nav}
+\PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{299792458}
+\PYG{n}{h} \PYG{o}{=} \PYG{l+m+mf}{6.62606896e\PYGZhy{}34}
+\PYG{n}{P0} \PYG{o}{=} \PYG{l+m+mi}{100000}
+
+\PYG{c+c1}{\PYGZsh{} system constants}
+\PYG{n}{nu1} \PYG{o}{=} \PYG{l+m+mf}{500.} \PYG{p}{;} \PYG{n}{nu2} \PYG{o}{=} \PYG{l+m+mf}{150.}
+\PYG{n}{mCO} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mf}{12.00} \PYG{o}{+} \PYG{l+m+mf}{15.9994}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mf}{100.}\PYG{o}{*} \PYG{n}{Nav}\PYG{p}{)}
+\PYG{n}{dE} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{150000}
+
+
+\PYG{k}{def} \PYG{n+nf}{Keq}\PYG{p}{(}\PYG{n}{T}\PYG{p}{):}
+    \PYG{k}{return} \PYG{p}{((}\PYG{n}{qvib}\PYG{p}{(}\PYG{n}{nu1}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)}\PYG{o}{*}\PYG{n}{qvib}\PYG{p}{(}\PYG{n}{nu2}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)}\PYG{o}{*}\PYG{n}{qvib}\PYG{p}{(}\PYG{n}{nu2}\PYG{p}{,}\PYG{n}{T}\PYG{p}{))}\PYG{o}{/}\PYG{n}{qgas}\PYG{p}{(}\PYG{n}{mCO}\PYG{p}{,}\PYG{n}{T}\PYG{p}{))}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{dE}\PYG{o}{/}\PYG{p}{(}\PYG{n}{R0}\PYG{o}{*}\PYG{n}{T}\PYG{p}{))}
+
+\PYG{k}{def} \PYG{n+nf}{qvib}\PYG{p}{(}\PYG{n}{nucm}\PYG{p}{,}\PYG{n}{T}\PYG{p}{):}
+    \PYG{n}{thetavib} \PYG{o}{=} \PYG{n}{nucm} \PYG{o}{*} \PYG{n}{c} \PYG{o}{*} \PYG{l+m+mi}{100} \PYG{o}{*} \PYG{p}{(}\PYG{n}{h} \PYG{o}{/}\PYG{n}{kB}\PYG{p}{)}
+    \PYG{k}{return} \PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{thetavib}\PYG{o}{/}\PYG{n}{T}\PYG{p}{))}
+
+\PYG{k}{def} \PYG{n+nf}{qgas}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,}\PYG{n}{T}\PYG{p}{):}
+   \PYG{k}{return} \PYG{p}{(}\PYG{n}{R0}\PYG{o}{*}\PYG{n}{T}\PYG{o}{/}\PYG{n}{P0}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{Lambda}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{3}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{Lambda}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,}\PYG{n}{T}\PYG{p}{):}
+    \PYG{n}{beta} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{p}{(}\PYG{n}{kB}\PYG{o}{*}\PYG{n}{T}\PYG{p}{)}
+    \PYG{n}{beta} \PYG{o}{=} \PYG{n}{beta}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{m}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{h}\PYG{o}{*}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{beta}\PYG{p}{))}
+
+\PYG{k}{def} \PYG{n+nf}{theta}\PYG{p}{(}\PYG{n}{K}\PYG{p}{,}\PYG{n}{P}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{K}\PYG{o}{*}\PYG{n}{P}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{K}\PYG{o}{*}\PYG{n}{P}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Problem 1:\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{T} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+m+mi}{100}\PYG{p}{,}\PYG{l+m+mi}{200}\PYG{p}{,}\PYG{l+m+mi}{300}\PYG{p}{,}\PYG{l+m+mi}{400}\PYG{p}{,}\PYG{l+m+mi}{500}\PYG{p}{,}\PYG{l+m+mi}{600}\PYG{p}{,}\PYG{l+m+mi}{700}\PYG{p}{,}\PYG{l+m+mi}{800}\PYG{p}{]:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{T}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}K\PYGZsq{}}\PYG{p}{,}\PYG{n}{Keq}\PYG{p}{(}\PYG{n}{T}\PYG{p}{))}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Problem 2:\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}K is very small at 600 K. Let\PYGZsq{}\PYGZsq{}s look at the isotherm at 300 K.\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{K} \PYG{o}{=} \PYG{n}{Keq}\PYG{p}{(}\PYG{l+m+mi}{300}\PYG{p}{)}
+\PYG{n}{P} \PYG{o}{=} \PYG{l+m+mf}{100000.}
+
+\PYG{n}{P} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mf}{1e4}\PYG{p}{,} \PYG{l+m+mf}{1e7}\PYG{p}{)}
+\PYG{n}{thetaP} \PYG{o}{=} \PYG{n}{theta}\PYG{p}{(}\PYG{n}{K}\PYG{p}{,}\PYG{n}{P}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{P}\PYG{p}{,}\PYG{n}{thetaP}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Pressure (bar)\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Coverage\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Langmuir.png\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{theta50}\PYG{p}{(}\PYG{n}{P}\PYG{p}{):}
+   \PYG{k}{return} \PYG{n}{theta}\PYG{p}{(}\PYG{n}{K}\PYG{p}{,}\PYG{n}{P}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}
+
+\PYG{n}{P} \PYG{o}{=} \PYG{n}{fsolve}\PYG{p}{(}\PYG{n}{theta50}\PYG{p}{,}\PYG{l+m+mi}{300000}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Pressure at 0.5 coverage =\PYGZsq{}}\PYG{p}{,}\PYG{n}{P}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}bar\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}These extreme conditions are a consequence of a not great set of approximations for qsite\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}
