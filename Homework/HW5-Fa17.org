@@ -41,18 +41,18 @@
 \noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.*
 
 * Just a little unstable
-The energy minimum/entropy maximum principle places bounds on the stability of fundamental equations.  What are the limits of stability with respect to $T$ and $v$ of the following fundamental equations?
+The energy minimum/entropy maximum principle places bounds on the stability of fundamental equations.  What are the limits of stability with respect to $T$ and $v$ of the following Helmholtz fundamental equations?
 
 1. A monatomic ideal gas:
 
    \begin{equation*}
-    f_\text{ig} = \left \{ - RT \ln (v) -1.5 R T \ln (R T) \right\} +\left \{ RT \right \}
+    a_\text{ig} = \left \{ - RT \ln (v) -1.5 R T \ln (R T) \right\} +\left \{ RT \right \}
    \end{equation*}
 
 2. A monatomic van der Waals gas:
 
   \begin{equation*}
-    f_\text{vdW} = \left \{ - RT \ln (v-b) -1.5 R T \ln (R T) \right\} +\left \{ RT -a/v
+    a_\text{vdW} = \left \{ - RT \ln (v-b) -1.5 R T \ln (R T) \right\} +\left \{ RT -a/v
     \right \}
     \end{equation*}
 
@@ -67,7 +67,7 @@ The van der Waals equation obeys
 
 \begin{equation*}
   \left ( \frac{\partial P}{\partial v} \right )_{T=T_c} = \left (
-    \frac{\partial^2 f}{\partial v^2} \right )_{T=T_c} = 0
+    \frac{\partial^2 P}{\partial v^2} \right )_{T=T_c} = 0
 \end{equation*}
 
 2. Plot the spinodal curve of a van der Waals fluid on a $P_R, v_R$ diagram.
@@ -85,11 +85,11 @@ Binodal curves are much trickier to find because they are determined by the equa
     \begin{equation*}
       \Delta s = \int_{v_l}^{v_g} \left ( \frac{\partial s}{\partial v} \right )_T dv
     \end{equation*}
-    Comment on any trend you find. \textit{Hint:} You'll want to apply a Maxwell relation to the partial derivative before evaluating.
+    Comment on any trend you find. \textit{Hint:} You'll want to apply a Maxwell relation and a cyclic permutation to the partial derivative before evaluating.
 
 4. (Bonus!) The van der Waals constants of \ce{H2O} are $a = 0.5609~\text{Pa
       m}^6\text{mol}^{-2}$ and $b = 30.49\times10^{-6}~\text{m}^3\text{mol}^{-1}$.  Use
-    your results to estimate $\Delta H^\text{vap}$ of \ce{H2O} at 1 atm.  How does the result compare to the experimental value of 40.64~kJ mol$^{-1}$?
+    your results to estimate $\Delta H^\text{vap}$ of \ce{H2O} at \SI{1}{atm}.  How does the result compare to the experimental value of \SI{40.64}{kJ/mol}?
 * Steam at the top of the mountain
 The Clapeyron equation, and its cousin Clausius-Clapeyron, relate observable
   pressure and temperature at a phase boundary to the underlying latent
@@ -130,7 +130,7 @@ The two state model allows a simple illustration
   system is partitioned into two subsystems of equal size.
 
 #+attr_latex: :width 3in
-[[[[./figs/Two-state.pdf]]]]
+[[./figs/Two-state.pdf]]
 
 1. Suppose the system contains 8 atoms as in the figure above, and the total energy of
   the system is $U = 4\epsilon$.  Determine the possible energies $U_1$ of subsystem 1 and

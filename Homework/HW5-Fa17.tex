@@ -1,4 +1,4 @@
-% Created 2017-10-16 Mon 11:15
+% Created 2017-10-16 Mon 22:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -68,26 +68,26 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \noindent \textbf{Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.}
 
 \section{Just a little unstable}
-\label{sec:org1ed2792}
-The energy minimum/entropy maximum principle places bounds on the stability of fundamental equations.  What are the limits of stability with respect to \(T\) and \(v\) of the following fundamental equations?
+\label{sec:org5d4dcbe}
+The energy minimum/entropy maximum principle places bounds on the stability of fundamental equations.  What are the limits of stability with respect to \(T\) and \(v\) of the following Helmholtz fundamental equations?
 
 \begin{enumerate}
 \item A monatomic ideal gas:
 
 \begin{equation*}
- f_\text{ig} = \left \{ - RT \ln (v) -1.5 R T \ln (R T) \right\} +\left \{ RT \right \}
+ a_\text{ig} = \left \{ - RT \ln (v) -1.5 R T \ln (R T) \right\} +\left \{ RT \right \}
 \end{equation*}
 
 \item A monatomic van der Waals gas:
 
 \begin{equation*}
-  f_\text{vdW} = \left \{ - RT \ln (v-b) -1.5 R T \ln (R T) \right\} +\left \{ RT -a/v
+  a_\text{vdW} = \left \{ - RT \ln (v-b) -1.5 R T \ln (R T) \right\} +\left \{ RT -a/v
   \right \}
   \end{equation*}
 \end{enumerate}
 
 \section{What passes for a law these days\ldots{}.}
-\label{sec:org1f85da1}
+\label{sec:orgbf90451}
 The van der Waals equation obeys
   the law of corresponding states, so all van der Waals fluids exhibit the same
   vapor-liquid phase equilibrium when presented in reduced variables.
@@ -100,7 +100,7 @@ equation in terms of the reduced variable \(v_R = v/v_c\), \(T_R = T/T_c\), and
 
 \begin{equation*}
   \left ( \frac{\partial P}{\partial v} \right )_{T=T_c} = \left (
-    \frac{\partial^2 f}{\partial v^2} \right )_{T=T_c} = 0
+    \frac{\partial^2 P}{\partial v^2} \right )_{T=T_c} = 0
 \end{equation*}
 
 \begin{enumerate}
@@ -108,7 +108,7 @@ equation in terms of the reduced variable \(v_R = v/v_c\), \(T_R = T/T_c\), and
 \end{enumerate}
 
 \section{The two phases of van der Waals}
-\label{sec:org27c4a42}
+\label{sec:orga764ce5}
 Binodal curves are much trickier to find because they are determined by the equality of the three intensive variables rather than just by the curvature of the free energy.  The ``equal area construction'' is a common numerical approach to finding the binodal points.
 
 \begin{enumerate}
@@ -122,14 +122,14 @@ to use a numerical solver.
 \begin{equation*}
   \Delta s = \int_{v_l}^{v_g} \left ( \frac{\partial s}{\partial v} \right )_T dv
 \end{equation*}
-Comment on any trend you find. \textit{Hint:} You'll want to apply a Maxwell relation to the partial derivative before evaluating.
+Comment on any trend you find. \textit{Hint:} You'll want to apply a Maxwell relation and a cyclic permutation to the partial derivative before evaluating.
 
 \item (Bonus!) The van der Waals constants of \ce{H2O} are \(a = 0.5609~\text{Pa
       m}^6\text{mol}^{-2}\) and \(b = 30.49\times10^{-6}~\text{m}^3\text{mol}^{-1}\).  Use
-your results to estimate \(\Delta H^\text{vap}\) of \ce{H2O} at 1 atm.  How does the result compare to the experimental value of 40.64\textasciitilde{}kJ mol\(^{-1}\)?
+your results to estimate \(\Delta H^\text{vap}\) of \ce{H2O} at \SI{1}{atm}.  How does the result compare to the experimental value of \SI{40.64}{kJ/mol}?
 \end{enumerate}
 \section{Steam at the top of the mountain}
-\label{sec:orgdc49e0d}
+\label{sec:orgb1031ea}
 The Clapeyron equation, and its cousin Clausius-Clapeyron, relate observable
   pressure and temperature at a phase boundary to the underlying latent
   quantities.
@@ -146,7 +146,7 @@ of the hill?  \emph{Hint:} How does pressure vary with altitude?
 \end{enumerate}
 
 \section{Qualitatively in phase}
-\label{sec:orgbd8732c}
+\label{sec:org68d4d44}
 The triple point of oxygen (\ce{O2}) is at \ce{54.3}{K} and \SI{1.14}{torr}; it's
   critical point is at \SI{154.6}{K} and \SI{37828}{torr}; it's normal melting and boiling
   points are \SI{-218.4}{\celsius} and \SI{-182.9}{\celsius}, respectively.
@@ -154,7 +154,7 @@ The triple point of oxygen (\ce{O2}) is at \ce{54.3}{K} and \SI{1.14}{torr}; it'
   the same way that water does?
 
 \section{Quantitatively in phase}
-\label{sec:orgaeca7c9}
+\label{sec:orgbdd7dc2}
 Near the triple point the following equations describe the vapor pressure of
     liquid and solid \ce{NH3}:
 \begin{equation*}
@@ -169,15 +169,15 @@ Near the triple point the following equations describe the vapor pressure of
 \end{enumerate}
 
 \section{Are you sure? How sure?}
-\label{sec:orgdde3285}
+\label{sec:org3714880}
 The two state model allows a simple illustration
   of the principles of the microcanonical ensemble. A closed system is composed of an even
   number of two-state ``atoms,'' each of which can have energy 0 or \(\epsilon\).  The
   system is partitioned into two subsystems of equal size.
 
-[[\begin{center}
+\begin{center}
 \includegraphics[width=3in]{./figs/Two-state.pdf}
-\end{center}]]
+\end{center}
 
 \begin{enumerate}
 \item Suppose the system contains 8 atoms as in the figure above, and the total energy of
