@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+
+\PYG{n}{R0} \PYG{o}{=} \PYG{l+m+mf}{8.31441}
+\PYG{n}{T} \PYG{o}{=} \PYG{l+m+mf}{273.15} \PYG{o}{+} \PYG{l+m+mi}{40}
+\PYG{n}{P} \PYG{o}{=} \PYG{l+m+mi}{101325}       \PYG{c+c1}{\PYGZsh{} Pascal}
+
+\PYG{n}{y} \PYG{o}{=} \PYG{l+m+mf}{0.12}
+
+\PYG{n}{amix} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{R0} \PYG{o}{*} \PYG{n}{T} \PYG{o}{*} \PYG{p}{(}\PYG{n}{y}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{y}\PYG{p}{)}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{y}\PYG{p}{))}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Question 1\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Ideal work =\PYGZsq{}}\PYG{p}{,}\PYG{n}{amix}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}J/mol mixture\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Ideal work =\PYGZsq{}}\PYG{p}{,}\PYG{n}{amix}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{l+m+mf}{0.12}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{l+m+mf}{0.032}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{l+m+mf}{1000.}\PYG{p}{),}\PYG{l+s+s1}{\PYGZsq{}kJ/kg CO2\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Question 2\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Same answer. Non\PYGZhy{}ideal parts cancel\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

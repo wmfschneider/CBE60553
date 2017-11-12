@@ -12,3 +12,5 @@
 | 5 | 23 Oct 2017 | [[./Homework/HW5-Fa17.pdf][pdf]]       | [[./Homework/HW5-Fa17-soln.pdf][pdf]]       |
 |   |             |           |           |
 | 6 | 3 Nov 2017  | [[./Homework/HW6-Fa17.pdf][pdf]]       | [[./Homework/HW6-Fa17-soln.pdf][pdf]]       |
+|   |             |           |           |
+| 7 | 22 Nov 2017 | [[./Homework/HW7-Fa17.pdf][pdf]]       |           |
