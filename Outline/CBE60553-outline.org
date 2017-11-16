@@ -454,7 +454,7 @@ $ \left ( \dfrac{\partial S}{\partial P}\right )_T =  -\left ( \dfrac{\partial V
    4. /If not/ distinguishable (like molecules in a liquid or gas, or
 	electrons in a solid), problem is difficult, because identical
 	arrangements of energy amongst elements should only be counted once.
-	Approximate solution, good almost all the time:}
+	Approximate solution, good when number of available quantum states ourstrips number of particles:
       \begin{equation}
 	Q(N,V,T)=q^N/N!
       \end{equation}

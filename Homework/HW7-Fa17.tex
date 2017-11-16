@@ -1,0 +1,185 @@
+% Created 2017-11-12 Sun 16:06
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage{minted}
+\usepackage{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\setlength{\headheight}{10.2pt}
+\setlength{\headsep}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2017 W.\ F.\ Schneider}
+\rfoot{\thepage}
+\chead{\bf{Advanced Chemical Engineering Thermodynamics (CBE 60553)\vspace{12pt}}}
+\lhead{\bf{Homework 6}}
+\rhead{\bf{Due November 22, 2017}}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.6\baselineskip}{0.2\baselineskip}
+\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+\author{Prof. William F.\ Schneider}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60553 Homework}
+\begin{document}
+
+\begin{OPTIONS}
+\end{OPTIONS}
+
+\noindent \textbf{Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Matlab or Mathematica. Use plotting software for all plots.}
+
+\section{It's all a balance}
+\label{sec:org7078f63}
+The van der Waals equation of state captures the balance between molecular attractions and repulsions that characterize a real fluid. The Helmholtz free energy of a monatomic van der Waals fluid can be written
+\begin{equation*}
+  a_\text{vdW} = \left \{ - RT \ln (v-b) -1.5 R T \ln (R T) \right\} +\left \{ RT -a/v
+  \right \}
+\end{equation*}
+\noindent where the terms in the first bracket correspond to the entropic repulsive forces and the
+terms in the second bracket the energetic attractions.
+
+\begin{enumerate}
+\item Plot the repulsive, attractive, and total Helmholtz energies of \ce{CO2} at \SI{280}{K}
+vs.~log molar volume from 0.04 to \SI{1}{\liter\per\mole}.  The \ce{CO2} van der Waals constants
+are \(a =\SI{3.6551}{\liter\squared\bar\per\mole\squared}\) and \(b = \SI{0.042816}{\liter\per\mole}\).
+
+\item \label{q:Z} Plot the compressibility of van der Waals \ce{CO2} vs.~reduced pressure  \(P_r\) of \(0.1
+   < P_r < 10\) at \(T_r =1.05\). The critical temperature of \ce{CO2} is \(T_c =
+   \SI{304.2}{K}\) and critical pressure \(P_c = \SI{7.376e6}{\pascal}\).  \emph{Hint}: You will
+have to solve a cubic numerically.  Consider which of the three roots is the relevant
+one.
+
+\item The compressibility of an ideal gas is \(Z_\text{ig}=1\).  Explain in terms of
+microscopic interactions why \(Z\) is greater or less than 1 for the various values of
+\(P_r\) in your Question \ref{q:Z} plot.
+\end{enumerate}
+
+\section{We had to talk about it at some point}
+\label{sec:org403ab60}
+The fugacity \(f(T,P)\) of a gas is defined as the function that satisfies
+
+\[
+\mu(T,P) =
+\mu^\circ(T) + RT \ln \left ( f(T,P)/ P^\circ) \right )
+\]
+where \(\mu^{\circ}(T)\) is the chemical potential of the fluid in an ideal gas reference
+state at reference pressure \(P^{\circ}\). The fugacity has units of pressure.
+
+\begin{enumerate}
+\item What is the \(\lim_{P\rightarrow 0} \mu(T,P)\)?  \emph{Hint}: Remember that all gas are ideal in
+the limit of zero pressure or infinite volume.
+
+\item What is the \(\lim_{P\rightarrow 0} f(T,P)\)?  Why is fugacity a useful concept?
+
+\item Derive a relationship between the residual volume, \(v_{res} = v - v_{ig}\), and
+compressibility \(Z\).
+
+\item Derive the following relationship between fugacity and compressibility.  Use the Gibbs-Duhem relationship between \(d\mu\) and the other intensive variables.
+\begin{equation}
+  \left ( \frac{\partial\ln\left(f/P\right)}{\partial P} \right )_{T} = \frac{v}{RT} \left ( \frac{Z-1}{Z} \right )
+\end{equation}
+
+\item Because equations of state are usually rational functions in \(v\), it is generally
+easier to compute \(f(T,v)\) than \(f(T,p)\) Use the chain rule to relate the derivative
+above to a derivative in \(v\). Evaluate the expression you get assuming the fluid
+follows a one-parameter virial equation of state.
+
+\item Now compute \(\ln (f/P)\) for the one-parameter virial equation of state by integrating
+from the ideal gas limit (\(v \rightarrow \infty\) to \(v\)).  Recall that \(f\rightarrow P\)
+in the ideal gas limit.
+
+\item This ratio \(f/P\) is called the fugacity coefficient, \(\phi\). When \(\phi > 1\), the
+chemical potential is greater than that of an ideal gas at the same density and
+temperature, and vice versa when \(\phi < 1\).  Recall we learned that the second virial
+coefficient \(B > 0\) at high temperatures, where entropy effects dominate, and \(B < 0\)
+at low temperatures, where the energetic interactions between molecules dominate.  How
+does the virial EOS chemical potential compare to the ideal gas chemical potential at high
+temperature? At low temperature?  Why?
+
+\item One can do similar calculations for more complex equations of state. Be thankful I
+didn't ask you to. They are a mess. If you need the results, look them up.
+\end{enumerate}
+
+\section{Separating an ideal mixture}
+\label{sec:org4f01927}
+The exhaust from a coal-fired power plant contains approximately 12$\backslash$% \ce{CO2} in a
+  mixture of other gases, all at \SI{40}{\celsius} and \SI{1}{atm}.
+
+\begin{enumerate}
+\item What is the minimum work, in kJ/kg \ce{CO2}, to separate the \ce{CO2} from the
+remaining gases at constant \(T\) and \(P\), assuming the gas mixture is ideal?
+
+\item What is the minimum work of separation if the mixture is non-ideal and obeys the
+Lewis-Randall mixing rules, \(\hat{f}_i^{\text{mix}} = y_i f_i\)?
+\end{enumerate}
+
+\[
+W_{min} = -\Delta G_{mix} = (N_A \mu_A(y_A,T) + N_B \mu_B(y_B,T)) - N_A \mu_A(T) - N_B \mu_B(T)
+\]
+
+\section{And fugacity makes a come-back}
+\label{sec:org3825df8}
+The virial equation of state can be generalize for a mixture to
+
+\begin{equation*}
+  \frac{P}{RT} = \frac{N}{V} + \frac{N^2 B_\text{mix}}{V^2} \qquad B_\text{mix} =
+  \sum_i\sum_j y_iy_j B_{ij} \qquad B_{ij} = \sqrt{B_iB_j}
+\end{equation*}
+
+\begin{enumerate}
+\item Derive an expression for the partial molar volume of component \(\bar v_{i}\) in the virial
+mixture.  \textit{Hint:} Take advantage of the triple product rule of partial derivatives.
+
+\item The component fugacity \(\hat{f}_{i}(T,P)\) and the corresponding fugacity coefficient \(\hat{f}_i/y_i
+   P = \phi_i(T,P)\) can be defined in analogy to the expression for the pure component system.
+Use this definition to derive an expression for \(\ln \phi_i\) for the virial
+mixture, integrating as appropriate from the ideal gas limit to \(P\).
+\begin{equation}
+  \left ( \frac{\partial\ln\left(\hat{f}_{i}/y_{i}P\right)}{\partial P} \right )_{T} = \frac{\bar{v}_{i} - \bar{v}_{ig}}{RT}
+\end{equation}
+
+\item (4 pts) The second virial coefficients of \ce{CO2} and air are \(-110.7\) and
+\(-3 \text{ cm}^3 \text{ mol}^{-1}\) at \(40^\circ\)C. What is the minimum work of
+separation of 12$\backslash$% \ce{CO2} from \ce{N2} approximating the mixture with the
+virial equation of state?
+\end{enumerate}
+\end{document}
