@@ -175,7 +175,7 @@ print('Question 3: because it behaves more nicely in the ideal limit than does m
 # \end{tabular}
 
 * Separating an ideal mixture
-The exhaust from a coal-fired power plant contains approximately 12\% \ce{CO2} in a
+The exhaust from a coal-fired power plant contains approximately 12% \ce{CO2} in a
   mixture of other gases, all at \SI{40}{\celsius} and \SI{1}{atm}.
 
 1. What is the minimum work, in kJ/kg \ce{CO2}, to separate the \ce{CO2} from the
@@ -235,7 +235,7 @@ The virial equation of state can be generalize for a mixture to
 
 3. (4 pts) The second virial coefficients of \ce{CO2} and air are \(-110.7\) and
    \(-3 \text{ cm}^3 \text{ mol}^{-1}\) at \(40^\circ\)C. What is the minimum work of
-   separation of 12\% \ce{CO2} from \ce{N2} approximating the mixture with the
+   separation of 12% \ce{CO2} from \ce{N2} approximating the mixture with the
    virial equation of state?
 
 
