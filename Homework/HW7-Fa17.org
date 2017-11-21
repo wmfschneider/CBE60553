@@ -81,6 +81,10 @@ T = 280.   # K
 #+END_SRC
 
 * We had to talk about it at some point
+#+BEGIN_COMMENT
+This is the same as the departure functions.  It is easier if we know v(T,P) and can integrate over P, more messy if we know P(T,v) and must integrate over v. This problem is cast in the latter form, but I'm not sure it is done correctly.  Probably better to use pressure form of virial EOS.
+#+END_COMMENT
+
 The fugacity $f(T,P)$ of a gas is defined as the function that satisfies
 
 \[
@@ -214,7 +218,7 @@ print('Same answer. Non-ideal parts cancel')
 : Question 2
 : Same answer. Non-ideal parts cancel
 
-* And fugacity makes a come-back
+* COMMENT And fugacity makes a come-back
 The virial equation of state can be generalize for a mixture to
 
   \begin{equation*}
@@ -241,6 +245,41 @@ The virial equation of state can be generalize for a mixture to
 
 #+BEGIN_COMMENT
 The residual volume in the mixture is a function only of composition and the B's, so can
-integrate in pressure.
+integrate in pressure.  Only if we use the truncated form!
 #+END_COMMENT
 
+* And fugacity makes a come-back
+The virial equation of state can be recast in terms of pressures as
+\begin{equation*}
+Z(T,P) = 1 + \frac{P}{RT} B_2(T) + \left (\frac{P}{RT} \right )^2 \left ( C(T)-B(T)^2 \right ) + \ldots
+\end{equation*}
+where \(B\) and \(C\) are the second and third virial coefficients, respectively.  This form becomes particularly easy to work with when  we truncated at the linear term in \(P\).  For a mixture, it can further be shown that
+
+  \begin{equation*}
+    B_\text{mix} =  \sum_i\sum_j y_iy_j B_{ij} \qquad B_{ij} = \sqrt{B_iB_j}
+  \end{equation*}
+
+1. Derive an expression for the partial molar volume $\bar v_{i}$ of a component in a
+  mixture using the truncated virial equation of state.
+
+2. The component fugacity \(\hat{f}_{i}(T,P)\) and the corresponding
+   fugacity coefficient $\hat{f}_i/y_i P = \phi_i(T,P)$ can be defined
+   in analogy to the expression for the pure component system.  Use
+   this definition to derive an expression for $\ln \phi_i$ for the
+   virial mixture, integrating as appropriate from the ideal gas limit
+   to \(P\).
+   \begin{equation}
+     \left ( \frac{\partial\ln\left(\hat{f}_{i}/y_{i}P\right)}{\partial P} \right )_{T} = \frac{\bar{v}_{i} - \bar{v}_{ig}}{RT}
+   \end{equation}
+
+3. (4 pts) The second virial coefficients of \ce{CO2} and air are
+   \(-110.7\) and \(-3 \text{ cm}^3 \text{ mol}^{-1}\) at
+   \(40^\circ\)C. What is the minimum work of separation of 12%
+   \ce{CO2} from air approximating the mixture with the virial
+   equation of state?
+
+
+#+BEGIN_COMMENT
+The residual volume in the mixture is a function only of composition and the B's, so can
+integrate in pressure.
+#+END_COMMENT
