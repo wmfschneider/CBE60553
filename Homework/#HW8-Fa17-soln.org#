@@ -84,7 +84,7 @@ Within the regular solution model, the free  energy of mixing two liquids is giv
   derivatives of the free energy of mixing must vanish at this point.  Find the critical
   composition and temperature of this mixture.  Assume that $\chi_\text{AB} \propto 1/T$.
 
-** Solution :noexport:
+** Solution 
 #+BEGIN_SRC python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -276,6 +276,6 @@ The partial pressure of \ce{CS2} above a
 1. Use the Gibbs-Duhem relation to determine the partial pressure of DMM as a
     function of composition.  Assume the vapor is ideal.
 2. Do \ce{CS2} and DMM form a regular solution at these conditions?  /Hint/: Determine the activities of each component and from these the excess free energy of mixing.  Is it proportional to $x(1-x)$?
-
+   
 ** Solution 
 [[./HW8-Q4-soln.pdf]]

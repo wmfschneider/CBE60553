@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{from} \PYG{n+nn}{mpl\PYGZus{}toolkits.mplot3d} \PYG{k+kn}{import} \PYG{n}{Axes3D}
+
+\PYG{k}{def} \PYG{n+nf}{mu}\PYG{p}{(}\PYG{n}{mu0}\PYG{p}{,}\PYG{n}{x}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{mu0} \PYG{o}{+} \PYG{n}{RT} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} We are free to set chemical potential scale for A and B.}
+\PYG{c+c1}{\PYGZsh{} Let chemical potentials of pure liquid A and B be 0. Can be any numbers}
+\PYG{n}{muAl0} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{muBl0} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+\PYG{n}{RT} \PYG{o}{=} \PYG{l+m+mf}{8.314}\PYG{o}{*}\PYG{l+m+mi}{300}
+\PYG{n}{PBsat} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{PAsat} \PYG{o}{=} \PYG{l+m+mi}{10}
+
+\PYG{c+c1}{\PYGZsh{}P = np.linspace(PBsat,PAsat,num=10)}
+\PYG{n}{xB} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{,}\PYG{l+m+mf}{0.99}\PYG{p}{,}\PYG{n}{num}\PYG{o}{=}\PYG{l+m+mi}{20}\PYG{p}{)}
+\PYG{n}{yB} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{,}\PYG{l+m+mf}{0.99}\PYG{p}{,}\PYG{n}{num}\PYG{o}{=}\PYG{l+m+mi}{20}\PYG{p}{)}
+
+\PYG{n}{gl} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{xB}\PYG{p}{)} \PYG{o}{*} \PYG{n}{mu}\PYG{p}{(}\PYG{n}{muAl0}\PYG{p}{,(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{xB}\PYG{p}{))} \PYG{o}{+} \PYG{n}{xB} \PYG{o}{*} \PYG{n}{mu}\PYG{p}{(}\PYG{n}{muBl0}\PYG{p}{,}\PYG{n}{xB}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{):}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
+   \PYG{n}{P} \PYG{o}{=} \PYG{n}{PBsat} \PYG{o}{+} \PYG{n}{i}\PYG{o}{*}\PYG{p}{(}\PYG{n}{PAsat}\PYG{o}{\PYGZhy{}}\PYG{n}{PBsat}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mf}{4.}
+   \PYG{n}{muAv0} \PYG{o}{=} \PYG{n}{muAl0} \PYG{o}{+} \PYG{n}{RT} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{P}\PYG{o}{/}\PYG{n}{PAsat}\PYG{p}{)}
+   \PYG{n}{muBv0} \PYG{o}{=} \PYG{n}{muBl0} \PYG{o}{+} \PYG{n}{RT} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{P}\PYG{o}{/}\PYG{n}{PBsat}\PYG{p}{)}
+   \PYG{n}{gv} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{yB}\PYG{p}{)} \PYG{o}{*} \PYG{n}{mu}\PYG{p}{(}\PYG{n}{muAv0}\PYG{p}{,(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{yB}\PYG{p}{))} \PYG{o}{+} \PYG{n}{yB} \PYG{o}{*} \PYG{n}{mu}\PYG{p}{(}\PYG{n}{muBv0}\PYG{p}{,}\PYG{n}{yB}\PYG{p}{)}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xB}\PYG{p}{,}\PYG{n}{gl}\PYG{p}{)}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{yB}\PYG{p}{,}\PYG{n}{gv}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}2phase.png\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

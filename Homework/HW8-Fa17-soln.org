@@ -84,7 +84,7 @@ Within the regular solution model, the free  energy of mixing two liquids is giv
   derivatives of the free energy of mixing must vanish at this point.  Find the critical
   composition and temperature of this mixture.  Assume that $\chi_\text{AB} \propto 1/T$.
 
-** Solution :noexport:
+** Solution 
 #+BEGIN_SRC python
 import numpy as np
 import matplotlib.pyplot as plt

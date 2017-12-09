@@ -1,0 +1,64 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy.optimize} \PYG{k+kn}{as} \PYG{n+nn}{opt}
+
+\PYG{c+c1}{\PYGZsh{} free energy of mixing}
+\PYG{k}{def} \PYG{n+nf}{deltaf}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{R} \PYG{o}{*} \PYG{n}{T} \PYG{o}{*} \PYG{p}{(} \PYG{n}{xb} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{xb}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{xb}\PYG{p}{)}  \PYG{o}{+} \PYG{n}{chi} \PYG{o}{*} \PYG{n}{xb} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{\PYGZhy{}}\PYG{n}{xb}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} first derivative}
+\PYG{k}{def} \PYG{n+nf}{ddeltaf}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{R} \PYG{o}{*} \PYG{n}{T} \PYG{o}{*} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{xb}\PYG{p}{)} \PYG{o}{+} \PYG{n}{chi} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mf}{1.} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{2.} \PYG{o}{*} \PYG{n}{xb}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} second derivative}
+\PYG{k}{def} \PYG{n+nf}{dddeltaf}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{R} \PYG{o}{*} \PYG{n}{T} \PYG{o}{*} \PYG{p}{((}\PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{n}{xb}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{\PYGZhy{}}\PYG{n}{xb}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{2.} \PYG{o}{*} \PYG{n}{chi}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} third derivative}
+\PYG{k}{def} \PYG{n+nf}{ddddeltaf}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{R} \PYG{o}{*} \PYG{n}{T} \PYG{o}{*} \PYG{p}{(} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{p}{(}\PYG{n}{xb}\PYG{o}{*}\PYG{n}{xb}\PYG{p}{))} \PYG{o}{+} \PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{\PYGZhy{}}\PYG{n}{xb}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}
+
+\PYG{n}{R} \PYG{o}{=} \PYG{l+m+mf}{8.314}
+\PYG{n}{T} \PYG{o}{=} \PYG{l+m+mf}{300.}
+\PYG{n}{chi} \PYG{o}{=} \PYG{l+m+mf}{5.}
+
+\PYG{n}{xb} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mf}{0.001}\PYG{p}{,}\PYG{l+m+mf}{0.999}\PYG{p}{,}\PYG{n}{num}\PYG{o}{=}\PYG{l+m+mi}{200}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{,}\PYG{n}{deltaf}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{,}\PYG{n}{ddeltaf}\PYG{p}{(}\PYG{n}{xb}\PYG{p}{))}
+
+\PYG{n}{arich} \PYG{o}{=} \PYG{n}{opt}\PYG{o}{.}\PYG{n}{newton}\PYG{p}{(}\PYG{n}{ddeltaf}\PYG{p}{,}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+\PYG{n}{brich} \PYG{o}{=} \PYG{n}{opt}\PYG{o}{.}\PYG{n}{newton}\PYG{p}{(}\PYG{n}{ddeltaf}\PYG{p}{,}\PYG{l+m+mf}{0.99}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{([}\PYG{n}{arich}\PYG{p}{],[}\PYG{n}{deltaf}\PYG{p}{(}\PYG{n}{arich}\PYG{p}{)],}\PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{([}\PYG{n}{brich}\PYG{p}{],[}\PYG{n}{deltaf}\PYG{p}{(}\PYG{n}{brich}\PYG{p}{)],}\PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{([}\PYG{l+m+mf}{0.7}\PYG{p}{],[}\PYG{l+m+mf}{0.0}\PYG{p}{],}\PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}mixture.png\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Two phases of composition \PYGZob{}0:6.4f\PYGZcb{} and \PYGZob{}1:6.4f\PYGZcb{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{arich}\PYG{p}{,}\PYG{n}{brich}\PYG{p}{))}
+
+\PYG{n}{xb0} \PYG{o}{=} \PYG{l+m+mf}{0.7}
+
+\PYG{c+c1}{\PYGZsh{} Use lever rule:}
+\PYG{n}{amt1} \PYG{o}{=} \PYG{p}{(}\PYG{n}{xb0} \PYG{o}{\PYGZhy{}} \PYG{n}{arich}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{brich} \PYG{o}{\PYGZhy{}} \PYG{n}{arich}\PYG{p}{)}
+\PYG{n}{amt2} \PYG{o}{=} \PYG{p}{(}\PYG{n}{brich} \PYG{o}{\PYGZhy{}} \PYG{n}{xb0}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{brich} \PYG{o}{\PYGZhy{}} \PYG{n}{arich}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Of amounts \PYGZob{}0:6.4f\PYGZcb{} and \PYGZob{}1:6.4f\PYGZcb{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{amt2}\PYG{p}{,}\PYG{n}{amt1}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} find roots of second derivative of f}
+\PYG{n}{aspin} \PYG{o}{=} \PYG{n}{opt}\PYG{o}{.}\PYG{n}{newton}\PYG{p}{(}\PYG{n}{dddeltaf}\PYG{p}{,}\PYG{l+m+mf}{0.05}\PYG{p}{)}
+\PYG{n}{bspin} \PYG{o}{=} \PYG{n}{opt}\PYG{o}{.}\PYG{n}{newton}\PYG{p}{(}\PYG{n}{dddeltaf}\PYG{p}{,}\PYG{l+m+mf}{0.95}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Spinodal composition \PYGZob{}0:6.4f\PYGZcb{} and \PYGZob{}1:6.4f\PYGZcb{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{aspin}\PYG{p}{,}\PYG{n}{bspin}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} find root of third derivative}
+\PYG{n}{x\PYGZus{}crit} \PYG{o}{=} \PYG{n}{opt}\PYG{o}{.}\PYG{n}{newton}\PYG{p}{(}\PYG{n}{ddddeltaf}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} back substitute into second derivative}
+\PYG{n}{chi\PYGZus{}crit} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{n}{x\PYGZus{}crit} \PYG{o}{+} \PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{o}{\PYGZhy{}}\PYG{n}{x\PYGZus{}crit}\PYG{p}{))}\PYG{o}{/}\PYG{l+m+mf}{2.}
+
+\PYG{n}{T\PYGZus{}crit} \PYG{o}{=} \PYG{l+m+mf}{300.}\PYG{o}{*} \PYG{p}{(} \PYG{n}{chi}\PYG{o}{/}\PYG{n}{chi\PYGZus{}crit}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Critical point composition \PYGZob{}0:6.4f\PYGZcb{} and temperature \PYGZob{}1:4.1f\PYGZcb{} K\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{x\PYGZus{}crit}\PYG{p}{,}\PYG{n}{T\PYGZus{}crit}\PYG{p}{))}
+\end{Verbatim}
